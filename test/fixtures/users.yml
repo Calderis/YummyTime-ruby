@@ -3,6 +3,7 @@
 one:
   name: MyString
   password: MyString
+  image: MyString
   mail: MyString
   country: MyString
   week_id: 1
@@ -10,6 +11,7 @@ one:
 two:
   name: MyString
   password: MyString
+  image: MyString
   mail: MyString
   country: MyString
   week_id: 1

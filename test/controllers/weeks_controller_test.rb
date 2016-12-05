@@ -17,7 +17,7 @@ class WeeksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create week" do
     assert_difference('Week.count') do
-      post weeks_url, params: { week: {  } }
+      post weeks_url, params: { week: { friday_id: @week.friday_id, monday_id: @week.monday_id, saturday_id: @week.saturday_id, sunday_id: @week.sunday_id, thursday_id: @week.thursday_id, tuesday_id: @week.tuesday_id, wednesday_id: @week.wednesday_id } }
     end
 
     assert_redirected_to week_url(Week.last)
@@ -34,7 +34,7 @@ class WeeksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update week" do
-    patch week_url(@week), params: { week: {  } }
+    patch week_url(@week), params: { week: { friday_id: @week.friday_id, monday_id: @week.monday_id, saturday_id: @week.saturday_id, sunday_id: @week.sunday_id, thursday_id: @week.thursday_id, tuesday_id: @week.tuesday_id, wednesday_id: @week.wednesday_id } }
     assert_redirected_to week_url(@week)
   end
 

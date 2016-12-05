@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Unit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +15,9 @@
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
+        <td><%= ingredient.food_id %></td>
+        <td><%= ingredient.quantity %></td>
+        <td><%= ingredient.unit %></td>
         <td><%= link_to 'Show', ingredient %></td>
         <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
         <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>

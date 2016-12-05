@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Myapp</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>YummyTime</title>
+	<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+	<% if logged_in? %>
+	<%= link_to 'Logout', logout_path %>
+	<% else %>
+	<%= link_to "Sign Up", signup_path %>
+	<%= link_to "Log In", login_path %>        
+	<% end %>
+	<%= yield %>
+</body>
 </html>

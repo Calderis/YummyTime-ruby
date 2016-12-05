@@ -1,4 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Monday:</strong>
+  <%= @week.monday_id %>
+</p>
+
+<p>
+  <strong>Tuesday:</strong>
+  <%= @week.tuesday_id %>
+</p>
+
+<p>
+  <strong>Wednesday:</strong>
+  <%= @week.wednesday_id %>
+</p>
+
+<p>
+  <strong>Thursday:</strong>
+  <%= @week.thursday_id %>
+</p>
+
+<p>
+  <strong>Friday:</strong>
+  <%= @week.friday_id %>
+</p>
+
+<p>
+  <strong>Saturday:</strong>
+  <%= @week.saturday_id %>
+</p>
+
+<p>
+  <strong>Sunday:</strong>
+  <%= @week.sunday_id %>
+</p>
+
 <%= link_to 'Edit', edit_week_path(@week) %> |
 <%= link_to 'Back', weeks_path %>

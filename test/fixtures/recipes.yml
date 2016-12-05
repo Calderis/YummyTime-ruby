@@ -4,7 +4,7 @@ one:
   persons_amount: 1
   description: MyText
   image: MyString
-  type: 
+  type_menu: MyString
   count: 1
   author_id: 1
 
@@ -12,6 +12,6 @@ two:
   persons_amount: 1
   description: MyText
   image: MyString
-  type: 
+  type_menu: MyString
   count: 1
   author_id: 1

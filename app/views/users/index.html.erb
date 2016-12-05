@@ -5,21 +5,36 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Password</th>
+      <th>Mail</th>
+      <th>Country</th>
+      <th>Week</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.password %></td>
+      <td><%= user.image %></td>
+      <td><%= user.mail %></td>
+      <td><%= user.country %></td>
+      <td><%= user.week_id %></td>
+      <td><%= link_to 'Show', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to "Log In", new_session_path %>
+
+<div id="user_header">
+ <%= link_to "Sign Up", new_user_path %>
+</div>

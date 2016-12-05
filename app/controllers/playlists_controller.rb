@@ -25,6 +25,7 @@ class PlaylistsController < ApplicationController
   # POST /playlists.json
   def create
     @playlist = Playlist.new(playlist_params)
+    @playlist[:count] = 0
 
     respond_to do |format|
       if @playlist.save
@@ -69,6 +70,6 @@ class PlaylistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playlist_params
-      params.fetch(:playlist, {})
+      params.require(:playlist).permit(:recipes, :persons_amount, :description, :count, :author_id)
     end
-end
+  end

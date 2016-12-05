@@ -25,6 +25,7 @@ class FoodsController < ApplicationController
   # POST /foods.json
   def create
     @food = Food.new(food_params)
+    @food[:count] = 0
 
     respond_to do |format|
       if @food.save
@@ -69,6 +70,6 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.fetch(:food, {})
+      params.require(:food).permit(:name, :image, :count)
     end
-end
+  end
