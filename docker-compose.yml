@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+    mysql:
+        image: mysql
+        container_name: 'mysql'
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: hetic123
+            MYSQL_DATABASE: yummy-time
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: hetic123
+
+    phpmyadmin:
+        image: nazarpc/phpmyadmin
+        container_name: 'phpmyadmin'
+        environment:
+            - PMA_ARBITRARY=1
+        links:
+            - mysql
+        restart: always
+        ports:
+            - 8181:80
+
+    web:
+        build: .
+        command: bundle exec rails s -p 3001 -b '0.0.0.0'
+        volumes:
+            - ~/Projects/Hetic/YummyTime:/myapp
+        ports:
+            - "3001:3001"
+        depends_on:
+            - mysql
