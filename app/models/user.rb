@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+	has_secure_password
+
 	validates :name, presence: true
 	validates :password, presence: true
 	validates :mail, format: { with: /.*(.com)/, message: "Request a valid Email format" }
