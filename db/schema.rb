@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20161205103458) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC" do |t|
     t.string   "name"
     t.string   "image"
     t.integer  "count"
