@@ -1,0 +1,32 @@
+<%= form_for(day) do |f| %>
+  <% if day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
+
+      <ul>
+      <% day.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :starter_id %>
+    <%= f.number_field :starter_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :main_id %>
+    <%= f.number_field :main_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dessert_id %>
+    <%= f.number_field :dessert_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

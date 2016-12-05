@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persons_amount: 1
+  description: MyText
+  image: MyString
+  type_menu: MyString
+  count: 1
+  author_id: 1
+
+two:
+  persons_amount: 1
+  description: MyText
+  image: MyString
+  type_menu: MyString
+  count: 1
+  author_id: 1

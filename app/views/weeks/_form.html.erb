@@ -1,0 +1,52 @@
+<%= form_for(week) do |f| %>
+  <% if week.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(week.errors.count, "error") %> prohibited this week from being saved:</h2>
+
+      <ul>
+      <% week.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :monday_id %>
+    <%= f.number_field :monday_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tuesday_id %>
+    <%= f.number_field :tuesday_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wednesday_id %>
+    <%= f.number_field :wednesday_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thursday_id %>
+    <%= f.number_field :thursday_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :friday_id %>
+    <%= f.number_field :friday_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :saturday_id %>
+    <%= f.number_field :saturday_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sunday_id %>
+    <%= f.number_field :sunday_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

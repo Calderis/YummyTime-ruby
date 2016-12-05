@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipes: MyString
+  persons_amount: 1
+  description: MyText
+  count: 1
+  author_id: 1
+
+two:
+  recipes: MyString
+  persons_amount: 1
+  description: MyText
+  count: 1
+  author_id: 1

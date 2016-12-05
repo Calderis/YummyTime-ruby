@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipes:</strong>
+  <%= @playlist.recipes %>
+</p>
+
+<p>
+  <strong>Persons amount:</strong>
+  <%= @playlist.persons_amount %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @playlist.description %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @playlist.count %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @playlist.author_id %>
+</p>
+
+<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+<%= link_to 'Back', playlists_path %>
