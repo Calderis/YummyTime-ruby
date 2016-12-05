@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+	get 'discover/index'
+	root 'discover#index'
+
 	resources :playlists
 	resources :recipes
 	resources :users
