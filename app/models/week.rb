@@ -1,4 +1,12 @@
 class Week < ApplicationRecord
+	validates :monday, presence: true
+	validates :tuesday, presence: true
+	validates :wednesday, presence: true
+	validates :thursday, presence: true
+	validates :friday, presence: true
+	validates :saturday, presence: true
+	validates :sunday, presence: true
+	
 	belongs_to :user
 
 	# monday - what is planned for monday

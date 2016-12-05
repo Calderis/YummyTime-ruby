@@ -1,4 +1,8 @@
 class Playlist < ApplicationRecord
+	validates :persons_amount, presence: true
+	validates :description, presence: true
+	validates :author, presence: true
+	
 	# recipes - list of recipes
 	has_many :recipes
 

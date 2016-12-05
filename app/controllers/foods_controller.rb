@@ -24,7 +24,10 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    @food = Food.new(food_params)
+    # @food = Food.new(food_params)
+    @food = Food.new(params.require(:food).permit(:name, :image))
+
+    puts @food
 
     respond_to do |format|
       if @food.save
@@ -71,4 +74,4 @@ class FoodsController < ApplicationController
     def food_params
       params.fetch(:food, {})
     end
-end
+  end

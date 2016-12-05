@@ -1,4 +1,6 @@
 class Day < ApplicationRecord
+	validates :main, presence: true
+
 	belongs_to :week
 
 	# starter - starter recipe
