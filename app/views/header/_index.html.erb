@@ -1,0 +1,29 @@
+<header>
+	<ul>
+		<li class="mac_options"></li>
+		<li class="navigation">
+			<div class="directions">
+				<button class="left_arrow"></button>
+				<button class="right_arrow"></button>
+			</div>
+			<div class="search_bar">
+				<div class="search_container">
+					<div class="search_icon"></div>
+					<input class="search_field" placeholder="Search">
+				</div>
+			</div>
+		</li>
+		<li class="profil">
+			<div class="profil_icon"></div>
+			<div class="profil_name"><%= user.name %></div>
+			<div class="profil_drop_icon">
+				<div class="drop-list">
+					<ul>
+						<li><%= link_to 'My account', user %></li>
+						<li><%= link_to 'Logout', logout_path %></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</header>

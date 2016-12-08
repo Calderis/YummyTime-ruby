@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :require_login
+
   # GET /users
   # GET /users.json
   def index
@@ -25,13 +27,16 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user[:country] = "France";
+    @user[:image] = "https://eliaslealblog.files.wordpress.com/2014/03/user-200.png";
 
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
+        puts @user.errors.to_json
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

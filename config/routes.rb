@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	get 'sessions/new'
 
+	get 'discover/sandbox'
 	get 'discover/index'
 	root 'discover#index'
 
@@ -13,6 +14,10 @@ Rails.application.routes.draw do
 	resources :ingredients
 	resources :foods
 	resources :sessions
+
+	resources :header
+	resources :sidebarleft
+	resources :sidebarrigth
 
 	get 'signup', to: 'users#new', as: 'signup'
 	get 'login', to: 'sessions#new', as: 'login'

@@ -1,0 +1,1921 @@
+/* line 16, /myapp/app/assets/stylesheets/discover.scss */
+body {
+  background-color: #121212;
+}
+
+/* line 19, /myapp/app/assets/stylesheets/discover.scss */
+* {
+  cursor: default;
+}
+/* line 21, /myapp/app/assets/stylesheets/discover.scss */
+*::selection {
+  background: none;
+}
+/* line 24, /myapp/app/assets/stylesheets/discover.scss */
+*::-webkit-scrollbar {
+  display: none;
+}
+/* line 27, /myapp/app/assets/stylesheets/discover.scss */
+* button {
+  cursor: pointer;
+  outline: none;
+}
+/* line 30, /myapp/app/assets/stylesheets/discover.scss */
+* button.style {
+  border-radius: 30px;
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 18px;
+  background: none;
+  padding: 5px 25px;
+  display: inline-block;
+  transition-duration: 0.1s;
+  transition-property: transform;
+}
+/* line 42, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.Confirm {
+  color: #00FFCD;
+  border: 1px solid #00FFCD;
+}
+/* line 45, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.Confirm:active {
+  background-color: #00FFCD;
+  color: #121212;
+}
+/* line 50, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.Danger {
+  color: #ED4747;
+  border: 1px solid #ED4747;
+}
+/* line 53, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.Danger:active {
+  background-color: #ED4747;
+}
+/* line 57, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.Neutral {
+  color: white;
+  border: 1px solid white;
+}
+/* line 60, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.Neutral:active {
+  color: #1E1D1D;
+  background-color: white;
+}
+/* line 65, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.None {
+  color: white;
+  border: none;
+}
+/* line 68, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.None:active {
+  opacity: 0.5;
+}
+/* line 72, /myapp/app/assets/stylesheets/discover.scss */
+* button.style:active {
+  transform: scale(1) !important;
+  color: white;
+}
+/* line 76, /myapp/app/assets/stylesheets/discover.scss */
+* button.style:active span.icon.cart {
+  background-image: url(../assets/icons/Back-2.png);
+}
+/* line 81, /myapp/app/assets/stylesheets/discover.scss */
+* button.style:hover {
+  transform: scale(1.04);
+}
+/* line 84, /myapp/app/assets/stylesheets/discover.scss */
+* button.style span.icon {
+  float: left;
+  margin: 3px 10px 0 -10px;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 93, /myapp/app/assets/stylesheets/discover.scss */
+* button.style span.icon.cart {
+  background-image: url(../assets/icons/Back-white.png);
+}
+/* line 97, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.big {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+/* line 102, /myapp/app/assets/stylesheets/discover.scss */
+* button.style.round {
+  height: 34px;
+  width: 34px;
+  text-align: center;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 0;
+}
+/* line 112, /myapp/app/assets/stylesheets/discover.scss */
+* .checkbox {
+  display: inline-block;
+  margin: 4px 1px;
+}
+/* line 115, /myapp/app/assets/stylesheets/discover.scss */
+* .checkbox [type="checkbox"], * .checkbox [type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+/* line 118, /myapp/app/assets/stylesheets/discover.scss */
+* .checkbox [type="checkbox"] + label, * .checkbox [type="radio"] + label {
+  border: 1px solid white;
+  border-radius: 2px;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: white;
+  padding: 2px 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+/* line 131, /myapp/app/assets/stylesheets/discover.scss */
+* .checkbox [type="checkbox"]:checked + label, * .checkbox [type="radio"]:checked + label {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 2px;
+  color: #121212;
+}
+/* line 140, /myapp/app/assets/stylesheets/discover.scss */
+* .fright {
+  float: right !important;
+}
+/* line 141, /myapp/app/assets/stylesheets/discover.scss */
+* .fleft {
+  float: left !important;
+}
+/* line 142, /myapp/app/assets/stylesheets/discover.scss */
+* .gright {
+  margin-right: 20px !important;
+}
+/* line 143, /myapp/app/assets/stylesheets/discover.scss */
+* .gleft {
+  margin-left: 20px !important;
+}
+/* line 144, /myapp/app/assets/stylesheets/discover.scss */
+* .gbottom {
+  margin-bottom: 20px !important;
+}
+/* line 145, /myapp/app/assets/stylesheets/discover.scss */
+* .gtop {
+  margin-top: 20px !important;
+}
+/* line 146, /myapp/app/assets/stylesheets/discover.scss */
+* .aright {
+  text-align: right !important;
+}
+/* line 147, /myapp/app/assets/stylesheets/discover.scss */
+* .aleft {
+  text-align: left !important;
+}
+/* line 148, /myapp/app/assets/stylesheets/discover.scss */
+* .center {
+  text-align: center !important;
+}
+/* line 149, /myapp/app/assets/stylesheets/discover.scss */
+* .centered {
+  margin: auto !important;
+}
+
+/* line 152, /myapp/app/assets/stylesheets/discover.scss */
+.search_container {
+  background-color: white;
+  border-radius: 4px;
+  width: 220px;
+  height: 18px;
+  padding: 3px;
+  margin: 0 12px;
+}
+/* line 159, /myapp/app/assets/stylesheets/discover.scss */
+.search_container .search_icon {
+  display: inline-block;
+  height: 14px;
+  cursor: pointer;
+  width: 14px;
+  background-size: contain;
+  margin: 2px;
+  float: left;
+  background-image: url(../assets/icons/search.png);
+}
+/* line 169, /myapp/app/assets/stylesheets/discover.scss */
+.search_container input.search_field {
+  background: none;
+  height: 14px;
+  outline: none;
+  border: none;
+  padding: 0 7px;
+  width: calc( 100% - 40px );
+}
+
+/* line 180, /myapp/app/assets/stylesheets/discover.scss */
+header {
+  height: 24px;
+  width: calc( 100vw - 16px);
+  padding: 8px;
+  background-color: #121212;
+  display: block;
+}
+/* line 187, /myapp/app/assets/stylesheets/discover.scss */
+header ul li {
+  display: inline-block;
+}
+/* line 189, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.mac_options {
+  width: 90px;
+}
+/* line 193, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.navigation .directions {
+  float: left;
+  margin-top: 2px;
+  display: inline-block;
+}
+/* line 197, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.navigation .directions button {
+  margin: 0 12px;
+  border: none;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20px;
+  width: 11px;
+  background-image: url(../assets/icons/Back-white.png);
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  cursor: pointer;
+  opacity: 0.5;
+  outline: none;
+}
+/* line 213, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.navigation .directions button.right_arrow {
+  transform: rotate(180deg);
+}
+/* line 216, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.navigation .directions button:hover {
+  opacity: 1;
+}
+/* line 221, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.navigation .search_bar {
+  display: inline-block;
+}
+/* line 225, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil {
+  display: inline-block;
+  height: 24px;
+  float: right;
+  width: 210px;
+  padding: 2px 32px;
+  cursor: pointer;
+}
+/* line 232, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_icon {
+  float: left;
+  margin: 0 14px;
+  height: 21px;
+  width: 21px;
+  background-size: contain;
+  background-image: url(../assets/icons/profil-white.png);
+}
+/* line 240, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_name {
+  display: inline-block;
+  color: white;
+  font-size: 14px;
+  padding: 3px;
+  opacity: 0.6;
+  font-family: "Circular-Book";
+}
+/* line 247, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_name:hover {
+  opacity: 1;
+}
+/* line 251, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon {
+  height: 8px;
+  width: 15px;
+  float: right;
+  padding: 8px;
+  background-size: 13px 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../assets/icons/Down-white.png);
+}
+/* line 260, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon:hover {
+  background-image: url(../assets/icons/Down-blue.png);
+}
+/* line 262, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon:hover .drop-list {
+  margin-top: 15px;
+  opacity: 1;
+}
+/* line 267, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon .drop-list {
+  z-index: 10;
+  background-color: #1E1D1D;
+  position: absolute;
+  margin-left: -110px;
+  margin-top: -100px;
+  opacity: 0;
+  transition-duration: 0.3s;
+  transition-property: opacity;
+}
+/* line 276, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon .drop-list ul {
+  padding: 4px 8px;
+  display: block;
+}
+/* line 279, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon .drop-list ul li {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-family: "Circular-Book";
+  border-bottom: 1px solid white;
+  padding: 12px 8px;
+  width: 120px;
+  cursor: pointer;
+}
+/* line 288, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon .drop-list ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* line 291, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon .drop-list ul li:last-child {
+  border: none;
+}
+/* line 296, /myapp/app/assets/stylesheets/discover.scss */
+header ul li.profil .profil_drop_icon .drop-list:hover {
+  margin-top: 15px;
+  opacity: 1;
+}
+
+/* line 311, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left {
+  float: left;
+  display: inline-block;
+  width: 150px;
+  height: calc( 100vh - 90px );
+  background-color: #121212;
+  overflow-y: auto;
+}
+/* line 319, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item {
+  padding: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition-duration: 0.1s;
+  transition-property: opacity;
+}
+/* line 325, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item p {
+  color: white;
+  font-family: "Circular-Book";
+  font-size: 15px;
+  padding-left: 10px;
+  display: inline;
+}
+/* line 332, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item span.icon {
+  display: inline-block;
+  width: 14px;
+  height: 9px;
+  margin-left: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 340, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item span.icon.starter {
+  background-image: url(../assets/icons/main.png);
+}
+/* line 343, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item span.icon.main {
+  background-image: url(../assets/icons/main.png);
+}
+/* line 346, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item span.icon.dessert {
+  background-image: url(../assets/icons/main.png);
+}
+/* line 350, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item span.counter {
+  display: inline;
+  opacity: 0.54;
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.87);
+}
+/* line 360, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item:hover {
+  opacity: 1;
+}
+/* line 363, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item.active {
+  opacity: 1;
+}
+/* line 365, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.item.active:before {
+  content: "";
+  width: 4px;
+  margin-top: -2px;
+  height: 18px;
+  display: block;
+  float: left;
+  background-color: #00FFCD;
+}
+/* line 376, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.title {
+  cursor: default;
+  width: 130px;
+  height: 28px;
+  padding-top: 16px;
+}
+/* line 381, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_left ul.section li.title h3 {
+  padding-left: 14px;
+  text-transform: uppercase;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 28px;
+  color: white;
+}
+/* line 395, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right {
+  z-index: 8;
+  float: right;
+  display: inline-block;
+  width: 230px;
+  height: calc( 100vh - 90px );
+  background-color: #121212;
+}
+/* line 402, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right .title {
+  display: block;
+  padding: 20px 10px 0 10px;
+}
+/* line 405, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right .title h3 {
+  font-family: "Circular Std";
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  color: white;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+/* line 414, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs {
+  width: 100%;
+  max-height: calc( 100vh - 140px );
+  display: block;
+  overflow-y: auto;
+}
+/* line 419, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick {
+  margin-bottom: 1px;
+  background-color: #1E1D1D;
+  width: 100%;
+  padding: 8px 0;
+}
+/* line 424, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .image {
+  float: left;
+  margin-left: 10px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  border-radius: 100px;
+  overflow: hidden;
+  display: inline-block;
+}
+/* line 433, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .image .profil {
+  background-color: #00FFCD;
+  height: 32px;
+  width: 32px;
+  display: block;
+}
+/* line 440, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content {
+  display: inline-block;
+  position: relative;
+  width: calc( 100% - 64px );
+}
+/* line 444, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content .stick-infos {
+  padding-left: 12px;
+}
+/* line 446, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content .stick-infos h4 {
+  font-family: "Circular Std";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: white;
+}
+/* line 453, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content .stick-infos span.sub-infos {
+  font-family: "Circular Std";
+  font-size: 9px;
+  font-weight: 300;
+  line-height: 11px;
+  color: white;
+  opacity: 0.87;
+}
+/* line 462, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content .stick-button {
+  position: absolute;
+  top: 0;
+  margin-left: 12px;
+  opacity: 0;
+}
+/* line 469, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content:hover .stick-infos {
+  opacity: 0;
+}
+/* line 472, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .sidebar_right ul.list-chiefs li.chief-stick .stick-content:hover .stick-button {
+  opacity: 1;
+}
+@media (max-width: 1190px) {
+  /* line 483, /myapp/app/assets/stylesheets/discover.scss */
+  .main_frame .sidebar_right {
+    display: none;
+  }
+  /* line 486, /myapp/app/assets/stylesheets/discover.scss */
+  .main_frame .main_content {
+    width: calc( 100vw - 150px );
+  }
+}
+/* line 493, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week {
+  position: fixed;
+  bottom: 0px;
+  z-index: 9;
+  height: 40px;
+  width: calc( 100vw - 20px );
+  padding: 10px;
+  background-color: #282828;
+}
+/* line 501, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer {
+  display: block;
+  height: 100%;
+}
+/* line 504, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li {
+  display: inline-block;
+}
+/* line 507, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description {
+  float: left;
+}
+/* line 509, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .image_infos {
+  display: inline-block;
+  float: left;
+}
+/* line 512, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .image_infos .profil_image {
+  width: 40px;
+  height: 40px;
+  background-color: #00FFCD;
+}
+/* line 518, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .playlist_infos {
+  max-width: 250px;
+  overflow: hidden;
+  padding-left: 8px;
+  padding-top: 2px;
+}
+/* line 523, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .playlist_infos h3 {
+  display: block;
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: white;
+  cursor: pointer;
+}
+/* line 531, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .playlist_infos h3:hover {
+  text-decoration: underline;
+}
+/* line 535, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .playlist_infos span.chief_name {
+  display: inline-block;
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: white;
+  opacity: 0.87;
+  cursor: pointer;
+}
+/* line 544, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.playlist_description .playlist_infos span.chief_name:hover {
+  text-decoration: underline;
+}
+/* line 550, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview {
+  text-align: center;
+  width: calc( 100% - 520px );
+  text-align: center;
+}
+/* line 555, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.switcher li {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 561, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.switcher li.current_day {
+  width: 200px;
+  text-align: center;
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+}
+/* line 571, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.switcher li.button {
+  cursor: pointer;
+  width: 11px;
+  height: 15px;
+  opacity: 0.6;
+}
+/* line 576, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.switcher li.button.left {
+  background-image: url(../assets/icons/Previous_day.png);
+}
+/* line 579, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.switcher li.button.right {
+  background-image: url(../assets/icons/Next_day.png);
+}
+/* line 582, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.switcher li.button:hover {
+  opacity: 1;
+}
+/* line 588, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.recipe_infos li.recipe_name {
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 18px;
+  color: white;
+  cursor: pointer;
+}
+/* line 596, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.recipe_infos li.recipe_name p {
+  display: inline;
+}
+/* line 599, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_overview ul.recipe_infos li.recipe_name:hover {
+  text-decoration: underline;
+}
+/* line 605, /myapp/app/assets/stylesheets/discover.scss */
+.main_frame .current_week ul.footer li.week_shopping_list {
+  float: right;
+  padding-right: 14px;
+  padding-top: 4px;
+}
+
+/* line 615, /myapp/app/assets/stylesheets/discover.scss */
+.main_content {
+  position: relative;
+  display: inline-block;
+  background-color: #181818;
+  width: calc( 100vw - 380px );
+  height: calc( 100vh - 90px );
+  overflow-y: auto;
+}
+/* line 623, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section {
+  padding: 16px 20px 20px 20px;
+  overflow: auto;
+  zoom: 1;
+}
+/* line 627, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .image_header {
+  width: 100%;
+  height: 180px;
+  background-color: #00FFCD;
+  overflow: hidden;
+  position: relative;
+}
+/* line 633, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .image_header.big {
+  height: 280px;
+}
+/* line 636, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .image_header .tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #121212;
+  border-radius: 90px;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: white;
+  opacity: 0.87;
+  padding: 2px 15px;
+}
+/* line 650, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .image_header .title_image {
+  bottom: 0px;
+  position: absolute;
+  padding: 10px;
+  width: calc( 100% - 20px );
+  background-color: rgba(40, 40, 40, 0.6);
+}
+/* line 656, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .image_header .title_image h2 {
+  display: inline-block;
+  font-family: "Circular Std";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 45px;
+  color: white;
+}
+/* line 664, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .image_header .title_image button {
+  display: inline-block;
+  float: right;
+  margin: 8px;
+}
+/* line 671, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .title_simple {
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+/* line 674, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .title_simple h2 {
+  display: block;
+  font-family: "Circular Std";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 45px;
+  color: white;
+  padding-right: 20px;
+}
+/* line 683, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .title_simple button {
+  margin-top: 10px;
+  display: inline;
+  margin-right: 16px;
+}
+/* line 689, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header {
+  margin-bottom: 43px;
+}
+/* line 691, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header .chief_image {
+  height: 140px;
+  width: 140px;
+  display: inline-block;
+  background-color: #00FFCD;
+  border-radius: 140px;
+  overflow: hidden;
+  float: left;
+}
+/* line 700, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header .chief_informations {
+  display: inline-block;
+  padding: 20px;
+}
+/* line 704, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header .chief_informations .chief_title h4 {
+  opacity: 0.54;
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 15px;
+  color: white;
+  text-transform: uppercase;
+}
+/* line 715, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header .chief_informations .chief_name h1 {
+  font-family: "Circular Std";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 45px;
+  color: white;
+}
+/* line 723, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header .chief_informations .chief_score {
+  padding-bottom: 16px;
+}
+/* line 724, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .chief_header .chief_informations .chief_score p {
+  font-family: "Circular Std";
+  font-size: 9px;
+  font-weight: 300;
+  line-height: 11px;
+  color: white;
+  opacity: 0.87;
+  text-transform: uppercase;
+}
+/* line 737, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .subtitles {
+  display: block;
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: white;
+  opacity: 0.87;
+  margin-bottom: 24px;
+}
+/* line 746, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .subtitles .chief {
+  cursor: pointer;
+}
+/* line 748, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .subtitles .chief:hover {
+  text-decoration: underline;
+}
+/* line 753, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_details {
+  padding: 16px 0;
+  height: 30px;
+  display: block;
+  width: 100%;
+}
+/* line 758, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_details p {
+  float: left;
+  display: inline-block;
+  opacity: 0.87;
+  padding: 0 4px;
+  font-family: "Circular Std";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  color: white;
+  text-transform: uppercase;
+}
+/* line 770, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_details span.icon {
+  float: left;
+  display: inline-block;
+  opacity: 0.87;
+  height: 17px;
+  width: 17px;
+  margin: 3px 8px 0 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 780, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_details span.icon.starter {
+  background-image: url(../assets/icons/profil-white.png);
+}
+/* line 781, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_details span.icon.main {
+  background-image: url(../assets/icons/profil-white.png);
+}
+/* line 782, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_details span.icon.dessert {
+  background-image: url(../assets/icons/profil-white.png);
+}
+/* line 785, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+/* line 789, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters {
+  border-bottom: 2px solid #D8D8D8;
+  margin-bottom: 16px;
+}
+/* line 792, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters li {
+  opacity: 0.54;
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 20px;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 0 12px;
+  position: relative;
+}
+/* line 804, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters li:first-child {
+  margin-left: 0;
+}
+/* line 807, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters li:hover {
+  opacity: 1;
+}
+/* line 810, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters li.active {
+  opacity: 1;
+}
+/* line 812, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters li.active:before {
+  content: "";
+  bottom: -2px;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #00FFCD;
+}
+/* line 822, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .menu_filters ul.filters.fixed {
+  position: fixed;
+  top: 40px;
+  width: calc( 100vw - 470px );
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 20px 0 20px;
+  z-index: 4;
+}
+/* line 833, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .search_bar .search_container {
+  margin: 0 0 23px 0;
+}
+/* line 836, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .search_bar.mini {
+  width: 220px;
+}
+/* line 840, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks {
+  padding-bottom: 20px;
+}
+/* line 843, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li {
+  margin: 6px;
+  display: inline-block;
+  width: calc( ( 100vw - 420px - (18px*3) ) / 3 );
+}
+/* line 847, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .big_image {
+  background-color: #00FFCD;
+  height: calc( ( 100vw - 420px - (18px*3) ) / 3 );
+  width: 100%;
+  display: block;
+}
+/* line 852, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .big_image .hover {
+  padding: calc( ( ( 100vw - 420px - (18px*3) ) / 6 ) - 34px );
+  background-color: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+}
+/* line 856, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .big_image .hover .button_plan_the_week {
+  background: none;
+  border: none;
+  width: 68px;
+  height: 68px;
+  cursor: pointer;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../assets/icons/Plan_week.png);
+  opacity: 0.8;
+  transition-duration: 0.3s;
+  transition-property: transform opacity;
+}
+/* line 870, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .big_image .hover .button_plan_the_week:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+/* line 874, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .big_image .hover .button_plan_the_week:active {
+  transform: scale(1);
+  opacity: 0.8;
+}
+/* line 879, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .big_image .hover:hover {
+  opacity: 1;
+}
+/* line 884, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations {
+  padding: 10px;
+  background-color: #282828;
+}
+/* line 887, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .header {
+  display: block;
+}
+/* line 889, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .header h3 {
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: white;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+/* line 897, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .header h3:hover {
+  text-decoration: underline;
+}
+/* line 909, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .description {
+  display: block;
+}
+/* line 911, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .description p {
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: white;
+  opacity: 0.87;
+  padding-bottom: 12px;
+}
+/* line 921, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .cookbook_infos {
+  display: block;
+}
+/* line 923, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .cookbook_infos p {
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: white;
+}
+/* line 929, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .cookbook_infos p .chief_name {
+  cursor: pointer;
+}
+/* line 931, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_cookbooks ul.cookbooks li .informations .cookbook_infos p .chief_name:hover {
+  text-decoration: underline;
+}
+/* line 943, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .annoucement {
+  margin: 14px 0 42px 0;
+}
+/* line 945, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .annoucement h2 {
+  font-family: "Circular Std";
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  padding-bottom: 8px;
+}
+/* line 954, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .annoucement p.submessage {
+  font-family: "Circular Std";
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 18px;
+  color: white;
+  opacity: 0.87;
+}
+/* line 966, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes .day {
+  border-bottom: 1px solid #A5A5A5;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+/* line 970, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes .day h2 {
+  font-family: "Circular Std";
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 25px;
+  color: white;
+  padding-bottom: 16px;
+}
+/* line 980, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li {
+  background-color: #1E1D1D;
+  margin-bottom: 1px;
+  height: 42px;
+}
+/* line 984, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_image {
+  height: 42px;
+  width: 60px;
+  display: inline-block;
+  float: left;
+  background-color: #00FFCD;
+  cursor: pointer;
+}
+/* line 992, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations {
+  display: inline-block;
+  width: calc( 100% - 60px );
+}
+/* line 995, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations h3 {
+  display: inline-block;
+  padding: 9px 0 9px 20px;
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 24px;
+  color: white;
+  cursor: pointer;
+}
+/* line 1004, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations h3:hover {
+  text-decoration: underline;
+}
+/* line 1008, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.recipe_type {
+  width: 80px;
+  display: inline-block;
+  float: right;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 24px;
+  color: white;
+  opacity: 0.87;
+  padding: 9px 0;
+}
+/* line 1019, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.recipe_type .icon {
+  height: 15px;
+  width: 15px;
+  margin: 4.5px;
+  margin-right: 12px;
+  display: inline-block;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+/* line 1029, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.recipe_type .icon.starter {
+  background-image: url(../assets/icons/Cart.png);
+}
+/* line 1032, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.recipe_type .icon.main {
+  background-image: url(../assets/icons/Cart.png);
+}
+/* line 1035, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.recipe_type .icon.dessert {
+  background-image: url(../assets/icons/Cart.png);
+}
+/* line 1040, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations > span.menu_item {
+  background-image: url(../assets/icons/other_otptions_2_white.png);
+}
+/* line 1043, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  float: right;
+  margin: 9px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  opacity: 0;
+}
+/* line 1056, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item:hover {
+  opacity: 1;
+}
+/* line 1058, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item:hover > .down_menu {
+  display: block;
+}
+/* line 1062, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item .down_menu {
+  display: none;
+  position: absolute;
+  left: -150px;
+  top: 10px;
+  z-index: 10;
+  width: 180px;
+  background-color: #1E1D1D;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+/* line 1071, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item .down_menu ul.options {
+  padding: 4px 10px;
+  display: block;
+}
+/* line 1074, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item .down_menu ul.options li {
+  height: auto;
+  padding: 2px;
+  display: block;
+  font-family: "Circular Std";
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 20px;
+  color: white;
+  opacity: 0.87;
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+/* line 1087, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item .down_menu ul.options li:hover {
+  opacity: 1;
+}
+/* line 1089, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item .down_menu ul.options li:hover:hover > .down_menu {
+  display: block;
+  left: -170px;
+  top: 30px;
+}
+/* line 1095, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations span.menu_item .down_menu ul.options li:last-child {
+  border: none;
+}
+/* line 1102, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li .recipe_informations button {
+  margin: 6px 20px;
+}
+/* line 1106, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+/* line 1108, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipes ul.recipes li:hover span.menu_item {
+  opacity: 0.6;
+}
+/* line 1115, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_steps {
+  padding-top: 16px;
+  width: 70%;
+  margin: auto;
+}
+/* line 1119, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .recipe_steps p {
+  display: block;
+  background-color: white;
+  padding: 16px 20px;
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 25px;
+  color: rgba(0, 0, 0, 0.87);
+}
+/* line 1131, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients {
+  width: 100%;
+  display: inline-block;
+}
+/* line 1134, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients.with_aside {
+  width: calc( 100% - 240px );
+}
+/* line 1136, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients.with_aside.big {
+  width: calc( 100% - 300px );
+}
+/* line 1140, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li {
+  margin-bottom: 1px;
+  height: 42px;
+  background-color: #1E1D1D;
+}
+/* line 1144, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li .ingredient_image {
+  height: 42px;
+  width: 60px;
+  display: inline-block;
+  background-color: #00FFCD;
+  float: left;
+}
+/* line 1151, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li .ingredient_informations {
+  padding: 11px 0;
+  display: inline-block;
+}
+/* line 1154, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li .ingredient_informations .ingredient_quantity {
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 19px;
+  padding: 0 20px;
+  color: white;
+  display: inline;
+}
+/* line 1164, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li .ingredient_informations .ingredient_name {
+  font-family: "Circular Std";
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 24px;
+  color: white;
+  opacity: 0.87;
+  display: inline;
+}
+/* line 1174, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li .hidden_buttons {
+  opacity: 0;
+  float: right;
+  margin: 6px;
+}
+/* line 1179, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li:hover {
+  background-color: #121212;
+}
+/* line 1181, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients ul.ingredients li:hover .hidden_buttons {
+  opacity: 1;
+}
+/* line 1187, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .add_to_chart {
+  width: 220px;
+  float: right;
+  display: inline-block;
+  height: 192px;
+  background-image: url(../assets/add_cart.png);
+  transition-property: opacity;
+  transition-duration: 0.3s;
+}
+/* line 1195, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .add_to_chart:hover {
+  opacity: 0.6;
+}
+/* line 1199, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list {
+  width: 280px;
+  display: inline-block;
+  float: right;
+  background-color: #282828;
+}
+/* line 1204, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list .head_image {
+  width: 100%;
+  height: 110px;
+  display: block;
+  overflow: hidden;
+  background-color: #00FFCD;
+}
+/* line 1211, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list .aside_content {
+  padding: 12px 15px;
+}
+/* line 1213, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list .aside_content h4 {
+  font-family: "Circular Std";
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 30px;
+  color: white;
+  margin-bottom: 3px;
+}
+/* line 1221, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list .aside_content .counter {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  height: 34px;
+  margin: 12px 0;
+}
+/* line 1226, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list .aside_content .counter input[type="number"] {
+  border: none;
+  background: none;
+  outline: none;
+  height: 100%;
+  text-align: center;
+  font-family: "Circular Std";
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 34px;
+  color: white;
+  width: calc( 100% - 70px );
+}
+/* line 1247, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_list .aside_content .button_actions {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+/* line 1258, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_block .bloc_image {
+  width: 220px;
+  height: 200px;
+  display: inline-block;
+  position: relative;
+  background-color: #00FFCD;
+}
+/* line 1264, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_recipe_ingredients .aside_block .bloc_image .title_image {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+/* line 1274, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_chiefs ul.chiefs li {
+  padding: 8px;
+  height: 52px;
+  width: calc( 100% - 16px );
+  background-color: #1E1D1D;
+  display: block;
+  margin-bottom: 1px;
+}
+/* line 1281, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_chiefs ul.chiefs li .chief_image {
+  display: inline-block;
+  height: 52px;
+  width: 52px;
+  background-color: #00FFCD;
+  border-radius: 100px;
+  overflow: hidden;
+  float: left;
+}
+/* line 1290, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_chiefs ul.chiefs li .chief_informations {
+  display: inline-block;
+  padding: 7px 20px;
+}
+/* line 1293, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_chiefs ul.chiefs li .chief_informations h4 {
+  font-family: "Circular Std";
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 18px;
+  color: white;
+  opacity: 0.87;
+  padding-bottom: 7px;
+}
+/* line 1302, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_chiefs ul.chiefs li .chief_informations p {
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 15px;
+  color: white;
+  opacity: 0.87;
+}
+/* line 1311, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .list_chiefs ul.chiefs li button {
+  display: inline-block;
+  float: right;
+  margin: 16px;
+}
+/* line 1320, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .steps_path ul.steps {
+  margin-bottom: 24px;
+}
+/* line 1322, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .steps_path ul.steps li {
+  display: inline-block;
+  font-family: "Circular Std";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  color: white;
+  opacity: 0.54;
+}
+/* line 1330, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .steps_path ul.steps li.active {
+  opacity: 1;
+}
+/* line 1336, /myapp/app/assets/stylesheets/discover.scss */
+.main_content .section .navigations_buttons {
+  margin: 24px 0;
+}
+
+/* line 1341, /myapp/app/assets/stylesheets/discover.scss */
+.list_categorie {
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 100;
+  line-height: 16px;
+  color: white;
+  margin: 9px 0;
+}
+
+/* line 1349, /myapp/app/assets/stylesheets/discover.scss */
+.input_block {
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+}
+/* line 1353, /myapp/app/assets/stylesheets/discover.scss */
+.input_block input {
+  padding: 4px 10px;
+  width: calc( 90% - 20px );
+  border: none;
+  background: none;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 16px;
+  cursor: text;
+  outline: none;
+  display: inline-block;
+}
+/* line 1366, /myapp/app/assets/stylesheets/discover.scss */
+.input_block .count_limit {
+  display: inline-block;
+  background-color: #D8D8D8;
+  border-radius: 33px;
+  float: right;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  opacity: 0.87;
+  color: white;
+  padding: 1px 8px;
+  margin: 3px 11px;
+}
+
+/* line 1381, /myapp/app/assets/stylesheets/discover.scss */
+.textarea_block {
+  background-color: white;
+  border-radius: 2px;
+  width: 100%;
+  min-height: 200px;
+  position: relative;
+  display: block;
+}
+/* line 1388, /myapp/app/assets/stylesheets/discover.scss */
+.textarea_block textarea {
+  display: block;
+  border: none;
+  height: 100%;
+  padding: 6px 10px;
+  outline: none;
+  width: calc( 100% - 20px );
+  min-height: 180px;
+  cursor: text;
+}
+
+/* line 1401, /myapp/app/assets/stylesheets/discover.scss */
+.popup {
+  height: 490px;
+  width: 700px;
+  position: fixed;
+  padding: 12px;
+  left: calc( 50vw - 450px );
+  top: calc( 50vh - 245px );
+  background-color: #1E1D1D;
+}
+/* line 1409, /myapp/app/assets/stylesheets/discover.scss */
+.popup .popup_title {
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 16px;
+  color: white;
+  margin-bottom: 12px;
+}
+/* line 1418, /myapp/app/assets/stylesheets/discover.scss */
+.popup .popup_image {
+  height: 270px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  background-color: #00FFCD;
+}
+/* line 1425, /myapp/app/assets/stylesheets/discover.scss */
+.popup .popup_image .image_title {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 20px;
+}
+/* line 1429, /myapp/app/assets/stylesheets/discover.scss */
+.popup .popup_image .image_title h2 {
+  font-family: "Circular Std";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 45px;
+  color: white;
+}
+/* line 1436, /myapp/app/assets/stylesheets/discover.scss */
+.popup .popup_image .image_title p.subtitle {
+  font-family: "Circular Std";
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: white;
+  opacity: 0.87;
+}
+/* line 1446, /myapp/app/assets/stylesheets/discover.scss */
+.popup .description {
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 24px;
+  color: white;
+  opacity: 0.87;
+  padding-bottom: 12px;
+  margin: 16px 0 24px 0;
+}
+/* line 1457, /myapp/app/assets/stylesheets/discover.scss */
+.popup .button_actions {
+  text-align: center;
+}
+/* line 1459, /myapp/app/assets/stylesheets/discover.scss */
+.popup .button_actions button {
+  margin: 20px auto;
+  display: block;
+}
+
+/* line 1467, /myapp/app/assets/stylesheets/discover.scss */
+.login_page {
+  width: 420px;
+  margin: auto;
+  padding: 46px 0;
+}
+/* line 1471, /myapp/app/assets/stylesheets/discover.scss */
+.login_page .logo {
+  display: block;
+  width: 140px;
+  height: 100px;
+  background-color: #00FFCD;
+  margin: 26px auto 50px;
+}
+/* line 1478, /myapp/app/assets/stylesheets/discover.scss */
+.login_page .button_action {
+  margin: 24px auto;
+}
+/* line 1481, /myapp/app/assets/stylesheets/discover.scss */
+.login_page .aside_text {
+  float: right;
+  font-family: "Circular Std";
+  font-size: 13px;
+  font-weight: 100;
+  text-align: right;
+  line-height: 16px;
+  opacity: 0.87;
+  color: white;
+  margin-top: 6px;
+  cursor: pointer;
+}
+/* line 1492, /myapp/app/assets/stylesheets/discover.scss */
+.login_page .aside_text:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+@font-face {
+  font-family: 'Circular-Black';
+  src: url("../assets/fonts/CircularStd/CircularStd-Black.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Black-Italic';
+  src: url("../assets/fonts/CircularStd/CircularStd-BlackItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Bold';
+  src: url("../assets/fonts/CircularStd/CircularStd-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Bold-Italic';
+  src: url("../assets/fonts/CircularStd/CircularStd-BoldItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Book';
+  src: url("../assets/fonts/CircularStd/CircularStd-Book.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Book-Italic';
+  src: url("../assets/fonts/CircularStd/CircularStd-BookItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Medium';
+  src: url("../assets/fonts/CircularStd/CircularStd-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: 'Circular-Medium-Italic';
+  src: url("../assets/fonts/CircularStd/CircularStd-MediumItalic.otf") format("opentype");
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+/* line 7, /myapp/app/assets/stylesheets/reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, /myapp/app/assets/stylesheets/reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 32, /myapp/app/assets/stylesheets/reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, /myapp/app/assets/stylesheets/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, /myapp/app/assets/stylesheets/reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, /myapp/app/assets/stylesheets/reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, /myapp/app/assets/stylesheets/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 50, /myapp/app/assets/stylesheets/reset.scss */
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  cursor: pointer;
+  display: block;
+  width: 8px;
+  color: #333;
+  text-align: center;
+  position: relative;
+}
+
+/* line 60, /myapp/app/assets/stylesheets/reset.scss */
+input[type=number]::-webkit-inner-spin-button:before,
+input[type=number]::-webkit-inner-spin-button:after {
+  content: "^";
+  position: absolute;
+  right: 0;
+  font-family: monospace;
+}
+
+/* line 68, /myapp/app/assets/stylesheets/reset.scss */
+input[type=number]::-webkit-inner-spin-button:before {
+  top: 0px;
+}
+
+/* line 72, /myapp/app/assets/stylesheets/reset.scss */
+input[type=number]::-webkit-inner-spin-button:after {
+  bottom: 0px;
+  -webkit-transform: rotate(180deg);
+}
+/* line 1, /myapp/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 10, /myapp/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 17, /myapp/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 23, /myapp/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 26, /myapp/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 30, /myapp/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 36, /myapp/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 40, /myapp/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 47, /myapp/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 52, /myapp/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 56, /myapp/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 62, /myapp/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 70, /myapp/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 81, /myapp/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 87, /myapp/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

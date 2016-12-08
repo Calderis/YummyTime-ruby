@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 20161205120008) do
     t.integer  "starter_id"
     t.integer  "main_id"
     t.integer  "dessert_id"
+    t.integer  "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["week_id"], name: "index_days_on_week_id", using: :btree
   end
 
   create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -29,21 +31,23 @@ ActiveRecord::Schema.define(version: 20161205120008) do
   end
 
   create_table "ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "recipe_id"
     t.integer  "food_id"
     t.integer  "quantity"
     t.text     "unit",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   end
 
   create_table "playlists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "recipes"
     t.integer  "persons_amount"
     t.text     "description",    limit: 65535
     t.integer  "count"
     t.integer  "author_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.index ["author_id"], name: "index_playlists_on_author_id", using: :btree
   end
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -60,12 +64,13 @@ ActiveRecord::Schema.define(version: 20161205120008) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "password"
+    t.string   "password_digest"
     t.string   "image"
     t.string   "mail"
     t.string   "country"
     t.integer  "week_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "weeks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -76,6 +81,7 @@ ActiveRecord::Schema.define(version: 20161205120008) do
     t.integer  "friday_id"
     t.integer  "saturday_id"
     t.integer  "sunday_id"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

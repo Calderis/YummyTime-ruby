@@ -10,23 +10,23 @@ class Week < ApplicationRecord
 	belongs_to :user
 
 	# monday - what is planned for monday
-	has_one :day, :as => :monday
+	has_one :monday
 
 	# tuesday - what is planned for tuesday
-	has_one :day, :as => :tuesday
+	has_one :tuesday
 
 	# wednesday - what is planned for wednesday
-	has_one :day, :as => :wednesday
+	has_one :wednesday
 
 	# thursday - what is planned for thursday
-	has_one :day, :as => :thursday
+	has_one :thursday
 
 	# friday - what is planned for friday
-	has_one :day, :as => :friday
+	has_one :friday
 
 	# saturday - what is planned for saturday
-	has_one :day, :as => :saturday
+	has_one :saturday
 
 	# sunday - what is planned for sunday
-	has_one :day, :as => :sunday
+	has_one :sunday
 end

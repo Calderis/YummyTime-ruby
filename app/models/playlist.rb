@@ -9,9 +9,14 @@ class Playlist < ApplicationRecord
 	# persons_amount - number of persons - recipe with different number of persons forbidden
 	# description - description of the playlist
 	# count - number of used
+	before_save :default_values
+	def default_values
+		self.count = 0
+	end
+	
 	# author - author’s id
-	has_one :user, :as => :author
+	belongs_to :author
 	
 	# followers - list of followers
-	has_many :users, :as => :followers
+	has_many :followers
 end

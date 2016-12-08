@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>YummyTime</title>
+
 	<%= csrf_meta_tags %>
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,11 +11,20 @@
 
 <body>
 	<% if logged_in? %>
-	<%= link_to 'Logout', logout_path %>
-	<% else %>
-	<%= link_to "Sign Up", signup_path %>
-	<%= link_to "Log In", login_path %>        
-	<% end %>
-	<%= yield %>
+	<%= render "header/index", user: @current_user %>
+
+	<section class="main_frame">
+		<%= render "sidebarleft/index", user: @current_user %>
+		<% end %>
+
+		<%= yield %>
+
+		<% if logged_in? %>
+		<%= render "sidebarright/index", user: @current_user %>
+		<%= render "weeks/bottom", user: @current_user %>
+		
+		<% end %>
+	</section>
+
 </body>
 </html>

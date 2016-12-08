@@ -8,6 +8,7 @@ class CreateWeeks < ActiveRecord::Migration[5.0]
       t.integer :friday_id
       t.integer :saturday_id
       t.integer :sunday_id
+      t.integer :user_id
 
       t.timestamps
     end
