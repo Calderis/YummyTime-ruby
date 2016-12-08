@@ -20,6 +20,9 @@ body{
 	}
 }
 *{
+	input[type="file"]{
+		opacity: 0;
+	}
 	cursor:default;
 	&::selection{
 		background:none;
@@ -27,7 +30,7 @@ body{
 	&::-webkit-scrollbar {
 		display:none;
 	}
-	button, a, input{
+	button, a, input, label{
 		text-decoration: none;
 		cursor:pointer;
 		outline:none;
@@ -180,6 +183,15 @@ body{
 		border:none;
 		padding:0 7px;
 		width: calc( 100% - 40px )
+	}
+}
+
+.steps{
+	& > div{
+		display: none;
+		&:target{
+			display: block;
+		}
 	}
 }
 
@@ -720,9 +732,15 @@ header{
 				float:left;
 				background-size: cover;
 				background-position: center;
+				position: relative;
 				input[type="file"]{
-					margin:60px 13px;
+					opacity: 0;
+				}
+				label{
+					display: block;
+					width:40%;
 					text-align: center;
+					margin:74px auto;
 				}
 			}
 			.chief_informations{
@@ -1292,6 +1310,8 @@ header{
 					display: inline-block;
 					position: relative;
 					background-color: $color-C;
+					background-size:cover;
+					background-position:center;
 					.title_image{
 						width:100%;
 						position: absolute;

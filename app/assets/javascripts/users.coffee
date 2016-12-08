@@ -6,8 +6,7 @@ window.onload = load();
 
 function load(){
 if(get_anchor()){
-document.getElementById(get_anchor()).className = "active";
-document.getElementById(get_anchor() + "_section").style.display = "block";
+switch_to(get_anchor());
 }
 
 }
@@ -16,5 +15,12 @@ function get_anchor(){
 var url = window.location.href.split('#');
 if(url.length > 1) return url[url.length-1]
 else return false;
+}
+
+function switch_to(anchor){
+elemA = document.getElementById(anchor)
+elemB = document.getElementById(anchor + "_section")
+if(elemA) elemA.className = "active";
+if(elemB) elemB.style.display = "block";
 }
 `

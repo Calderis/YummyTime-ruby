@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
 	validates :name, presence: true
 	validates :password, presence: true
-	validates :mail, format: { with: /.*(.com)/, message: "Request a valid Email format" }
 	validates :mail, uniqueness: true
 	# validates :image, :attachment_content_type => { :content_type => ['image/png', 'image/jpg']}
 	validates :country, presence: true

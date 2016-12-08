@@ -13,6 +13,7 @@
 	<%= render "header/index", user: @current_user %>
 
 	<section class="main_frame">
+		<%= famous_chiefs %>
 		<%= render "sidebarleft/index", {user: @current_user, presenter: @profile_presenter} %>
 		<% end %>
 
@@ -26,6 +27,23 @@
 	</section>
 
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<script type="text/javascript">
+	function switch_to(anchor, actual = false){
+		elemA = document.getElementById(anchor)
+		elemB = document.getElementById(anchor + "_section")
+		if(elemA) elemA.className = "active";
+		if(elemB) elemB.style.display = "block";
+		if(actual) close_this(actual);
+		else console.log("nein");
+	}
+	function close_this(anchor){
+		elemA = document.getElementById(anchor)
+		elemB = document.getElementById(anchor + "_section")
+		if(elemA) elemA.className = "";
+		if(elemB) elemB.style.display = "none";
+	}
+	</script>
 
 </body>
 </html>

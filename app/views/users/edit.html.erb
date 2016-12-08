@@ -5,7 +5,8 @@
 		<div class="chief_header">
 			<div class="chief_image" style="background-image:url('<%= @user.image %>')">
 
-				<%= f.file_field :image %>
+				<%= f.file_field :image, name:"image", id:"image" %>
+				<label for="image" class="style Confirm big">Upload</label>
 				
 			</div>
 			<div class="chief_informations">
@@ -15,22 +16,15 @@
 				<div class="chief_name">
 					<h1><%= f.text_field :name %></h1>
 				</div>
-				<div class="chief_score">
-					<p>16 PLAYLISTS • 143 FOLLOWERS</p>
+				<div class="list_categorie">
+					<p>Country</p>
+				</div>
+				<div class="chief_name">
+					<h1><%= f.text_field :country, placeholder:"Where are you located ?" %></h1>
 				</div>
 			</div>
 		</div>
 		
-
-		<div class="list_categorie">
-			<p>Country</p>
-		</div>
-		<div class="input_block">
-			<%= f.text_field :country, placeholder:"Where are you located ?" %>
-		</div>
-
-		<br><br>
-
 		<div class="list_categorie">
 			<p>Password checking</p>
 		</div>

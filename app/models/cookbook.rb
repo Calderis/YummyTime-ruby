@@ -13,6 +13,10 @@ class Cookbook < ApplicationRecord
 	def default_values
 		self.count = 0
 	end
+
+	# image - cookbook banner
+	has_attached_file :image, styles: { full: "660x270",banner: "800x180>", thumb: "280x250>" }, default_url: "/assets/defaults/user.png"
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 	
 	# author - author’s id
 	belongs_to :author, class_name: "User"
