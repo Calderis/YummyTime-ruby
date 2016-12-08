@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  skip_before_action :require_login
+  skip_before_action :require_login, only: [:create, :new]
 
   # GET /users
   # GET /users.json
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @profile_presenter = ProfilePresenter.new(@user)
   end
 
   # GET /users/new

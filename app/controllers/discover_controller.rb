@@ -6,7 +6,6 @@ class DiscoverController < ApplicationController
 	def sandbox
 		puts "Yo les gars!!"
 		# create_food
-		create_recipe
 		render :index
 	end
 
@@ -22,10 +21,10 @@ class DiscoverController < ApplicationController
 	end
 
 	def create_recipe
-		@recipe = Recipe.new(persons_amount: 1, description: "test", image: "https://www.wendys.com/ccurl/122/802/Kids_AppleSlicesRED_205x205.png", type_menu:"dessert", author:Author.find(1))
+		# @recipe = Recipe.new(persons_amount: 1, description: "test", image: "https://www.wendys.com/ccurl/122/802/Kids_AppleSlicesRED_205x205.png", type_menu:"dessert", author:Author.find(1))
 		
 		# @recipe = Recipe.find(1)
-		@recipe.ingredients = [Ingredient.new(food_id: Food.find(1).id, quantity: 1, unit: "unit")]
+		# @recipe.ingredients = [Ingredient.new(food_id: Food.find(1).id, quantity: 1, unit: "unit")]
 		
 		# if @recipe.save
 		# 	puts "recipe ok"
@@ -36,6 +35,6 @@ class DiscoverController < ApplicationController
 		# ingredients = [ingA];
 	end
 
-	def create_playlist
+	def create_cookbook
 	end
 end

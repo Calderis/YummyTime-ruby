@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	get 'discover/index'
 	root 'discover#index'
 
-	resources :playlists
+	resources :cookbooks
 	resources :recipes
 	resources :users
 	resources :weeks
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 	resources :ingredients
 	resources :foods
 	resources :sessions
+	resources :followers
 
 	resources :header
 	resources :sidebarleft

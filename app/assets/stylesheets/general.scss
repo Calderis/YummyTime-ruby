@@ -1,8 +1,8 @@
 // VARIABLES
 $color-A: #121212;
 $color-B: #1E1D1D;
-//$color-C: #ff3366;
-$color-C: #00FFCD;
+$color-C: #ff3366;
+//$color-C: #00FFCD;
 $color-D: #ED4747;
 $color-E: #282828;
 $color-F: #181818;
@@ -95,6 +95,9 @@ body{
 				background-repeat: no-repeat;
 				background-position: center;
 				&.cart{
+					background-image:url(icons/Back-white.png);
+				}
+				&.plus{
 					background-image:url(icons/Back-white.png);
 				}
 			}
@@ -238,6 +241,7 @@ header{
 					margin: 0 14px;
 					height:21px;
 					width:21px;
+					border-radius: 30px;
 					background-size:contain;
 					background-image: url(icons/profil-white.png);
 				}
@@ -319,6 +323,7 @@ header{
 		height: calc( 100vh - 90px );
 		background-color: $color-A;
 		overflow-y: auto;
+		position: relative;
 		ul.section{
 			li.item{
 				padding: 4px;
@@ -392,6 +397,19 @@ header{
 					color: $base-color;
 				}
 			}
+		}
+		.bottom_options{
+			position: absolute;
+			bottom :20px;
+			width:100%;
+			.separator{
+				height:1px;
+				display: block;
+				width:100;
+				background-color: $color-G;
+				margin:12px 0;
+			}
+			text-align: center;
 		}
 	}
 
@@ -508,7 +526,7 @@ header{
 			li{
 				display: inline-block;
 			}
-			li.playlist_description{
+			li.cookbook_description{
 				float:left;
 				.image_infos{
 					display: inline-block;
@@ -519,7 +537,7 @@ header{
 						background-color: $color-C;
 					}
 				}
-				.playlist_infos{
+				.cookbook_infos{
 					max-width: 250px;
 					overflow: hidden;
 					padding-left:8px;
@@ -700,6 +718,8 @@ header{
 				border-radius:140px;
 				overflow: hidden;
 				float:left;
+				background-size: cover;
+				background-position: center;
 			}
 			.chief_informations{
 				display: inline-block;
@@ -844,6 +864,7 @@ header{
 		.list_cookbooks{
 			padding-bottom: 20px;
 			ul.cookbooks{
+				display: none;
 				li{
 					margin:6px;
 					display: inline-block;

@@ -10,35 +10,39 @@
 		</li>
 		<li class="item">
 			<span class="icon starter"></span>
-			<p>Starter</p>
-			<span class="counter">15</span>
+			<p><%= link_to 'Starters', user_path(user, anchor: 'starters') %></p>
+			<span class="counter"><%= presenter.starters_count %></span>
 		</li>
 		<li class="item">
 			<span class="icon main"></span>
-			<p>Main</p>
-			<span class="counter">15</span>
+			<p><%= link_to 'Mains', user_path(user, anchor: 'mains') %></p>
+			<span class="counter"><%= presenter.mains_count %></span>
 		</li>
 		<li class="item">
 			<span class="icon dessert"></span>
-			<p>Dessert</p>
-			<span class="counter">15</span>
+			<p><%= link_to 'Desserts', user_path(user, anchor: 'desserts') %></p>
+			<span class="counter"><%= presenter.desserts_count %></span>
 		</li>
 	</ul>
 	<ul class="section">
 		<li class="title">
-			<h3>My Playlists</h3>
+			<h3>My Cookbooks</h3>
 		</li>
-		<li class="item">
-			<p>Fast & Cheap</p>
+		<% presenter.cookbooks_followed.each do |cookbook| %>
+		<li class="title">
+			<h3><%= cookbook.name %></h3>
 		</li>
-		<li class="item">
-			<p>Fast & Cheap</p>
-		</li>
-		<li class="item">
-			<p>Fast & Cheap</p>
-		</li>
-		<li class="item">
-			<p>Fast & Cheap</p>
-		</li>
+		<% end %>
 	</ul>
+	<div class="bottom_options">
+		<button class="style Neutral">
+			<span class="icon plus"></span>
+			<%= link_to 'Recipe', new_recipe_path %>
+		</button>
+		<span class="separator"></span>
+		<button class="style None">
+			<span class="icon plus"></span>
+			Cookbook
+		</button>
+	</div>
 </aside>

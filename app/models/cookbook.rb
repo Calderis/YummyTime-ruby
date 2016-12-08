@@ -1,4 +1,4 @@
-class Playlist < ApplicationRecord
+class Cookbook < ApplicationRecord
 	validates :persons_amount, presence: true
 	validates :description, presence: true
 	validates :author, presence: true
@@ -15,7 +15,7 @@ class Playlist < ApplicationRecord
 	end
 	
 	# author - author’s id
-	belongs_to :author
+	belongs_to :author, class_name: "User"
 	
 	# followers - list of followers
 	has_many :followers

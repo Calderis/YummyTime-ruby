@@ -582,21 +582,21 @@ header {
     height: 100%; }
     .main_frame .current_week ul.footer li {
       display: inline-block; }
-    .main_frame .current_week ul.footer li.playlist_description {
+      .main_frame .current_week ul.footer li.cookbook_description {
       float: left; }
-      .main_frame .current_week ul.footer li.playlist_description .image_infos {
+      .main_frame .current_week ul.footer li.cookbook_description .image_infos {
         display: inline-block;
         float: left; }
-        .main_frame .current_week ul.footer li.playlist_description .image_infos .profil_image {
+        .main_frame .current_week ul.footer li.cookbook_description .image_infos .profil_image {
           width: 40px;
           height: 40px;
           background-color: #00FFCD; }
-      .main_frame .current_week ul.footer li.playlist_description .playlist_infos {
+          .main_frame .current_week ul.footer li.cookbook_description .cookbook_infos {
         max-width: 250px;
         overflow: hidden;
         padding-left: 8px;
         padding-top: 2px; }
-        .main_frame .current_week ul.footer li.playlist_description .playlist_infos h3 {
+        .main_frame .current_week ul.footer li.cookbook_description .cookbook_infos h3 {
           display: block;
           font-family: "Circular Std";
           font-size: 15px;
@@ -604,9 +604,9 @@ header {
           line-height: 20px;
           color: white;
           cursor: pointer; }
-          .main_frame .current_week ul.footer li.playlist_description .playlist_infos h3:hover {
+          .main_frame .current_week ul.footer li.cookbook_description .cookbook_infos h3:hover {
             text-decoration: underline; }
-        .main_frame .current_week ul.footer li.playlist_description .playlist_infos span.chief_name {
+            .main_frame .current_week ul.footer li.cookbook_description .cookbook_infos span.chief_name {
           display: inline-block;
           font-family: "Circular Std";
           font-size: 12px;
@@ -615,7 +615,7 @@ header {
           color: white;
           opacity: 0.87;
           cursor: pointer; }
-          .main_frame .current_week ul.footer li.playlist_description .playlist_infos span.chief_name:hover {
+          .main_frame .current_week ul.footer li.cookbook_description .cookbook_infos span.chief_name:hover {
             text-decoration: underline; }
     .main_frame .current_week ul.footer li.week_overview {
       text-align: center;

@@ -1,6 +1,6 @@
-class CreatePlaylists < ActiveRecord::Migration[5.0]
+class CreateCookbooks < ActiveRecord::Migration[5.0]
 	def change
-		create_table :playlists do |t|
+		create_table :cookbooks do |t|
 			t.integer :persons_amount
 			t.text :description
 			t.integer :count

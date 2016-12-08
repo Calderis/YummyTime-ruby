@@ -3,6 +3,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
     create_table :recipes do |t|
       t.integer :persons_amount
       t.text :description
+      t.string :name
       t.string :image
       t.string :type_menu
       t.integer :count

@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
 	has_many :ingredients, dependent: :destroy
 
 	# persons_amount - number of persons to cook for
+	# name - name of the recipe
 	# description - cooking steps
 	# image - url to picture
 	# type_menu - starter/main/dessert
@@ -20,12 +21,8 @@ class Recipe < ApplicationRecord
 	end
 	
 	# author - author’s id
-	belongs_to :author
-end
+	belongs_to :author, class_name: "User"
 
-class Starter < User
-end
-class Main < User
-end
-class Dessert < User
+	# followers - users that want to follow him
+	has_many :followers
 end

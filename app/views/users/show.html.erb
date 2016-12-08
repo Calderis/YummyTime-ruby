@@ -1,34 +1,75 @@
-<p id="notice"><%= notice %></p>
+<section class="main_content">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <div class="section chief_profile">
+    <div class="chief_header">
+      <div class="chief_image" style="background-image:url('<%= @user.image %>')"></div>
+      <div class="chief_informations">
+        <div class="chief_title">
+          <h4>Chief</h4>
+        </div>
+        <div class="chief_name">
+          <h1><%= @user.name %></h1>
+        </div>
+        <div class="chief_score">
+          <p>16 PLAYLISTS • 143 FOLLOWERS</p>
+        </div>
+        <button class="style Confirm big">Follow</button>
+      </div>
+    </div>
+    <div class="menu_filters">
+      <ul class="filters"> <!-- Add fixed -->
+        <li id="all"><a href="#all">All cookbooks</a></li>
+        <li id="starters"><a href="#starters">Starters</a> (<%= @profile_presenter.starters_count %>)</li>
+        <li id="mains"><a href="#mains">Main</a> (<%= @profile_presenter.mains_count %>)</li>
+        <li id="desserts"><a href="#desserts">Dessert</a> (<%= @profile_presenter.desserts_count %>)</li>
+        <li id="followers"><a href="#followers">Followers</a> (<%= @profile_presenter.followers_count %>)</li>
+      </ul>
+    </div>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+    <div class="list_cookbooks">
+      <ul class="cookbooks" id="all_section">
+        <li>
+          <div class="big_image">
+            <div class="hover">
+              <button class="button_plan_the_week"></button>
+            </div>
+          </div>
+          <div class="informations">
+            <div class="header">
+              <h3>CookBook Name</h3>
+              <div class="icon_recipes">
+                <span class="icon starter"></span>
+                <span class="icon main"></span>
+                <span class="icon dessert"></span>
+              </div>
+            </div>
+            <div class="description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor…</p>
+            </div>
+            <div class="cookbook_infos">
+              <p>4308 FOLLOWERS • <span class="chief_name">remi_wetteren</span></p>
+            </div>
+          </div>
+        </li>
+      </ul>
 
-<p>
-  <strong>Image:</strong>
-  <%= @user.image %>
-</p>
+      <ul class="cookbooks" id="starters_section">
+        starters
+      </ul>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @user.mail %>
-</p>
+      <ul class="cookbooks" id="mains_section">
+        Mains
+      </ul>
 
-<p>
-  <strong>Country:</strong>
-  <%= @user.country %>
-</p>
+      <ul class="cookbooks" id="desserts_section">
+        Desserts
+      </ul>
 
-<p>
-  <strong>Week:</strong>
-  <%= @user.week_id %>
-</p>
+      <ul class="cookbooks" id="followers_section">
+        Followers
+      </ul>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    </div>
+
+  </div>
+</section>

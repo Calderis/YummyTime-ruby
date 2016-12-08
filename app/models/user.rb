@@ -14,23 +14,12 @@ class User < ApplicationRecord
 	# image - image profil of the user
 	before_save :default_values
 	def default_values
-		self.count ||= "https://eliaslealblog.files.wordpress.com/2014/03/user-200.png"
+		self.image ||= "https://eliaslealblog.files.wordpress.com/2014/03/user-200.png"
 	end
 	# mail - mail of the user : used for login
 	# country - country of the user
 	# week - current cooking planning
 	has_one :week
-	# users that want to follow him
+	# followers - users that want to follow him
 	has_many :followers
-end
-
-class Author < User
-	def find(id)
-		User.find(id)
-	end
-end
-class Follower < User
-	def find(id)
-		User.find(id)
-	end
 end

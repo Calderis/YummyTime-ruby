@@ -1,5 +1,21 @@
-<h1>New Recipe</h1>
+<section class="main_content">
+	<div class="section create_recipe">
+		<div class="title_simple">
+			<h2>Create a recipe</h2>
+		</div>
+		<div class="steps_path">
+			<ul class="steps">
+				<li class="active">Step 1. Generic information</li>
+				<li>  -  </li>
+				<li>Step 2. Ingrediants</li>
+			</ul>
+		</div>
 
-<%= render 'form', recipe: @recipe %>
+		<div class="list_recipe_ingredients">
+			<%= render 'form', recipe: @recipe %>
+		</div>
+		
 
-<%= link_to 'Back', recipes_path %>
+	</div>
+</div>
+</section>

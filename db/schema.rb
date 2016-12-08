@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205120008) do
+ActiveRecord::Schema.define(version: 20161208094509) do
+
+  create_table "cookbooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "persons_amount"
+    t.text     "description",    limit: 65535
+    t.integer  "count"
+    t.integer  "author_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["author_id"], name: "index_cookbooks_on_author_id", using: :btree
+  end
 
   create_table "days", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "starter_id"
@@ -20,6 +30,14 @@ ActiveRecord::Schema.define(version: 20161205120008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["week_id"], name: "index_days_on_week_id", using: :btree
+  end
+
+  create_table "followers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "followed_id"
+    t.integer  "follower_id"
+    t.string   "type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -40,19 +58,10 @@ ActiveRecord::Schema.define(version: 20161205120008) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   end
 
-  create_table "playlists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "persons_amount"
-    t.text     "description",    limit: 65535
-    t.integer  "count"
-    t.integer  "author_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["author_id"], name: "index_playlists_on_author_id", using: :btree
-  end
-
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "persons_amount"
     t.text     "description",    limit: 65535
+    t.string   "name"
     t.string   "image"
     t.string   "type_menu"
     t.integer  "count"

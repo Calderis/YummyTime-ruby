@@ -10,33 +10,53 @@
   </ul>
 </div>
 <% end %>
-
-<div class="field">
-  <%= f.label :persons_amount %>
-  <%= f.number_field :persons_amount %>
+<div class="list_categorie">
+  <h4>Name of the recipe</h4>
 </div>
-
-<div class="field">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+<div class="input_block">
+  <%= f.text_field :name, placeholder:"Something yummy" %>
+  <span class="count_limit">25/200</span>
 </div>
-
-<div class="field">
-  <%= f.label :image %>
-  <%= f.text_field :image %>
+<br>
+<div class="list_categorie">
+  <h4>Type of the recipe</h4>
 </div>
-
-<div class="field">
-  <%= f.label :type_menu %>
-  <%= f.text_field :type_menu %>
+<div class="filters_buttons">
+  <form name="filters">
+    <p class="checkbox">
+      <%= radio_button_tag(:unit, "starter") %>
+      <input name="unit" type="radio" id="Starter">
+      <label for="Starter">Starter</label>
+    </p>
+    <p class="checkbox">
+      <%= radio_button_tag(:unit, "main") %>
+      <input name="unit" type="radio" id="Main">
+      <label for="Main">Main</label>
+    </p>
+    <p class="checkbox">
+      <%= radio_button_tag(:unit, "dessert") %>
+      <input name="unit" type="radio" id="Dessert">
+      <label for="Dessert">Dessert</label>
+    </p>
+  </form>
 </div>
-
-<div class="field">
-  <%= f.label :author_id %>
-  <%= f.collection_select(:author_id, User.all, :id, :name) %>
+<br>
+<div class="aside_block fleft gright">
+  <div class="list_categorie">
+    <h4>Recipe image</h4>
+  </div>
+  <div class="bloc_image">
+    <div class="title_image center">
+      <button class="style Neutral big">Chose image</button>
+    </div>
+  </div>
 </div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
+<ul class="ingredients with_aside">
+  <div class="list_categorie">
+    <h4>Description</h4>
+  </div>
+  <div class="textarea_block">
+    <%= f.text_area :description, placeholder:"Let's explain how to cook it ..." %>
+  </div>
+</ul>
 <% end %>

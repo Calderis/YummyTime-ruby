@@ -1,18 +1,19 @@
 class ApplicationController < ActionController::Base
+
   # protect_from_forgery with: :exception
   protect_from_forgery
+
+  helper_method :logged_in?
+  before_action :require_login
 
   private
 
   def logged_in?
     if session[:user_id]
       @current_user ||= User.find(session[:user_id]) 
+      @profile_presenter = ProfilePresenter.new(@current_user)
     end
   end
-
-  helper_method :logged_in?
-
-  before_action :require_login
 
   private
 
@@ -21,5 +22,9 @@ class ApplicationController < ActionController::Base
   	unless @current_user
   		redirect_to login_url
   	end
+  end
+
+  def profile_presenter
+    ProfilePresenter.new(@current_user)
   end
 end
