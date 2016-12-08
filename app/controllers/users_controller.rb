@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user[:country] = "France";
-    @user[:image] = "https://eliaslealblog.files.wordpress.com/2014/03/user-200.png";
 
     respond_to do |format|
       if @user.save
@@ -48,10 +47,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_update_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
+        puts @user.errors.to_json
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -77,5 +77,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation, :image, :mail, :country)
+    end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_update_params
+      params.require(:user).permit!
     end
   end

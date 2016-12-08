@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :password
       t.string :password_digest
-      t.string :image
       t.string :mail
       t.string :country
       t.integer :week_id

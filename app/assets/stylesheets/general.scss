@@ -720,6 +720,10 @@ header{
 				float:left;
 				background-size: cover;
 				background-position: center;
+				input[type="file"]{
+					margin:60px 13px;
+					text-align: center;
+				}
 			}
 			.chief_informations{
 				display: inline-block;

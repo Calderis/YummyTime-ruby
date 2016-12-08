@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208094509) do
+ActiveRecord::Schema.define(version: 20161208145050) do
 
   create_table "cookbooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "persons_amount"
@@ -74,12 +74,15 @@ ActiveRecord::Schema.define(version: 20161208094509) do
     t.string   "name"
     t.string   "password"
     t.string   "password_digest"
-    t.string   "image"
     t.string   "mail"
     t.string   "country"
     t.integer  "week_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "weeks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -5,17 +5,15 @@ class User < ApplicationRecord
 	validates :password, presence: true
 	validates :mail, format: { with: /.*(.com)/, message: "Request a valid Email format" }
 	validates :mail, uniqueness: true
-	validates :image, format: { with: /.*(.jpg|jpeg|png)/i, message: "Request a valid Image url" }
-	validates :image, presence: true
+	# validates :image, :attachment_content_type => { :content_type => ['image/png', 'image/jpg']}
 	validates :country, presence: true
+
 
 	# name - first and last name or nickname
 	# password - password used for login
 	# image - image profil of the user
-	before_save :default_values
-	def default_values
-		self.image ||= "https://eliaslealblog.files.wordpress.com/2014/03/user-200.png"
-	end
+	has_attached_file :image, styles: { medium: "140x140>", thumb: "21x21>" }, default_url: "/assets/defaults/user.png"
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 	# mail - mail of the user : used for login
 	# country - country of the user
 	# week - current cooking planning

@@ -15,11 +15,11 @@
 		</li>
 		<li class="profil">
 			<div class="profil_icon" style="background-image:url('<%= user.image %>')"></div>
-			<div class="profil_name"><%= user.name %></div>
+			<div class="profil_name"><%= link_to user.name, user %></div>
 			<div class="profil_drop_icon">
 				<div class="drop-list">
 					<ul>
-						<li><%= link_to 'My account', user %></li>
+						<li><%= link_to 'Myaccount', edit_user_path(user) %></li>
 						<li><%= link_to 'Logout', logout_path %></li>
 					</ul>
 				</div>
