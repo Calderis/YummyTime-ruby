@@ -4,7 +4,11 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
+    if params[:name]
+      @foods = Food.where("name LIKE ?", "%#{params[:name]}%")
+    else
+      @foods = Food.all
+    end
   end
 
   # GET /foods/1
@@ -21,11 +25,14 @@ class FoodsController < ApplicationController
   def edit
   end
 
+  def find(name)
+    Food.where(name: name)
+  end
+
   # POST /foods
   # POST /foods.json
   def create
     @food = Food.new(food_params)
-    @food[:count] = 0
 
     respond_to do |format|
       if @food.save

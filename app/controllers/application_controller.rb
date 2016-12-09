@@ -10,9 +10,14 @@ class ApplicationController < ActionController::Base
   private
 
   def logged_in?
-    if session[:user_id]
-      @current_user ||= User.find(session[:user_id]) 
+    if request.headers["usersession"].to_i != 0
+      @current_user ||= User.find(request.headers["usersession"].to_i)
       @profile_presenter = ProfilePresenter.new(@current_user)
+    else
+      if session[:user_id]
+        @current_user ||= User.find(session[:user_id])
+        @profile_presenter = ProfilePresenter.new(@current_user)
+      end
     end
   end
 
@@ -26,9 +31,9 @@ class ApplicationController < ActionController::Base
   end
 
   def famous_chiefs
-    puts "———————————————————————————————"
-    puts Follower.group(:followed_id).count
-    puts "———————————————————————————————"
+    # puts "———————————————————————————————"
+    # puts Follower.group(:followed_id).count
+    # puts "———————————————————————————————"
   end
 
   def profile_presenter

@@ -4,7 +4,6 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.integer :persons_amount
       t.text :description
       t.string :name
-      t.string :image
       t.string :type_menu
       t.integer :count
       t.integer :author_id

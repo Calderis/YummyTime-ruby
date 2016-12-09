@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+	attr_accessor :ingredients_array
 	validates :persons_amount, presence: true
 	validates :description, presence: true
 	validates :type_menu, presence: true
@@ -11,8 +12,9 @@ class Recipe < ApplicationRecord
 	# name - name of the recipe
 	# description - cooking steps
 	# image - image of the recipe
-	has_attached_file :image, styles: { full: "660x280", medium: "300x110>", squared: "220x200", thumb: "60x42>" }, default_url: "/assets/defaults/recipe.jpg"
+	has_attached_file :image, styles: { full: "660x280", medium: "300x110>", squared: "220x200", thumb: "60x42>" }, default_url: "/assets/defaults/placeholder.png"
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+	
 	# type_menu - starter/main/dessert
 	# count - number of used
 	before_save :default_values

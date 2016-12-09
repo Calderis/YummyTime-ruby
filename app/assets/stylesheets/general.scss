@@ -1196,6 +1196,8 @@ header{
 						display: inline-block;
 						background-color: $color-C;
 						float:left;
+						background-position: center;
+						background-size: cover;
 					}
 					.ingredient_informations{
 						padding:11px 0;
@@ -1256,6 +1258,8 @@ header{
 					display: block;
 					overflow: hidden;
 					background-color: $color-C;
+					background-position:center;
+					background-size:cover;
 				}
 				.aside_content{
 					padding:12px 15px;

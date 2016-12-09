@@ -2,9 +2,7 @@ class User < ApplicationRecord
 	has_secure_password
 
 	validates :name, presence: true
-	validates :password, presence: true
 	validates :mail, uniqueness: true
-	# validates :image, :attachment_content_type => { :content_type => ['image/png', 'image/jpg']}
 	validates :country, presence: true
 
 
@@ -13,6 +11,7 @@ class User < ApplicationRecord
 	# image - image profil of the user
 	has_attached_file :image, styles: { medium: "140x140>", thumb: "21x21>" }, default_url: "/assets/defaults/user.png"
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+	
 	# mail - mail of the user : used for login
 	# country - country of the user
 	# week - current cooking planning

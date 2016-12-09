@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20161208145053) do
 
   create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "image"
     t.integer  "count"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -60,9 +59,9 @@ ActiveRecord::Schema.define(version: 20161208145053) do
     t.integer  "recipe_id"
     t.integer  "food_id"
     t.integer  "quantity"
-    t.text     "unit",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   end
 
@@ -70,7 +69,6 @@ ActiveRecord::Schema.define(version: 20161208145053) do
     t.integer  "persons_amount"
     t.text     "description",        limit: 65535
     t.string   "name"
-    t.string   "image"
     t.string   "type_menu"
     t.integer  "count"
     t.integer  "author_id"
@@ -84,7 +82,6 @@ ActiveRecord::Schema.define(version: 20161208145053) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "password"
     t.string   "password_digest"
     t.string   "mail"
     t.string   "country"

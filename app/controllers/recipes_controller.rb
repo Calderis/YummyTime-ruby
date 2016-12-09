@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @foods = Food.take(10)
   end
 
   # GET /recipes/1/edit
@@ -25,10 +26,25 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    ingredients_array = ActiveSupport::JSON.decode(recipe_params[:ingredients_array])
+    puts ingredients_array
+
     @recipe[:count] = 0
+    @recipe.author = @current_user
 
     respond_to do |format|
       if @recipe.save
+        ingredients_array.each do |ingredient|
+          ing = Ingredient.new
+          ing.quantity = ingredient["quantity"].to_i
+          ing.unit = ingredient["unit"]
+          ing.food_id = ingredient["food_id"]
+          puts "---___---"
+          puts ing.to_json
+          ing.recipe = @recipe
+
+          ing.save
+        end
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
@@ -70,6 +86,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:persons_amount, :description, :image, :type_menu, :author_id)
+      params.require(:recipe).permit(:name, :persons_amount, :description, :image, :type_menu, :author_id, :ingredients_array)
     end
   end

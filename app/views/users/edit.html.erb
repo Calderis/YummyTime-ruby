@@ -5,7 +5,7 @@
 		<div class="chief_header">
 			<div class="chief_image" style="background-image:url('<%= @user.image %>')">
 
-				<%= f.file_field :image, name:"image", id:"image" %>
+				<%= f.file_field :image, as: :file, id:"image" %>
 				<label for="image" class="style Confirm big">Upload</label>
 				
 			</div>
@@ -25,14 +25,14 @@
 			</div>
 		</div>
 		
-		<div class="list_categorie">
+		<!-- <div class="list_categorie">
 			<p>Password checking</p>
 		</div>
 		<div class="input_block">
 			<%= f.text_field :password, placeholder:"Just to be sure ..." %>
 		</div>
 
-		<br><br>
+		<br><br> -->
 
 		<%= f.submit "Update", class:"style Confirm big" %>
 
