@@ -1,7 +1,7 @@
 <aside class="sidebar_left">
 	<ul class="section">
 		<li class="item active">
-			<p><%= link_to 'Discover', root_path %></p>
+			<p><%= link_to 'Discover', root_path(user, anchor: 'overview') %></p>
 		</li>
 	</ul>
 	<ul class="section">
@@ -28,9 +28,15 @@
 		<li class="title">
 			<h3>My Cookbooks</h3>
 		</li>
-		<% presenter.cookbooks_followed.each do |cookbook| %>
+		<% presenter.cookbooks.each do |cookbook| %>
 		<li class="title">
-			<h3><%= cookbook.name %></h3>
+			<h3><%= link_to truncate(cookbook.name, length:14), cookbook_path(cookbook) %></h3>
+		</li>
+		<% end %>
+		<% presenter.cookbooks_followed.each do |ref| %>
+		<% cookbook = Cookbook.find(ref.followed_id) %>
+		<li class="title">
+			<h3><%= link_to truncate(cookbook.name, length:14), cookbook_path(cookbook) %></h3>
 		</li>
 		<% end %>
 	</ul>
@@ -42,7 +48,7 @@
 		<span class="separator"></span>
 		<button class="style None">
 			<span class="icon plus"></span>
-			Cookbook
+			<%= link_to 'Cookbook', new_cookbook_path %>
 		</button>
 	</div>
 </aside>

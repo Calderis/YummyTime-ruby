@@ -1,10 +1,10 @@
 class CookbooksController < ApplicationController
-  before_action :set_cookbook, only: [:show, :edit, :update, :destroy]
+  before_action :set_cookbook, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
 
   # GET /cookbooks
   # GET /cookbooks.json
   def index
-    @cookbooks = cookbook.all
+    @cookbooks = Cookbook.all
   end
 
   # GET /cookbooks/1
@@ -14,21 +14,41 @@ class CookbooksController < ApplicationController
 
   # GET /cookbooks/new
   def new
-    @cookbook = cookbook.new
+    @cookbook = Cookbook.new
+    puts @cookbook.to_json
   end
 
   # GET /cookbooks/1/edit
   def edit
   end
 
+  # POST /cookbooks/follow/1
+  def follow
+    @cookbook.follow(User.find(@current_user))
+    redirect_to @cookbook
+  end
+
+  # DELETE /cookbooks/follow/1
+  def unfollow
+    follw = Follower.where(followed_id:@cookbook.id, follower_id:@current_user.id)
+    puts follw.to_json
+    follw.destroy(follw)
+    
+    redirect_to @cookbook
+  end
+
   # POST /cookbooks
   # POST /cookbooks.json
   def create
-    @cookbook = cookbook.new(cookbook_params)
+    @cookbook = Cookbook.new(cookbook_params)
     @cookbook[:count] = 0
+    @cookbook.user = @current_user
 
     respond_to do |format|
       if @cookbook.save
+
+        @cookbook.follow(User.find(@current_user))
+        
         format.html { redirect_to @cookbook, notice: 'cookbook was successfully created.' }
         format.json { render :show, status: :created, location: @cookbook }
       else
@@ -65,11 +85,11 @@ class CookbooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cookbook
-      @cookbook = cookbook.find(params[:id])
+      @cookbook = Cookbook.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cookbook_params
-      params.require(:cookbook).permit(:recipes, :persons_amount, :description, :author_id)
+      params.require(:cookbook).permit(:recipes, :persons_amount, :description, :user_id, :name, :image)
     end
   end

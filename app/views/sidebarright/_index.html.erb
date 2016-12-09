@@ -3,33 +3,36 @@
 		<h3>Chiefs to follow</h3>
 	</div>
 	<ul class="list-chiefs">
+		<% famous_chiefs.each do |user| %>
+		<% presenter = ProfilePresenter.new(user) %>
 		<li class="chief-stick">
+			<%= link_to user_path(user) do %>
 			<div class="image">
-				<span class="profil"></span>
+				<span class="profil" style="background-image:url(<%= user.image.url(:thumb) %>)"></span>
 			</div>
+			<% end %>
 			<div class="stick-content">
 				<div class="stick-infos">
-					<h4>Gordorn Ramsey</h4>
-					<span class="sub-infos">16 Cookbooks • 143 Followers</span>
+					<h4><%= user.name %></h4>
+					<span class="sub-infos"><%= presenter.cookbooks_count %> Cookbooks • <%= presenter.followers_count %> Followers</span>
 				</div>
 				<div class="stick-button">
-					<button class="style Confirm">Follow chief</button>
+					<% if user != @current_user %>
+					<% if user.followed?(@current_user) %>
+					<div class="fright">
+						<%= button_to 'Unfollow', user_unfollow_path(user), {:method => :delete, :class => "style Danger big"} %>
+					</div>
+					<% else %>
+					<div class="fright">
+						<%= button_to "Follow chief", user_follow_path(user), :class => "style Neutral big" %>
+					</div>
+					<% end %>
+					<% else %>
+					<%= button_to "Profil page", user, :method => :get, :class => "style Confirm big" %>
+					<% end %>
 				</div>
 			</div>
 		</li>
-		<li class="chief-stick">
-			<div class="image">
-				<span class="profil"></span>
-			</div>
-			<div class="stick-content">
-				<div class="stick-infos">
-					<h4>Gordorn Ramsey</h4>
-					<span class="sub-infos">16 Cookbooks • 143 Followers</span>
-				</div>
-				<div class="stick-button">
-					<button class="style Danger">Unfollow chief</button>
-				</div>
-			</div>
-		</li>
+		<% end %>
 	</ul>
 </aside>

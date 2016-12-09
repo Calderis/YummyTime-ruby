@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Registries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cookbook</th>
+      <th>Recipe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registries.each do |registry| %>
+      <tr>
+        <td><%= registry.cookbook_id %></td>
+        <td><%= registry.recipe_id %></td>
+        <td><%= link_to 'Show', registry %></td>
+        <td><%= link_to 'Edit', edit_registry_path(registry) %></td>
+        <td><%= link_to 'Destroy', registry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Registry', new_registry_path %>

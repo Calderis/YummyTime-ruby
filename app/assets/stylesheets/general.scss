@@ -460,7 +460,6 @@ header{
 					margin-left:10px;
 					height:32px;
 					width:32px;
-					cursor:pointer;
 					border-radius: 100px;
 					overflow: hidden;
 					display: inline-block;
@@ -469,6 +468,9 @@ header{
 						height: 32px;
 						width: 32px;
 						display: block;
+						cursor:pointer;
+						background-size: cover;
+						background-position: center;
 					}
 				}
 				.stick-content{
@@ -657,6 +659,7 @@ header{
 	.section{
 		padding:16px 20px 20px 20px;
 		overflow: auto;
+		min-height: 100%;
 		zoom: 1;
 		.image_header{
 			width:100%;
@@ -664,6 +667,8 @@ header{
 			background-color: $color-C;
 			overflow: hidden;
 			position: relative;
+			background-size: cover;
+			background-position: center;
 			&.big{
 				height:280px;
 			}
@@ -695,7 +700,7 @@ header{
 					line-height: 45px;
 					color: $base-color;
 				}
-				button{
+				button, input{
 					display: inline-block;
 					float:right;
 					margin:8px;
@@ -714,7 +719,7 @@ header{
 				color: $base-color;
 				padding-right:20px;
 			}
-			button{
+			button, input{
 				margin-top: 10px;
 				display: inline;
 				margin-right:16px;
@@ -887,7 +892,7 @@ header{
 			padding-bottom: 20px;
 			ul.cookbooks{
 				display: none;
-				li{
+				li.card{
 					margin:6px;
 					display: inline-block;
 					width: calc( ( 100vw - 420px - (18px*3) ) / 3 );
@@ -898,6 +903,8 @@ header{
 						max-height: 280px;
 						width:100%;
 						display: block;
+						background-size: cover;
+						background-position: center;
 						.hover{
 							padding : calc( ( ( 100vw - 420px - (18px*3) ) / 6 ) - 34px );
 							background-color: rgba(0,0,0,0.45);
@@ -1037,6 +1044,8 @@ header{
 						float:left;
 						background-color: $color-C;
 						cursor:pointer;
+						background-size: cover;
+						background-position: center;
 					}
 					.recipe_informations{
 						display: inline-block;
@@ -1353,6 +1362,9 @@ header{
 							color: $base-color;
 							opacity: 0.87;
 							padding-bottom:7px;
+							&:hover{
+								text-decoration: underline;
+							}
 						}
 						p{
 							font-family: "Circular Std";
@@ -1363,7 +1375,7 @@ header{
 							opacity: 0.87;
 						}
 					}
-					button{
+					button, input{
 						display: inline-block;
 						float:right;
 						margin:16px;

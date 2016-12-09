@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
+  resources :registries
 	get 'sessions/new'
 
 	get 'discover/sandbox'
 	get 'discover/index'
 	root 'discover#index'
+
+	post '/recipes/follow/:id', to: 'recipes#follow', as: 'recipe_follow'
+	delete '/recipes/follow/:id', to: 'recipes#unfollow', as: 'recipe_unfollow'
+
+	post '/cookbooks/follow/:id', to: 'cookbooks#follow', as: 'cookbook_follow'
+	delete '/cookbooks/follow/:id', to: 'cookbooks#unfollow', as: 'cookbook_unfollow'
+
+	post '/users/follow/:id', to: 'users#follow', as: 'user_follow'
+	delete '/users/follow/:id', to: 'users#unfollow', as: 'user_unfollow'
 
 	resources :cookbooks
 	resources :recipes

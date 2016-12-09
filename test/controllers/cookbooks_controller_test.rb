@@ -17,7 +17,7 @@ class CookbooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cookbook" do
     assert_difference('Cookbook.count') do
-      post cookbooks_url, params: { cookbook: { author_id: @cookbook.author_id, count: @cookbook.count, description: @cookbook.description, persons_amount: @cookbook.persons_amount, recipes: @cookbook.recipes } }
+      post cookbooks_url, params: { cookbook: { user_id: @cookbook.user_id, count: @cookbook.count, description: @cookbook.description, persons_amount: @cookbook.persons_amount, recipes: @cookbook.recipes } }
     end
 
     assert_redirected_to cookbook_url(cookbook.last)
@@ -34,7 +34,7 @@ class CookbooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cookbook" do
-    patch cookbook_url(@cookbook), params: { cookbook: { author_id: @cookbook.author_id, count: @cookbook.count, description: @cookbook.description, persons_amount: @cookbook.persons_amount, recipes: @cookbook.recipes } }
+    patch cookbook_url(@cookbook), params: { cookbook: { user_id: @cookbook.user_id, count: @cookbook.count, description: @cookbook.description, persons_amount: @cookbook.persons_amount, recipes: @cookbook.recipes } }
     assert_redirected_to cookbook_url(@cookbook)
   end
 

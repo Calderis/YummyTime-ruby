@@ -1,42 +1,53 @@
-<%= form_for(playlist) do |f| %>
-  <% if playlist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(playlist.errors.count, "error") %> prohibited this playlist from being saved:</h2>
+<%= form_for(cookbook, html: { multipart: true }, remote: true, authenticity_token: true) do |f| %>
 
-      <ul>
-      <% playlist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<% if cookbook.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(cookbook.errors.count, "error") %> prohibited this cookbook from being saved:</h2>
+
+  <ul>
+    <% cookbook.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<section >
+  <div class="list_categorie">
+    <h4>Name of the cookbook</h4>
+  </div>
+  <div class="input_block">
+    <%= f.text_field :name, placeholder:"Something yummy" %>
+    <span class="count_limit">25/200</span>
+  </div>
+  <div class="list_categorie">
+    <h4>Number of persons</h4>
+  </div>
+  <div class="input_block">
+    <%= f.number_field :persons_amount, min: 1, value: 1, placeholder:"For how many personn ?" %>
+  </div>
+  <br>
+  <div class="aside_block fleft gright">
+    <div class="list_categorie">
+      <h4>Cookbook image</h4>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :recipes %>
-    <%= f.text_field :recipes %>
+    <div class="bloc_image" style="background-image:url('<%= cookbook.image %>')">
+      <div class="title_image center">
+        <%= f.file_field :image, as: :file, id:"image" %>
+        <label for="image" class="style Confirm big">Chose image</label>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :persons_amount %>
-    <%= f.number_field :persons_amount %>
+  <ul class="ingredients with_aside">
+    <div class="list_categorie">
+      <h4>Description</h4>
+    </div>
+    <div class="textarea_block">
+      <%= f.text_area :description, placeholder:"Let's explain how to cook it ..." %>
+    </div>
+  </ul>
+  <div class="navigations_buttons aright">
+    <%= f.submit "Submit", class:"style Confirm big" %>
   </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :count %>
-    <%= f.number_field :count %>
-  </div>
-
-  <div class="field">
-    <%= f.label :author_id %>
-    <%= f.number_field :author_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</section>
 <% end %>

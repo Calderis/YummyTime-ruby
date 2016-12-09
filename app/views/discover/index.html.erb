@@ -5,41 +5,24 @@
 		</div>
 		<div class="menu_filters">
 			<ul class="filters"> <!-- Add fixed -->
-				<li class="active"><a href="#overview">Overview</a></li>
-				<li><a href="#most_used">Most Used</a></li>
-				<li><a href="#favorites">Your Favorites</a></li>
-				<li><a href="#all_cookbooks">All Cookbooks</a></li>
+				<li id="overview"><a href="#overview">Overview</a></li>
+				<li id="most_used"><a href="#most_used">Most Used</a></li>
+				<li id="last_recipe"><a href="#last_recipe">Last recipe</a></li>
 			</ul>
 		</div>
-		<div class="list_cookbooks">
-			<ul class="cookbooks">
-				<%= link_to "Sandbox", {:url=>{ action: :sandbox}, :remote => true }, :class=> "style Danger big" %>
-				<%= link_to "Sandbox", discover_sandbox_path, :remote => true %>
 
-				<!-- <li>
-					<div class="big_image">
-						<div class="hover">
-							<button class="button_plan_the_week"></button>
-						</div>
-					</div>
-					<div class="informations">
-						<div class="header">
-							<h3>CookBook Name</h3>
-							<div class="icon_recipes">
-								<span class="icon starter"></span>
-								<span class="icon main"></span>
-								<span class="icon dessert"></span>
-							</div>
-						</div>
-						<div class="description">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor…</p>
-						</div>
-						<div class="cookbook_infos">
-							<p>4308 FOLLOWERS • <span class="chief_name">remi_wetteren</span></p>
-						</div>
-					</div>
-				</li> -->
+		<div class="list_cookbooks list_recipes">
+			<ul class="cookbooks" id="overview_section">
+				<% @last_cookbooks.each do |cookbook| %>
+				<%= render "cookbooks/card", cookbook: cookbook %>
+				<% end %>
 
+			</ul>
+
+			<ul class="cookbooks recipes" id="last_recipe_section">
+				<% @last_recipes.each do |recipe| %>
+				<%= render "recipes/list", recipe: recipe %>
+				<% end %>
 			</ul>
 		</div>
 	</section>

@@ -31,9 +31,14 @@ class ApplicationController < ActionController::Base
   end
 
   def famous_chiefs
-    # puts "———————————————————————————————"
-    # puts Follower.group(:followed_id).count
-    # puts "———————————————————————————————"
+    hall_of_fames = []
+    puts "———————————————————————————————"
+    scores = Follower.where(follower_type: "user").group(:followed_id).order('followed_id desc').count.first(10)
+    puts "———————————————————————————————"
+    scores.each do |score|
+      hall_of_fames = hall_of_fames + [User.find(score[0])]
+    end
+    hall_of_fames
   end
 
   def profile_presenter

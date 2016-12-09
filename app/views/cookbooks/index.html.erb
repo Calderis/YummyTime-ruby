@@ -9,7 +9,7 @@
       <th>Persons amount</th>
       <th>Description</th>
       <th>Count</th>
-      <th>Author</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +21,7 @@
       <td><%= cookbook.persons_amount %></td>
       <td><%= cookbook.description %></td>
       <td><%= cookbook.count %></td>
-      <td><%= cookbook.author_id %></td>
+      <td><%= cookbook.user_id %></td>
       <td><%= link_to 'Show', cookbook %></td>
       <td><%= link_to 'Edit', edit_cookbook_path(cookbook) %></td>
       <td><%= link_to 'Destroy', cookbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>

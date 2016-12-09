@@ -1,0 +1,38 @@
+<li>
+	<div class="recipe_image" style="background-image:url(<%= recipe.image.url(:thumb) %>)"></div>
+	<div class="recipe_informations">
+		<h3><%= link_to(truncate(recipe.name, length: 60), recipe_path(recipe)) %></h3>
+		<span class="menu_item">
+			<div class="down_menu">
+				<ul class="options">
+
+					<% if recipe.user.id != @current_user.id %>
+					<% if recipe.user.followed?(@current_user) %>
+					<li>
+						<%= link_to "Remove from favorites", {:controller => :recipes, :action => 'unfollow', :recipe => recipe }, :method => :delete %>
+					</li>
+					<% else %>
+					<li>
+						<%= link_to "Add to favorites", recipe_follow_path(recipe.user)%>
+					</li>
+					<% end %>
+					<% end %>
+					<li>Add to playlists
+						<div class="down_menu">
+							<ul class="options">
+								<li>Fast & Cheep</li>
+								<li>Fast & Cheep</li>
+								<li>Fast & Cheep</li>
+							</ul>
+						</div>
+					</li>
+					<li><%= link_to("See chief", user_path(recipe.user)) %></li>
+				</ul>
+			</div>
+		</span>
+		<span class="recipe_type">
+			<span class="icon <%= recipe.type_menu %>"></span>
+			<%= recipe.type_menu %>
+		</span>
+	</div>
+</li>

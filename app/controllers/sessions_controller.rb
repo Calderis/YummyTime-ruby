@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 				result = Hash.new(0)
 				result[:token] = form_authenticity_token
 				result[:user] = user.authenticate(params[:password])
-				format.html { redirect_to root_url, notice: 'Logged in!' }
+				format.html { redirect_to root_path(user, anchor: 'overview'), notice: 'Logged in!' }
 				format.json { render json: result, status: :created }
 			else
 				format.html { render :new }

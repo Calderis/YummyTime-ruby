@@ -9,7 +9,7 @@ class User < ApplicationRecord
 	# name - first and last name or nickname
 	# password - password used for login
 	# image - image profil of the user
-	has_attached_file :image, styles: { medium: "140x140>", thumb: "21x21>" }, default_url: "/assets/defaults/user.png"
+	has_attached_file :image, styles: { medium: "280x280>", thumb: "42x42>" }, default_url: "/assets/defaults/user.png"
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 	
 	# mail - mail of the user : used for login
@@ -18,4 +18,27 @@ class User < ApplicationRecord
 	has_one :week
 	# followers - users that want to follow him
 	has_many :followers
+	# cookbooks - Cookbooks the user made himself
+	has_many :cookbooks
+
+	def follow(user)
+		if followed?(user)
+			puts "Already followed"
+		else
+			puts "not followed"
+			follw = Follower.new
+			follw.follower_type = "user"
+			follw.follower = user
+			follw.followed_id = self.id
+			follw.save
+		end
+	end
+
+	def followed?(user)
+		Follower.where(follower_type: "user", followed_id:self.id, follower:user).count > 0
+	end
+
+	def followers
+		Follower.where(follower_type: "user", followed_id:self.id)
+	end
 end

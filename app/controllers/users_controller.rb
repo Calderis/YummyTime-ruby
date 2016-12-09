@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
 
   skip_before_action :require_login, only: [:create, :new]
 
@@ -24,6 +24,21 @@ class UsersController < ApplicationController
   def edit
   end
 
+  # POST /users/follow/1
+  def follow
+    @user.follow(User.find(@current_user))
+    redirect_to @user
+  end
+
+  # DELETE /users/follow/1
+  def unfollow
+    follw = Follower.where(followed_id:@user.id, follower_id:@current_user.id)
+    puts follw.to_json
+    follw.destroy(follw)
+    
+    redirect_to @user
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -33,7 +48,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path(@user, anchor: 'overview'), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         puts @user.errors.to_json

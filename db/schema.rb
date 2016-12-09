@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208145053) do
+ActiveRecord::Schema.define(version: 20161209162305) do
 
   create_table "cookbooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "persons_amount"
+    t.string   "name"
     t.text     "description",        limit: 65535
     t.integer  "count"
-    t.integer  "author_id"
+    t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.index ["author_id"], name: "index_cookbooks_on_author_id", using: :btree
+    t.index ["user_id"], name: "index_cookbooks_on_user_id", using: :btree
   end
 
   create_table "days", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,9 +40,9 @@ ActiveRecord::Schema.define(version: 20161208145053) do
   create_table "followers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "followed_id"
     t.integer  "follower_id"
-    t.string   "type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "follower_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "foods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -71,13 +72,23 @@ ActiveRecord::Schema.define(version: 20161208145053) do
     t.string   "name"
     t.string   "type_menu"
     t.integer  "count"
-    t.integer  "author_id"
+    t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
+  end
+
+  create_table "registries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "cookbook_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["cookbook_id"], name: "index_registries_on_cookbook_id", using: :btree
+    t.index ["recipe_id"], name: "index_registries_on_recipe_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
