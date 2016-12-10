@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cookbook:</strong>
+  <%= @registry.cookbook_id %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @registry.recipe_id %>
+</p>
+
+<%= link_to 'Edit', edit_registry_path(@registry) %> |
+<%= link_to 'Back', registries_path %>

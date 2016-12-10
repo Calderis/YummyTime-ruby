@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
 
   # GET /recipes
   # GET /recipes.json
@@ -15,19 +15,52 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @foods = Food.take(10)
   end
 
   # GET /recipes/1/edit
   def edit
   end
 
+  # POST /recipes/follow/1
+  def follow
+    @recipe.follow(User.find(@current_user))
+    redirect_to @recipe
+  end
+
+  # DELETE /recipes/follow/1
+  def unfollow
+    follw = Follower.where(followed_id:@recipe.id, follower_id:@current_user.id, follower_type: "starter").or(Follower.where(followed_id:@recipe.id, follower_id:@current_user.id, follower_type: "main")).or(Follower.where(followed_id:@recipe.id, follower_id:@current_user.id, follower_type: "dessert"))
+    puts follw.to_json
+    follw.destroy(follw)
+    
+    redirect_to @recipe
+  end
+
+
+
   # POST /recipes
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    ingredients_array = ActiveSupport::JSON.decode(recipe_params[:ingredients_array])
+
+    @recipe[:count] = 0
+    @recipe.user = @current_user
 
     respond_to do |format|
       if @recipe.save
+        ingredients_array.each do |ingredient|
+          ing = Ingredient.new
+          ing.quantity = ingredient["quantity"].to_i
+          ing.unit = ingredient["unit"]
+          ing.food_id = ingredient["food_id"]
+          ing.recipe = @recipe
+          ing.save
+        end
+
+        @recipe.follow(User.find(@current_user))
+
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else
@@ -69,6 +102,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.fetch(:recipe, {})
+      params.require(:recipe).permit(:name, :persons_amount, :description, :image, :type_menu, :user_id, :ingredients_array)
     end
-end
+  end

@@ -1,17 +1,27 @@
-<%= form_for(food) do |f| %>
-  <% if food.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+<%= form_for food, html: { multipart: true } do |f| %>
+<% if food.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
-      <ul>
-      <% food.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% food.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field"><br>
+  <label for="image" class="style Neutral big">Chose image</label>
+  <%= f.file_field :image, id:"image" %>
+</div><br>
+
+<div class="actions">
+  <%= f.submit "Submit", class:"style Confirm big" %>
+</div>
 <% end %>

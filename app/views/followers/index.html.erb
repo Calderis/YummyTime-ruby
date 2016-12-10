@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Followeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Followed</th>
+      <th>Follower</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @followeds.each do |followed| %>
+      <tr>
+        <td><%= followed.followed_id %></td>
+        <td><%= followed.follower_id %></td>
+        <td><%= followed.type %></td>
+        <td><%= link_to 'Show', followed %></td>
+        <td><%= link_to 'Edit', edit_followed_path(followed) %></td>
+        <td><%= link_to 'Destroy', followed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Followed', new_followed_path %>

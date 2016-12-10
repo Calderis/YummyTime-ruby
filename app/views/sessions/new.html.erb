@@ -1,0 +1,37 @@
+<section class="login_page">
+	<div class="logo"></div>
+	<div class="form">
+		<%= form_tag sessions_path do %>
+		<div class="list_categorie">
+			<p>Name or mail</p>
+		</div>
+		<div class="input_block">
+			<%= text_field_tag :mail, params[:mail] %>
+			<!-- <input type="text" placeholder="Don’t worry we won’t judge ..." > -->
+		</div>
+		<br>
+		<div class="list_categorie">
+			<p>Password</p>
+		</div>
+		<div class="input_block">
+			<%= password_field_tag :password %>
+			<!-- <input type="text" placeholder="Something secret ..." > -->
+		</div>
+		<br>
+		<div class="remember">
+			<p class="checkbox">
+				<input name="unit" type="checkbox" id="Starter">
+				<label for="Starter">Remember me</label>
+			</p>
+			<p class="aside_text">Have you forgot your password ?</p>
+		</div>
+		<br><br>
+		<div class="button_action center">
+			<button class="style Confirm big">Connection</button>
+		</div>
+		<div class="button_action center">
+			<%= link_to "You have no account ? REGISTER", signup_path, class: "style None" %>
+		</div>
+		<% end %>
+	</div>
+</section>

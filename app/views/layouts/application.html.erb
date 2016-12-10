@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Myapp</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>YummyTime</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+	<%= csrf_meta_tags %>
 
-  <body>
-    <%= yield %>
-  </body>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+	<% if logged_in? %>
+	<%= render "header/index", user: @current_user %>
+
+	<section class="main_frame">
+		<%= render "sidebarleft/index", {user: @current_user, presenter: profile_presenter} %>
+		<% end %>
+
+		<%= yield %>
+
+		<% if logged_in? %>
+		<%= render "sidebarright/index", user: @current_user %>
+		<%= render "weeks/bottom", user: @current_user %>
+		
+		<% end %>
+	</section>
+
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<script type="text/javascript">
+	function switch_to(anchor, actual = false){
+		elemA = document.getElementById(anchor)
+		elemB = document.getElementById(anchor + "_section")
+		if(elemA) elemA.className = "active";
+		if(elemB) elemB.style.display = "block";
+		if(actual) close_this(actual);
+		else console.log("nein");
+	}
+	function close_this(anchor){
+		elemA = document.getElementById(anchor)
+		elemB = document.getElementById(anchor + "_section")
+		if(elemA) elemA.className = "";
+		if(elemB) elemB.style.display = "none";
+	}
+	</script>
+
+</body>
 </html>

@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<!-- MAIN CONTENT -->
+<section class="main_content">
+  <div class="section cookbook_details">
+    <div class="image_header">
+      <span class="tag">
+        THIS WEEK - PLAYLIST NAME
+      </span>
+    </div>
+    <div class="title_simple">
+      <h2 class="fleft">Playlist Name</h2>
+    </div>
+    <div class="subtitles">
+      Playliste created by <span class="chief"><%= link_to @week.user.name, user_path(@week.user, anchor:"all") %></span>
+    </div>
+    <div class="menu_filters">
+      <ul class="filters"> <!-- Add fixed -->
+        <li class="active">STEPS FOR PREPERATION</li>
+        <li>INGREDIANTS FOR THE WEEK</li>
+      </ul>
+    </div>
+    <div class="list_recipes">
+      <% puts @week.to_json %>
+      <%= render "days/list", day: @week.monday, name:"monday" %>
 
-<%= link_to 'Edit', edit_week_path(@week) %> |
-<%= link_to 'Back', weeks_path %>
+      <%= render "days/list", day: @week.tuesday, name:"tuesday" %>
+
+      <%= render "days/list", day: @week.wednesday, name:"wednesday" %>
+
+      <%= render "days/list", day: @week.thursday, name:"thursday" %>
+
+      <%= render "days/list", day: @week.friday, name:"friday" %>
+
+      <%= render "days/list", day: @week.saturday, name:"saturday" %>
+
+      <%= render "days/list", day: @week.sunday, name:"sunday" %>
+    </div>
+  </div>
+</section>

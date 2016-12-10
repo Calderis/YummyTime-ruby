@@ -1,5 +1,40 @@
-<h1>New User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %>
+<section class="login_page">
+	<div class="logo"></div>
+	<div class="form">
+		<%= form_for @user do |f| %>
+		<div class="list_categorie">
+			<p>Name or mail</p>
+		</div>
+		<div class="input_block">
+			<%= f.text_field :name, placeholder:"Don’t worry we won’t judge ..." %>
+		</div>
+		<div class="list_categorie">
+			<p>Mail</p>
+		</div>
+		<div class="input_block">
+			<%= f.text_field :mail, placeholder:"It'll be your login" %>
+		</div>
+		<br>
+		<div class="list_categorie">
+			<p>Password</p>
+		</div>
+		<div class="input_block">
+			<%= f.password_field :password, placeholder:"Something secret ..." %>
+		</div>
+		<br>
+		<div class="list_categorie">
+			<p>Repeat password</p>
+		</div>
+		<div class="input_block">
+			<%= f.password_field :password_confirmation, placeholder:"Just to make sure" %>
+		</div>
+		<br><br>
+		<div class="button_action center">
+			<%= f.submit "Register", class:"style Confirm big" %>
+		</div>
+		<div class="button_action center">
+			<%= link_to 'Already have an account ? CONNECT', login_path, class:"style None" %>
+		</div>
+		<% end %>
+	</div>
+</section>

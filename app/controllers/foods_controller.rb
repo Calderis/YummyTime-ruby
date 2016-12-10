@@ -4,7 +4,11 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
+    if params[:name]
+      @foods = Food.where("name LIKE ?", "%#{params[:name]}%")
+    else
+      @foods = Food.all
+    end
   end
 
   # GET /foods/1
@@ -19,6 +23,10 @@ class FoodsController < ApplicationController
 
   # GET /foods/1/edit
   def edit
+  end
+
+  def find(name)
+    Food.where(name: name)
   end
 
   # POST /foods
@@ -69,6 +77,6 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.fetch(:food, {})
+      params.require(:food).permit(:name, :image)
     end
-end
+  end

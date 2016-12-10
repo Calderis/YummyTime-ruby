@@ -1,4 +1,67 @@
-<p id="notice"><%= notice %></p>
+<section class="main_content">
+  <div class="section recipe_details">
+    <div class="image_header big" style="background-image:url(<%= @recipe.image.url(:full) %>)">
+      <div class="title_image">
+        <h2><%= @recipe.name %></h2>
+        <% if @recipe.user != @current_user %>
+        <% if @recipe.followed?(@current_user) %>
+        <div class="fright">
+          <%= button_to "Remove from favorites", {:controller => :recipes,
+            :action => 'unfollow', :recipe => @recipe }, :method => :delete, :class => "style Danger big" %>
+          </div>
+          <% else %>
+          <div class="fright">
+            <%= button_to "Add to favorites", recipe_follow_path(@recipe), :class => "style Neutral big" %>
+          </div>
+          <% end %>
+          <% end %>
+          <button class="style Neutral big">Add to cookbook (pending)</button>
+        </div>
+      </div>
+      <div class="recipe_details">
+        <p class="recipe_type">
+          <span class="icon main"></span>
+          <%= @recipe.type_menu %>
+        </p>
+        <p>•</p>
+        <p class="recipe_type">
+          <span class="icon main"></span>
+          <%= @recipe.persons_amount %> peoples
+        </p>
+        <p>•</p>
+        <p class="recipe_type">
+          <span class="icon main"></span>
+          <%= @recipe.count %> cooked <%= @recipe.followed?(@current_user) %>
+        </p>
+      </div>
+      <div class="menu_filters">
+        <ul class="filters"> <!-- Add fixed -->
+          <li id="steps"><a onclick="switch_to('steps', 'ingredients')">Steps for preparation</a></li>
+          <li id="ingredients"><a onclick="switch_to('ingredients', 'steps')">Ingredients</a></li>
+        </ul>
+      </div>
+      <div id="steps_section">
+        <div class="recipe_steps">
+          <p><%= @recipe.description %></p>
+        </div>
+      </div>
+      <div id="ingredients_section" style="display:none">
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+        <div class="list_recipe_ingredients">
+          <ul class="ingredients with_aside">
+            <% @recipe.ingredients.each do |ingredient| %>
+            <li>
+              <div class="ingredient_image" style="background-image:url(<%= ingredient.food.image.url(:thumb) %>)"></div>
+              <div class="ingredient_informations">
+                <p class="ingredient_quantity"><%= ingredient.quantity %> <%= ingredient.unit %></p>
+                <p class="ingredient_name"><%= ingredient.food.name %></p>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+          <div class="add_to_chart"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>

@@ -1,0 +1,5 @@
+<% week = Week.new %>
+<%= form_for(week, remote: remote) do |f| %>
+<%= f.text_field :cookbook_id, value: cookbook_id, style:"display:none" %>
+<%= f.submit title, class: styles %>
+<% end %>
