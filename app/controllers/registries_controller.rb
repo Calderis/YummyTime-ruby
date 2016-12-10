@@ -25,10 +25,12 @@ class RegistriesController < ApplicationController
   # POST /registries.json
   def create
     @registry = Registry.new(registry_params)
+    cookbook = Cookbook.find(@registry.cookbook_id)
 
     respond_to do |format|
       if @registry.save
-        format.html { redirect_to @registry, notice: 'Registry was successfully created.' }
+        format.html { redirect_to cookbook_path(cookbook, anchor: 'all'), notice: 'Registry was successfully created.' }
+        format.js   {}
         format.json { render :show, status: :created, location: @registry }
       else
         format.html { render :new }
@@ -57,6 +59,7 @@ class RegistriesController < ApplicationController
     @registry.destroy
     respond_to do |format|
       format.html { redirect_to registries_url, notice: 'Registry was successfully destroyed.' }
+      format.js {}
       format.json { head :no_content }
     end
   end
@@ -71,4 +74,4 @@ class RegistriesController < ApplicationController
     def registry_params
       params.require(:registry).permit(:cookbook_id, :recipe_id)
     end
-end
+  end

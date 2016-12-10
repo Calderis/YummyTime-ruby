@@ -8,6 +8,16 @@ $color-E: #282828;
 $color-F: #181818;
 $color-G: #D8D8D8;
 $base-color: white;
+
+// $color-A: #fcfcfc;
+// $color-B: #f6f6f6;
+// $color-C: #f93d5e;
+// $color-D: #ED4747;
+// $color-E: #ebebeb;
+// $color-F: #ffffff;
+// $color-G: #2c2c2a;
+// $base-color: #2c2c2a;
+
 $police-a : 'Circular-Book';
 
 
@@ -906,10 +916,16 @@ header{
 						background-size: cover;
 						background-position: center;
 						.hover{
-							padding : calc( ( ( 100vw - 420px - (18px*3) ) / 6 ) - 34px );
+							// padding : calc( ( ( 100vw - 420px - (18px*3) ) / 6 ) - 34px );
+							width: 100%;
+							height:100%;
 							background-color: rgba(0,0,0,0.45);
 							opacity: 0;
+							position: relative;
+							display: block;
+							overflow: hidden;
 							.button_plan_the_week{
+								margin: calc( 50% - 34px );
 								background:none;
 								border:none;
 								width:68px;
@@ -939,6 +955,7 @@ header{
 					}
 					.informations{
 						padding:10px;
+						height:91px;
 						background-color: $color-E;
 						.header{
 							display: block;
@@ -963,6 +980,7 @@ header{
 							}
 						}
 						.description{
+							height:48px;
 							display: block;
 							p{
 								font-family: "Circular Std";
@@ -1063,6 +1081,10 @@ header{
 								text-decoration: underline;
 							}
 						}
+						form{
+							float: right;
+							margin:6px;
+						}
 						span.recipe_type{
 							width:80px;
 							display: inline-block;
@@ -1152,6 +1174,17 @@ header{
 										}
 										&:last-child{
 											border:none;
+										}
+										input{
+											background:none;
+											border:none;
+											font-family: "Circular Std";
+											font-size: 11px;
+											font-weight: 300;
+											line-height: 20px;
+											color: $base-color;
+											opacity: 0.87;
+											text-transform: uppercase;
 										}
 									}
 								}

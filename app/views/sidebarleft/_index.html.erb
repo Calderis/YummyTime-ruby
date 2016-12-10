@@ -28,15 +28,10 @@
 		<li class="title">
 			<h3>My Cookbooks</h3>
 		</li>
-		<% presenter.cookbooks.each do |cookbook| %>
-		<li class="title">
-			<h3><%= link_to truncate(cookbook.name, length:14), cookbook_path(cookbook) %></h3>
-		</li>
-		<% end %>
 		<% presenter.cookbooks_followed.each do |ref| %>
 		<% cookbook = Cookbook.find(ref.followed_id) %>
-		<li class="title">
-			<h3><%= link_to truncate(cookbook.name, length:14), cookbook_path(cookbook) %></h3>
+		<li class="item">
+			<p><%= link_to truncate(cookbook.name, length:16), cookbook_path(cookbook, anchor: 'all') %></p>
 		</li>
 		<% end %>
 	</ul>

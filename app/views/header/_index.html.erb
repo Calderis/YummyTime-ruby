@@ -15,7 +15,7 @@
 		</li>
 		<li class="profil">
 			<div class="profil_icon" style="background-image:url('<%= user.image %>')"></div>
-			<div class="profil_name"><%= link_to user.name, user %></div>
+			<div class="profil_name"><%= link_to user.name, user_path(user, anchor: 'all') %></div>
 			<div class="profil_drop_icon">
 				<div class="drop-list">
 					<ul>

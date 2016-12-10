@@ -10,6 +10,7 @@ class CookbooksController < ApplicationController
   # GET /cookbooks/1
   # GET /cookbooks/1.json
   def show
+    @cookbook_presenter = CookbookPresenter.new(@cookbook)
   end
 
   # GET /cookbooks/new
@@ -30,7 +31,7 @@ class CookbooksController < ApplicationController
 
   # DELETE /cookbooks/follow/1
   def unfollow
-    follw = Follower.where(followed_id:@cookbook.id, follower_id:@current_user.id)
+    follw = Follower.where(followed_id:@cookbook.id, follower_id:@current_user.id, follower_type: "cookbook")
     puts follw.to_json
     follw.destroy(follw)
     

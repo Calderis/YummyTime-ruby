@@ -31,7 +31,7 @@
     <div class="list_categorie">
       <h4>Cookbook image</h4>
     </div>
-    <div class="bloc_image" style="background-image:url('<%= cookbook.image %>')">
+    <div class="bloc_image" style="background-image:url('<%= cookbook.image.url(:full) %>')">
       <div class="title_image center">
         <%= f.file_field :image, as: :file, id:"image" %>
         <label for="image" class="style Confirm big">Chose image</label>

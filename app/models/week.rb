@@ -6,8 +6,13 @@ class Week < ApplicationRecord
 	validates :friday, presence: true
 	validates :saturday, presence: true
 	validates :sunday, presence: true
+	validates :cookbook, presence: true
+	validates :user, presence: true
 	
 	belongs_to :user
+
+	# cookbook - cookbook the week come from
+	has_one :cookbook
 
 	# monday - what is planned for monday
 	has_one :monday, class_name: "Day"

@@ -40,13 +40,13 @@
 
       <div class="list_cookbooks">
         <ul class="cookbooks" id="all_section">
-          <% @current_user.cookbooks.each do |cookbook| %>
+          <% @profile_presenter.cookbooks.each do |cookbook| %>
           <%= render "cookbooks/card", cookbook: cookbook %>
           <% end %>
         </ul>
 
         <div class="list_recipes">
-          <ul class="recipes" id="starters_section">
+          <ul class="cookbooks recipes" id="starters_section">
             <% @profile_presenter.starters.each do |followed| %>
             <% recipe = Recipe.find(followed.followed_id) %>
             <%= render "recipes/list", recipe: recipe %>
@@ -54,7 +54,7 @@
           </ul>
 
 
-          <ul class="recipes" id="mains_section">
+          <ul class="cookbooks recipes" id="mains_section">
             <% @profile_presenter.mains.each do |followed| %>
             <% recipe = Recipe.find(followed.followed_id) %>
             <%= render "recipes/list", recipe: recipe %>
@@ -62,7 +62,7 @@
           </ul>
 
 
-          <ul class="recipes" id="desserts_section">
+          <ul class="cookbooks recipes" id="desserts_section">
             <% @profile_presenter.desserts.each do |followed| %>
             <% recipe = Recipe.find(followed.followed_id) %>
             <%= render "recipes/list", recipe: recipe %>
@@ -76,7 +76,7 @@
             <ul class="chiefs">
               <% @profile_presenter.followers.each do |follower| %>
               <% follower = User.find(follower.follower_id) %>
-              <%= render "user/list", user: follower %>
+              <%= render "users/list", user: follower %>
               <% end %>
             </ul>
           </div>

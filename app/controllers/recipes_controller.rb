@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/follow/1
   def unfollow
-    follw = Follower.where(followed_id:@recipe.id, follower_id:@current_user.id)
+    follw = Follower.where(followed_id:@recipe.id, follower_id:@current_user.id, follower_type: "starter").or(Follower.where(followed_id:@recipe.id, follower_id:@current_user.id, follower_type: "main")).or(Follower.where(followed_id:@recipe.id, follower_id:@current_user.id, follower_type: "dessert"))
     puts follw.to_json
     follw.destroy(follw)
     

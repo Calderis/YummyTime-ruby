@@ -6,7 +6,7 @@
 		<% famous_chiefs.each do |user| %>
 		<% presenter = ProfilePresenter.new(user) %>
 		<li class="chief-stick">
-			<%= link_to user_path(user) do %>
+			<%= link_to user_path(user, anchor: 'all') do %>
 			<div class="image">
 				<span class="profil" style="background-image:url(<%= user.image.url(:thumb) %>)"></span>
 			</div>

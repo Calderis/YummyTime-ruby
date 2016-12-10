@@ -1,0 +1,31 @@
+<li>
+  <div class="recipe_image" style="background-image:url(<%= recipe.image.url(:thumb) %>)"></div>
+  <div class="recipe_informations">
+    <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+    <% registry = Registry.where(recipe_id: recipe.id, cookbook_id: cookbook.id).first %>
+    <%= link_to('Remove', registry, method: :delete, :remote => true, :class => 'style Neutral big fright',  :onclick => "remove_ingredient(this)") %> 
+
+    <span class="recipe_type">
+      <span class="icon <%= recipe.type_menu %>"></span>
+      <%= recipe.type_menu %>
+    </span>
+  </div>
+</li>
+
+<script type="text/javascript">
+function remove_ingredient(div){
+  var target = div.parentNode.parentNode;
+  div.parentNode.parentNode.remove();
+}
+
+Element.prototype.remove = function() {
+  this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+  for(var i = this.length - 1; i >= 0; i--) {
+    if(this[i] && this[i].parentElement) {
+      this[i].parentElement.removeChild(this[i]);
+    }
+  }
+}
+</script>

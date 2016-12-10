@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20161209162305) do
   end
 
   create_table "weeks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "cookbook_id"
     t.integer  "monday_id"
     t.integer  "tuesday_id"
     t.integer  "wednesday_id"
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(version: 20161209162305) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_weeks_on_user_id", using: :btree
   end
 
 end

@@ -6,27 +6,33 @@
 			<div class="down_menu">
 				<ul class="options">
 
-					<% if recipe.user.id != @current_user.id %>
-					<% if recipe.user.followed?(@current_user) %>
-					<li>
-						<%= link_to "Remove from favorites", {:controller => :recipes, :action => 'unfollow', :recipe => recipe }, :method => :delete %>
-					</li>
-					<% else %>
-					<li>
-						<%= link_to "Add to favorites", recipe_follow_path(recipe.user)%>
-					</li>
-					<% end %>
-					<% end %>
+					<li><%= link_to("See chief", user_path(recipe.user)) %></li>
+
 					<li>Add to playlists
 						<div class="down_menu">
 							<ul class="options">
-								<li>Fast & Cheep</li>
-								<li>Fast & Cheep</li>
-								<li>Fast & Cheep</li>
+								<% profile_presenter.cookbooks_followed.each do |ref| %>
+								<% cookbook = Cookbook.find(ref.followed_id) %>
+								<li>
+									<%= render "cookbooks/addtocookbook", title: cookbook.name, cookbook_id: cookbook.id, recipe_id:recipe.id, styles:"", remote: true %>
+								</li>
+								<% end %>
 							</ul>
 						</div>
 					</li>
-					<li><%= link_to("See chief", user_path(recipe.user)) %></li>
+
+					<% if recipe.user.id != @current_user.id %>
+					<% if recipe.user.followed?(@current_user) %>
+					<li>
+						<%= button_to "Add to favorites", recipe_follow_path(recipe)%>
+					</li>
+					<% else %>
+					<li>
+						<%= button_to "Remove from favorites", recipe_unfollow_path(recipe) %>
+					</li>
+					<% end %>
+					<% end %>
+					
 				</ul>
 			</div>
 		</span>

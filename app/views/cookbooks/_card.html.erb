@@ -2,7 +2,7 @@
 <li class="card">
   <div class="big_image" style="background-image:url(<%= cookbook.image.url(:full) %>)">
     <div class="hover">
-      <button class="button_plan_the_week"></button>
+      <%= render "weeks/generateweek", title: " ", cookbook_id: cookbook.id, styles:"button_plan_the_week", remote: false %>
     </div>
   </div>
   <div class="informations">

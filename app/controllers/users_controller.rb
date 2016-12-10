@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/follow/1
   def unfollow
-    follw = Follower.where(followed_id:@user.id, follower_id:@current_user.id)
+    follw = Follower.where(followed_id:@user.id, follower_id:@current_user.id, follower_type: "user")
     puts follw.to_json
     follw.destroy(follw)
     

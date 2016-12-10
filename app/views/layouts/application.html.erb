@@ -13,7 +13,7 @@
 	<%= render "header/index", user: @current_user %>
 
 	<section class="main_frame">
-		<%= render "sidebarleft/index", {user: @current_user, presenter: @profile_presenter} %>
+		<%= render "sidebarleft/index", {user: @current_user, presenter: profile_presenter} %>
 		<% end %>
 
 		<%= yield %>
