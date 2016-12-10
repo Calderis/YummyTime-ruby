@@ -1,6 +1,42 @@
-<h1>Editing User</h1>
+<%= form_for @user, html: { multipart: true } do |f| %>
+<section class="main_content">
 
-<%= render 'form', user: @user %>
+	<div class="section chief_profile">
+		<div class="chief_header">
+			<div class="chief_image" style="background-image:url('<%= @user.image %>')">
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+				<%= f.file_field :image, as: :file, id:"image" %>
+				<label for="image" class="style Confirm big">Upload</label>
+				
+			</div>
+			<div class="chief_informations">
+				<div class="chief_title">
+					<h4>Chief</h4>
+				</div>
+				<div class="chief_name">
+					<h1><%= f.text_field :name %></h1>
+				</div>
+				<div class="list_categorie">
+					<p>Country</p>
+				</div>
+				<div class="chief_name">
+					<h1><%= f.text_field :country, placeholder:"Where are you located ?" %></h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <div class="list_categorie">
+			<p>Password checking</p>
+		</div>
+		<div class="input_block">
+			<%= f.text_field :password, placeholder:"Just to be sure ..." %>
+		</div>
+
+		<br><br> -->
+
+		<%= f.submit "Update", class:"style Confirm big" %>
+
+	</div>
+</section>
+
+<% end %>

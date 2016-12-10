@@ -1,39 +1,38 @@
-<p id="notice"><%= notice %></p>
+<!-- MAIN CONTENT -->
+<section class="main_content">
+  <div class="section cookbook_details">
+    <div class="image_header">
+      <span class="tag">
+        THIS WEEK - PLAYLIST NAME
+      </span>
+    </div>
+    <div class="title_simple">
+      <h2 class="fleft">Playlist Name</h2>
+    </div>
+    <div class="subtitles">
+      Playliste created by <span class="chief"><%= link_to @week.user.name, user_path(@week.user, anchor:"all") %></span>
+    </div>
+    <div class="menu_filters">
+      <ul class="filters"> <!-- Add fixed -->
+        <li class="active">STEPS FOR PREPERATION</li>
+        <li>INGREDIANTS FOR THE WEEK</li>
+      </ul>
+    </div>
+    <div class="list_recipes">
+      <% puts @week.to_json %>
+      <%= render "days/list", day: @week.monday, name:"monday" %>
 
-<p>
-  <strong>Monday:</strong>
-  <%= @week.monday_id %>
-</p>
+      <%= render "days/list", day: @week.tuesday, name:"tuesday" %>
 
-<p>
-  <strong>Tuesday:</strong>
-  <%= @week.tuesday_id %>
-</p>
+      <%= render "days/list", day: @week.wednesday, name:"wednesday" %>
 
-<p>
-  <strong>Wednesday:</strong>
-  <%= @week.wednesday_id %>
-</p>
+      <%= render "days/list", day: @week.thursday, name:"thursday" %>
 
-<p>
-  <strong>Thursday:</strong>
-  <%= @week.thursday_id %>
-</p>
+      <%= render "days/list", day: @week.friday, name:"friday" %>
 
-<p>
-  <strong>Friday:</strong>
-  <%= @week.friday_id %>
-</p>
+      <%= render "days/list", day: @week.saturday, name:"saturday" %>
 
-<p>
-  <strong>Saturday:</strong>
-  <%= @week.saturday_id %>
-</p>
-
-<p>
-  <strong>Sunday:</strong>
-  <%= @week.sunday_id %>
-</p>
-
-<%= link_to 'Edit', edit_week_path(@week) %> |
-<%= link_to 'Back', weeks_path %>
+      <%= render "days/list", day: @week.sunday, name:"sunday" %>
+    </div>
+  </div>
+</section>

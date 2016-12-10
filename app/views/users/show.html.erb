@@ -1,34 +1,88 @@
-<p id="notice"><%= notice %></p>
+<section class="main_content">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <div class="section chief_profile">
+    <div class="chief_header">
+      <div class="chief_image" style="background-image:url('<%= @user.image %>')">
+      </div>
+      <div class="chief_informations">
+        <div class="chief_title">
+          <h4>Chief</h4>
+        </div>
+        <div class="chief_name">
+          <h1><%= @user.name %></h1>
+        </div>
+        <div class="chief_score">
+          <p><%= @profile_presenter.cookbooks_count %> COOKBOOKS • <%= @profile_presenter.followers_count %> FOLLOWERS</p>
+        </div>
+        <% if @user.id != @current_user.id %>
+        <% if @user.followed?(@current_user) %>
+        <div class="fright">
+          <%= button_to "Unfollow", {:controller => :users,
+            :action => 'unfollow', :user => @user }, :method => :delete, :class => "style Danger big" %>
+          </div>
+          <% else %>
+          <div class="fright">
+            <%= button_to "Follow chief", user_follow_path(@user), :class => "style Neutral big" %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="menu_filters">
+        <ul class="filters"> <!-- Add fixed -->
+          <li id="all"><a href="#all">All cookbooks</a></li>
+          <li id="starters"><a href="#starters">Starters</a> (<%= @profile_presenter.starters_count %>)</li>
+          <li id="mains"><a href="#mains">Main</a> (<%= @profile_presenter.mains_count %>)</li>
+          <li id="desserts"><a href="#desserts">Dessert</a> (<%= @profile_presenter.desserts_count %>)</li>
+          <li id="followers"><a href="#followers">Followers</a> (<%= @profile_presenter.followers_count %>)</li>
+        </ul>
+      </div>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+      <div class="list_cookbooks">
+        <ul class="cookbooks" id="all_section">
+          <% @profile_presenter.cookbooks.each do |cookbook| %>
+          <%= render "cookbooks/card", cookbook: cookbook %>
+          <% end %>
+        </ul>
 
-<p>
-  <strong>Image:</strong>
-  <%= @user.image %>
-</p>
+        <div class="list_recipes">
+          <ul class="cookbooks recipes" id="starters_section">
+            <% @profile_presenter.starters.each do |followed| %>
+            <% recipe = Recipe.find(followed.followed_id) %>
+            <%= render "recipes/list", recipe: recipe %>
+            <% end %>
+          </ul>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @user.mail %>
-</p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @user.country %>
-</p>
+          <ul class="cookbooks recipes" id="mains_section">
+            <% @profile_presenter.mains.each do |followed| %>
+            <% recipe = Recipe.find(followed.followed_id) %>
+            <%= render "recipes/list", recipe: recipe %>
+            <% end %>
+          </ul>
 
-<p>
-  <strong>Week:</strong>
-  <%= @user.week_id %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <ul class="cookbooks recipes" id="desserts_section">
+            <% @profile_presenter.desserts.each do |followed| %>
+            <% recipe = Recipe.find(followed.followed_id) %>
+            <%= render "recipes/list", recipe: recipe %>
+            <% end %>
+          </ul>
+        </div>
+
+        <ul class="cookbooks" id="followers_section">
+
+          <div class="list_chiefs">
+            <ul class="chiefs">
+              <% @profile_presenter.followers.each do |follower| %>
+              <% follower = User.find(follower.follower_id) %>
+              <%= render "users/list", user: follower %>
+              <% end %>
+            </ul>
+          </div>
+        </ul>
+
+      </div>
+
+    </div>
+  </section>

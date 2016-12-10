@@ -1,0 +1,19 @@
+<% @user_presenter = ProfilePresenter.new(user) %>
+<li>
+  <div class="chief_image" style="background-image:url(<%= user.image.url(:thumb) %>)"></div>
+  <div class="chief_informations">
+    <h4><%= link_to user.name, user_path(user) %></h4>
+    <p class="chief_score"><%= @user_presenter.cookbooks_count %> COOKBOOKS • <%= @user_presenter.followers_count %>  followers</p>
+  </div>
+  <% if user.id != @current_user.id %>
+  <% if user.followed?(@current_user) %>
+  <div class="fright">
+    <%= button_to "Unfollow", {:controller => :users, :action => 'unfollow', :user => user }, :method => :delete, :class => "style Danger big" %>
+  </div>
+  <% else %>
+  <div class="fright">
+    <%= button_to "Follow chief", user_follow_path(user), :class => "style Neutral big" %>
+  </div>
+  <% end %>
+  <% end %>
+</li>

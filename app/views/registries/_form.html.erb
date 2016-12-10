@@ -1,0 +1,27 @@
+<%= form_for(registry) do |f| %>
+  <% if registry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registry.errors.count, "error") %> prohibited this registry from being saved:</h2>
+
+      <ul>
+      <% registry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cookbook_id %>
+    <%= f.number_field :cookbook_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recipe_id %>
+    <%= f.number_field :recipe_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

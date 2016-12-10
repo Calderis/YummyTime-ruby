@@ -2,18 +2,43 @@ class User < ApplicationRecord
 	has_secure_password
 
 	validates :name, presence: true
-	validates :password, presence: true
-	validates :mail, format: { with: /.*(.com)/, message: "Request a valid Email format" }
 	validates :mail, uniqueness: true
-	validates :image, format: { with: /.*(.jpg|jpeg|png)/i, message: "Request a valid Image url" }
-	validates :image, presence: true
 	validates :country, presence: true
+
 
 	# name - first and last name or nickname
 	# password - password used for login
 	# image - image profil of the user
+	has_attached_file :image, styles: { medium: "280x280>", thumb: "42x42>" }, default_url: "/assets/defaults/user.png"
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+	
 	# mail - mail of the user : used for login
 	# country - country of the user
 	# week - current cooking planning
 	has_one :week
+	# followers - users that want to follow him
+	has_many :followers
+	# cookbooks - Cookbooks the user made himself
+	has_many :cookbooks
+
+	def follow(user)
+		if followed?(user)
+			puts "Already followed"
+		else
+			puts "not followed"
+			follw = Follower.new
+			follw.follower_type = "user"
+			follw.follower = user
+			follw.followed_id = self.id
+			follw.save
+		end
+	end
+
+	def followed?(user)
+		Follower.where(follower_type: "user", followed_id:self.id, follower:user).count > 0
+	end
+
+	def followers
+		Follower.where(follower_type: "user", followed_id:self.id)
+	end
 end

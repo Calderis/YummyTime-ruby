@@ -1,0 +1,6 @@
+<% registry = Registry.new %>
+<%= form_for(registry, remote: remote) do |f| %>
+<%= f.text_field :cookbook_id, value: cookbook_id, style:"display:none" %>
+<%= f.text_field :recipe_id, value: recipe_id, style:"display:none" %>
+<%= f.submit title, class: styles %>
+<% end %>

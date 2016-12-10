@@ -18,7 +18,10 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Encoding password
 gem 'bcrypt', '~> 3.1.7'
+# Image upload
+gem "paperclip", "~> 5.0.0"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

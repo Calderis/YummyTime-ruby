@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
+
+  skip_before_action :require_login, only: [:create, :new]
 
   # GET /users
   # GET /users.json
@@ -10,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @profile_presenter = ProfilePresenter.new(@user)
   end
 
   # GET /users/new
@@ -21,17 +24,34 @@ class UsersController < ApplicationController
   def edit
   end
 
+  # POST /users/follow/1
+  def follow
+    @user.follow(User.find(@current_user))
+    redirect_to @user
+  end
+
+  # DELETE /users/follow/1
+  def unfollow
+    follw = Follower.where(followed_id:@user.id, follower_id:@current_user.id, follower_type: "user")
+    puts follw.to_json
+    follw.destroy(follw)
+    
+    redirect_to @user
+  end
+
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user[:country] = "France";
 
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path(@user, anchor: 'overview'), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
+        puts @user.errors.to_json
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -42,10 +62,12 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
+      puts @user.to_json
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
+        puts @user.errors.to_json
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -71,5 +93,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation, :image, :mail, :country)
+    end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_update_params
+      params.require(:user).permit!
     end
   end

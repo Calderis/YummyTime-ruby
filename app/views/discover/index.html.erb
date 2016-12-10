@@ -1,1 +1,29 @@
-<h1>Discover</h1>
+<section class="main_content">
+	<section class="section discover">
+		<div class="title_simple">
+			<h2>Discover</h2>
+		</div>
+		<div class="menu_filters">
+			<ul class="filters"> <!-- Add fixed -->
+				<li id="overview"><a href="#overview">Overview</a></li>
+				<li id="most_used"><a href="#most_used">Most Used</a></li>
+				<li id="last_recipe"><a href="#last_recipe">Last recipes</a></li>
+			</ul>
+		</div>
+
+		<div class="list_cookbooks list_recipes">
+			<ul class="cookbooks" id="overview_section">
+				<% @last_cookbooks.each do |cookbook| %>
+				<%= render "cookbooks/card", cookbook: cookbook %>
+				<% end %>
+
+			</ul>
+
+			<ul class="cookbooks recipes" id="last_recipe_section">
+				<% @last_recipes.each do |recipe| %>
+				<%= render "recipes/list", recipe: recipe %>
+				<% end %>
+			</ul>
+		</div>
+	</section>
+</section>

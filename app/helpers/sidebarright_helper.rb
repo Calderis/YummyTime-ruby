@@ -1,0 +1,2 @@
+module SidebarrightHelper
+end

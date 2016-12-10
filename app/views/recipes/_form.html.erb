@@ -1,4 +1,4 @@
-<%= form_for(recipe) do |f| %>
+<%= form_for(recipe, html: { multipart: true }, remote: true, authenticity_token: true) do |f| %>
 <% if recipe.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -11,32 +11,268 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :persons_amount %>
-  <%= f.number_field :persons_amount %>
-</div>
+<section class="steps">
+  <div id="stepA_section">
+    <div class="steps_path">
+      <ul class="steps">
+        <li class="active">Step 1. Generic information</li>
+        <li>  -  </li>
+        <li>Step 2. Ingrediants</li>
+      </ul>
+    </div>
+    <div class="list_categorie">
+      <h4>Name of the recipe</h4>
+    </div>
+    <div class="input_block">
+      <%= f.text_field :name, placeholder:"Something yummy" %>
+      <span class="count_limit">25/200</span>
+    </div>
+    <div class="list_categorie">
+      <h4>Number of persons</h4>
+    </div>
+    <div class="input_block">
+      <%= f.number_field :persons_amount, min: 1, value: 1, placeholder:"For how many personn ?" %>
+    </div>
+    <br>
+    <div class="list_categorie">
+      <h4>Type of the recipe</h4>
+    </div>
+    <div class="filters_buttons">
+      <form name="filters">
+        <p class="checkbox">
+          <%= f.radio_button :type_menu, "starter", id:"Starter" %>
+          <label for="Starter">Starter</label>
+        </p>
+        <p class="checkbox">
+          <%= f.radio_button :type_menu, "main", :checked => true, id:"Main" %>
+          <label for="Main">Main</label>
+        </p>
+        <p class="checkbox">
+          <%= f.radio_button :type_menu, "dessert", id:"Dessert" %>
+          <label for="Dessert">Dessert</label>
+        </p>
+      </form>
+    </div>
+    <br>
+    <div class="aside_block fleft gright">
+      <div class="list_categorie">
+        <h4>Recipe image</h4>
+      </div>
+      <div class="bloc_image" style="background-image:url('<%= recipe.image %>')">
+        <div class="title_image center">
+          <%= f.file_field :image, id:"image" %>
+          <label for="image" class="style Confirm big">Chose image</label>
+        </div>
+      </div>
+    </div>
+    <ul class="ingredients with_aside">
+      <div class="list_categorie">
+        <h4>Description</h4>
+      </div>
+      <div class="textarea_block">
+        <%= f.text_area :description, placeholder:"Let's explain how to cook it ..." %>
+      </div>
+    </ul>
+    <div class="navigations_buttons aright">
+      <a class="style Confirm big" onclick="switch_to('stepB', 'stepA')">Next</a>
+    </div>
+  </div>
 
-<div class="field">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-</div>
 
-<div class="field">
-  <%= f.label :image %>
-  <%= f.text_field :image %>
-</div>
+  <div id="stepB_section">
+    <div class="steps_path">
+      <ul class="steps">
+        <li>Step 1. Generic information</li>
+        <li>  -  </li>
+        <li class="active">Step 2. Ingrediants</li>
+      </ul>
+    </div>
 
-<div class="field">
-  <%= f.label :type_menu %>
-  <%= f.text_field :type_menu %>
-</div>
+    <div class="list_recipe_ingredients">
+      <div class="list_categorie">
+        <h4>Ingrediants (<span id="ingredients_number">0</span>)</h4>
+      </div>
+      <ul class="ingredients" id="ingredients">
+      </ul>
+      <%= f.text_field :ingredients_array, style:"display:none", id:"list_ingredients" %>
+      <div class="navigations_buttons aright">
+        <a class="style None big" onclick="switch_to('stepA', 'stepB')">Previous</a>
+        <%= f.submit "Save", class:"style Confirm big" %>
+      </div>
+      <div class="list_categorie">
+        <h4>Search for ingredients</h4>
+      </div>
+      <div class="search_bar">
+        <div class="search_container">
+          <div class="search_icon"></div>
+          <input class="search_field" placeholder="Search" id="search_bar" onkeydown="search(event, this);">
+        </div>
+      </div>
+      <ul class="ingredients with_aside big" id="foods_results">
+      </ul>
+      <div class="aside_list" id="aside" style="display:none;">
+        <div class="head_image" id="ingredient_image_aside"></div>
+        <div class="aside_content">
+          <h4 id="ingredient_name"></h4>
+          <div class="counter">
+            <input type="number" value="1" id="ingredient_amount">
+            <button type="button" class="style Confirm round fleft" onclick="minus()">-</button>
+            <button type="button" class="style Confirm round fright" onclick="plus()">+</button>
+          </div>
+          <div class="filters_buttons">
+            <form name="filters">
+              <p class="checkbox">
+                <input name="unit" type="radio" id="Gramme" checked>
+                <label for="Gramme">Gramme</label>
+              </p>
+              <p class="checkbox">
+                <input name="unit" type="radio" id="Kilo">
+                <label for="Kilo">Kilo</label>
+              </p>
+              <p class="checkbox">
+                <input name="unit" type="radio" id="Unit">
+                <label for="Unit">Unit</label>
+              </p>
+              <p class="checkbox">
+                <input name="unit" type="radio" id="Liter">
+                <label for="Liter">Liter</label>
+              </p>
+            </form>
+          </div>
+          <div class="button_actions">
+            <button type="button" class="style Neutral big" onclick="add_ingredient()">Add to recipe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="field">
-  <%= f.label :author_id %>
-  <%= f.collection_select(:author_id, User.all, :id, :name) %>
-</div>
 
-<div class="actions">
-  <%= f.submit %>
-</div>
+
 <% end %>
+<!-- <li>
+          <div class="ingredient_image" style="background-image:url('+current_food_image+')"></div>
+          <div class="ingredient_informations">
+            <p class="ingredient_quantity">'+ingredient.quantity+' '+ingredient.unit+'</p>
+            <p class="ingredient_name">'+current_food.name+'</p>
+          </div>
+          <div class="hidden_buttons">
+            <button type="button" class="style Neutral" onclick="remove_ingredient(this)">Delete</button>
+          </div>
+        </li> -->
+        <script type="text/javascript">
+        var aside = document.getElementById("aside");
+        var ingredient_amount = document.getElementById("ingredient_amount");
+        var current_food = null;
+        var current_food_image = null;
+        var ingredients = [];
+        var foods_results = document.getElementById("foods_results");
+        var foods_list = [];
+        var list_ingredients = document.getElementById("list_ingredients");
+
+        function select_food(food_id, image){
+          var food = foods_list[food_id];
+          current_food = food;
+          current_food_image = image;
+          console.log(food);
+          console.log(image);
+          aside.style.display = "block";
+          document.getElementById("ingredient_name").innerHTML = food.name;
+          document.getElementById("ingredient_image_aside").style.backgroundImage = "url(" +image+ ")";
+        }
+
+        function get_unit(){
+          if(document.getElementById("Kilo").checked) return "kilo";
+          if(document.getElementById("Unit").checked) return "unit";
+          if(document.getElementById("Liter").checked) return "liter";
+          return "gramme";
+        }
+
+        function add_ingredient(){
+          var ingredient = {
+            food_id : current_food.id.toString(),
+            quantity : ingredient_amount.value,
+            unit : get_unit()
+          }
+          console.log(ingredient);
+          create_ingredient(ingredient, current_food);
+          aside.style.display = "none";
+        }
+
+        function create_ingredient(ingredient, food){
+          if( typeof ingredient == "string") ingredient = JSON.parse(ingredient);
+          ingredients.push(ingredient);
+          var li = document.createElement("li");
+          li.innerHTML = '<div class="ingredient_image" style="background-image:url('+current_food_image+')"></div><div class="ingredient_informations"><p class="ingredient_quantity">'+ingredient.quantity+' '+ingredient.unit+'s</p><p class="ingredient_name">'+food.name+'</p></div><div class="hidden_buttons"><button type="button" class="style Neutral" onclick="remove_ingredient(this)">Delete</button></div>';
+          document.getElementById("ingredients").appendChild(li);
+          refresh_ingredients();
+        }
+
+        function remove_ingredient(div){
+          var target = div.parentNode.parentNode;
+          var nodeList = Array.prototype.slice.call( target.parentNode.children );
+          ingredients.splice(nodeList.indexOf( target ), 1);
+          div.parentNode.parentNode.remove();
+          refresh_ingredients();
+        }
+
+        function refresh_ingredients(){
+          document.getElementById("ingredients_number").innerHTML = ingredients.length;
+          list_ingredients.value = JSON.stringify(ingredients);
+          console.log(list_ingredients.value);
+        }
+
+        function plus(){
+          ingredient_amount.value++;
+        }
+        function minus(){
+          ingredient_amount.value--;
+        }
+
+        function search(event, input){
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3001/foods.json?name=" + input.value,
+            "method": "GET",
+            "headers": {
+              "usersession": "1"
+            }
+          }
+
+          $.ajax(settings).done(function (response) {
+            console.log(response);
+            foods_list = response;
+            display_food();
+          });
+          if(event.keyCode == 13){
+            input.value = "";
+            event.preventDefault();
+          }
+        }
+
+        function display_food(){
+          foods_results.innerHTML = "";
+          for(var i = 0; i<foods_list.length; i++){
+            console.log(foods_list[i]);
+            var li = document.createElement("li");
+            li.innerHTML = '<div class="ingredient_image" style="background-image:url('+foods_list[i].image+')"></div><div class="ingredient_informations"><p class="ingredient_quantity"></p><p class="ingredient_name">'+foods_list[i].name+'</p></div><div class="hidden_buttons"><button type="button" class="style Neutral" onclick="select_food(' + i + ', \'' + foods_list[i].image + '\')">Select</button></div>';
+
+            foods_results.appendChild(li);
+          }
+        }
+
+
+        Element.prototype.remove = function() {
+          this.parentElement.removeChild(this);
+        }
+        NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+          for(var i = this.length - 1; i >= 0; i--) {
+            if(this[i] && this[i].parentElement) {
+              this[i].parentElement.removeChild(this[i]);
+            }
+          }
+        }
+
+        </script>

@@ -1,10 +1,13 @@
 class Food < ApplicationRecord
-	# attr_accessor :name, :image
-
-	validates :name, presence: true
-	validates :image, format: { with: /[A-Za-z]+\.(gif|jpg|png)/i, message: "Request a valid Image url" }
 
 	# name - name of the ingredient
-	# image - url to picture
+	# image - image of the food
+	has_attached_file :image, styles: { medium: "180x180>", thumb: "60x42>" }, default_url: "/assets/defaults/placeholder.png"
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
 	# count - number of used
+	before_save :default_values
+	def default_values
+		self.count = 0
+	end
 end

@@ -1,0 +1,99 @@
+<!-- MAIN CONTENT -->
+<section class="main_content">
+  <div class="section cookbook_details">
+    <div class="image_header" style="background-image:url(<%= @cookbook.image.url(:original) %>)"></div>
+    <div class="title_simple">
+      <h2 class="fleft"><%= @cookbook.name %></h2>
+      <% if @cookbook.user != @current_user %>
+      <% if @cookbook.followed?(@current_user) %>
+      <div class="fright">
+        <%= button_to "Unsubscribe", {:controller => :cookbooks,
+          :action => 'unfollow', :cookbook => @cookbook }, :method => :delete, :class => "style Danger big" %>
+        </div>
+        <% else %>
+        <div class="fright">
+          <%= button_to "Subscribe", cookbook_follow_path(@cookbook), :class => "style Neutral big" %>
+        </div>
+        <% end %>
+        <% end %>
+        <button class="style Neutral big">Plan the Week</button>
+      </div>
+      <div class="subtitles">
+        Playliste created by <span class="chief"><%= link_to(@cookbook.user.name, user_path(@cookbook.user)) %></span> • <%= @cookbook.recipes.count %> dishes
+      </div>
+      <div class="menu_filters">
+        <ul class="filters"> <!-- Add fixed -->
+
+          <li id="all"><a href="#all">All Recipes</a></li>
+          <li id="starters"><a href="#starters">Starters </a> (<%= @cookbook_presenter.starters_count %>)</li>
+          <li id="mains"><a href="#mains">Mains</a> (<%= @cookbook_presenter.mains_count %>)</li>
+          <li id="desserts"><a href="#desserts">Desserts </a> (<%= @cookbook_presenter.desserts_count %>)</li>
+        </ul>
+      </div>
+
+      <% if @cookbook.user == @current_user && @cookbook_presenter.recipes.count < 1 %>
+
+      <div class="annoucement">
+        <h2>Start adding some recipes !!!</h2>
+        <p class="submessage">
+          You can either start from your favorites or <br>
+          click on • • • to add them
+        </p>
+      </div>
+
+      <% end %>
+
+      <div class="list_recipes list_cookbooks">
+
+        <ul class="cookbooks recipes", id="all_section">
+          <% @cookbook_presenter.recipes.each do |recipe| %>
+          <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
+          <% end %>
+        </ul>
+
+        <ul class="cookbooks recipes", id="starters_section">
+          <% @cookbook_presenter.starters.each do |recipe| %>
+          <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
+          <% end %>
+        </ul>
+
+        <ul class="cookbooks recipes", id="mains_section">
+          <% @cookbook_presenter.mains.each do |recipe| %>
+          <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
+          <% end %>
+        </ul>
+
+        <ul class="cookbooks recipes", id="desserts_section">
+          <% @cookbook_presenter.desserts.each do |recipe| %>
+          <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
+          <% end %>
+        </ul>
+
+
+        <br><br><br>
+      </div>
+
+      <% if @cookbook.user == @current_user %>
+
+      <div class="list_recipes">
+
+        <div class="day">
+          <% presenter = ProfilePresenter.new(@current_user) %>
+          <h2>From your favorites (<%= presenter.recipes_count %>)</h2>
+          <ul class="recipes">
+
+            <% presenter.recipes.each do |ref| %>
+            <% recipe = Recipe.find(ref.followed_id) %>
+
+            <%= render "recipes/listadd", recipe: recipe, cookbook: @cookbook %>
+
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </section>

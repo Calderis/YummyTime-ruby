@@ -1,0 +1,44 @@
+<li>
+	<div class="recipe_image" style="background-image:url(<%= recipe.image.url(:thumb) %>)"></div>
+	<div class="recipe_informations">
+		<h3><%= link_to(truncate(recipe.name, length: 60), recipe_path(recipe)) %></h3>
+		<span class="menu_item">
+			<div class="down_menu">
+				<ul class="options">
+
+					<li><%= link_to("See chief", user_path(recipe.user)) %></li>
+
+					<li>Add to playlists
+						<div class="down_menu">
+							<ul class="options">
+								<% profile_presenter.cookbooks_followed.each do |ref| %>
+								<% cookbook = Cookbook.find(ref.followed_id) %>
+								<li>
+									<%= render "cookbooks/addtocookbook", title: cookbook.name, cookbook_id: cookbook.id, recipe_id:recipe.id, styles:"", remote: true %>
+								</li>
+								<% end %>
+							</ul>
+						</div>
+					</li>
+
+					<% if recipe.user.id != @current_user.id %>
+					<% if recipe.user.followed?(@current_user) %>
+					<li>
+						<%= button_to "Add to favorites", recipe_follow_path(recipe)%>
+					</li>
+					<% else %>
+					<li>
+						<%= button_to "Remove from favorites", recipe_unfollow_path(recipe) %>
+					</li>
+					<% end %>
+					<% end %>
+					
+				</ul>
+			</div>
+		</span>
+		<span class="recipe_type">
+			<span class="icon <%= recipe.type_menu %>"></span>
+			<%= recipe.type_menu %>
+		</span>
+	</div>
+</li>
