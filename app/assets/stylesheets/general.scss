@@ -40,6 +40,11 @@ body{
 	&::-webkit-scrollbar {
 		display:none;
 	}
+	input, textarea{
+		&::selection{
+			background-color: $color-C;
+		}
+	}
 	button, a, input, label{
 		text-decoration: none;
 		cursor:pointer;
