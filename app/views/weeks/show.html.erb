@@ -1,38 +1,74 @@
 <!-- MAIN CONTENT -->
 <section class="main_content">
   <div class="section cookbook_details">
-    <div class="image_header">
+    <div class="image_header" style="background-image:url(<%= @week.cookbook.image %>)">
       <span class="tag">
-        THIS WEEK - PLAYLIST NAME
+        THIS WEEK - <%= @week.cookbook.name %>
       </span>
     </div>
     <div class="title_simple">
-      <h2 class="fleft">Playlist Name</h2>
+      <h2 class="fleft"><%= @week.cookbook.name %></h2>
     </div>
     <div class="subtitles">
       Playliste created by <span class="chief"><%= link_to @week.user.name, user_path(@week.user, anchor:"all") %></span>
     </div>
     <div class="menu_filters">
       <ul class="filters"> <!-- Add fixed -->
-        <li class="active">STEPS FOR PREPERATION</li>
-        <li>INGREDIANTS FOR THE WEEK</li>
+        <li id="week_plan"><a onclick="switch_to('week_plan', 'ingredients')">Week plan</a></li>
+        <li id="ingredients"><a onclick="switch_to('ingredients', 'week_plan')">Ingredients for the week</a></li>
       </ul>
     </div>
-    <div class="list_recipes">
-      <% puts @week.to_json %>
-      <%= render "days/list", day: @week.monday, name:"monday" %>
+    <div class="list_cookbooks">
+      <div class="list_recipes" style="display:none" id="week_plan_section">
+        <%= render "days/list", day: @week.tuesday, name:"tuesday" %>
 
-      <%= render "days/list", day: @week.tuesday, name:"tuesday" %>
+        <%= render "days/list", day: @week.wednesday, name:"wednesday" %>
 
-      <%= render "days/list", day: @week.wednesday, name:"wednesday" %>
+        <%= render "days/list", day: @week.thursday, name:"thursday" %>
 
-      <%= render "days/list", day: @week.thursday, name:"thursday" %>
+        <%= render "days/list", day: @week.friday, name:"friday" %>
 
-      <%= render "days/list", day: @week.friday, name:"friday" %>
+        <%= render "days/list", day: @week.saturday, name:"saturday" %>
 
-      <%= render "days/list", day: @week.saturday, name:"saturday" %>
+        <%= render "days/list", day: @week.sunday, name:"sunday" %>
+      </div>
+      <div id="ingredients_section">
 
-      <%= render "days/list", day: @week.sunday, name:"sunday" %>
+        <div class="list_recipe_ingredients">
+          <ul class="ingredients with_aside">
+            <% @week.ingredients.each do |category| %>
+            <% puts category[1].to_json %>
+            <li>
+              <div class="ingredient_image" style="background-image:url(<%= category[1][:model].food.image.url(:thumb) %>)"></div>
+              <div class="ingredient_informations">
+
+                <% if category[1][:quantity][0] != 0 %>
+                <p class="ingredient_quantity"><%= category[1][:quantity][0] %> grammes </p>
+                <% end %>
+
+                <% if category[1][:quantity][1] != 0 %>
+                <p class="ingredient_quantity">
+                  <% if category[1][:quantity][0] != 0 %> and <% end %>
+                  <%= category[1][:quantity][1] %> units </p>
+                  <% end %>
+
+                  <% if category[1][:quantity][2] != 0 %>
+                  <p class="ingredient_quantity">
+                    <% if category[1][:quantity][1] != 0 %> and <% end %>
+                    <%= category[1][:quantity][2] %> liters 
+                  </p>
+                  <% end %>
+
+                  <p class="ingredient_name"><%= category[0] %></p>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+            <div class="add_to_chart"></div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>

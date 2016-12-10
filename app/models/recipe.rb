@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
 	attr_accessor :ingredients_array
+	
 	validates :persons_amount, presence: true
 	validates :description, presence: true
 	validates :type_menu, presence: true

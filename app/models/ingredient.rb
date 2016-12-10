@@ -1,4 +1,6 @@
 class Ingredient < ApplicationRecord
+	attr_accessor :qt
+
 	validates :food_id, presence: true
 	validates :quantity, presence: true
 	validates :unit, presence: true

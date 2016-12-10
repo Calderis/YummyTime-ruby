@@ -1,23 +1,26 @@
+<% if !user.week.nil? %>
 <footer class="current_week">
 	<ul class="footer">
 		<li class="cookbook_description">
 			<div class="image_infos">
-				<div class="profil_image"></div>
+				<%= link_to cookbook_path(user.week.cookbook, anchor: 'all') do %>
+				<div class="profil_image" style="background-image:url(<%= user.week.cookbook.image.url(:thumb) %>)"></div>
+				<% end %>
 			</div>
 			<div class="cookbook_infos">
-				<h3>Sweet & Tasty (2 persn.)</h3>
-				<span class="chief_name">Carlos Louis Ribeiro</span>
+				<h3><%= link_to user.week.cookbook.name, cookbook_path(user.week.cookbook, anchor: 'all') %></h3>
+				<span class="chief_name"><%= link_to user.week.cookbook.user.name, user_path(user, anchor: 'all') %></span>
 			</div>
 		</li>
 		<li class="week_overview">
 			<ul class="switcher">
-				<li class="left button"></li>
-				<li class="current_day">Monday - Starter</li>
-				<li class="right button"></li>
+				<!-- <li class="left button"></li> -->
+				<li class="current_day"><%= link_to "WEEK PLAN", week_path(user.week, anchor: 'week_plan') %></li>
+				<!-- <li class="right button"></li> -->
 			</ul>
 			<ul class="recipe_infos">
 				<li class="recipe_name">
-					Starter : <p>Watermelon & feta salad</p>
+					Created with ♥ by the team of YummyTime
 				</li>
 			</ul>
 		</li>
@@ -29,3 +32,4 @@
 		</li>
 	</ul>
 </footer>
+<% end %>

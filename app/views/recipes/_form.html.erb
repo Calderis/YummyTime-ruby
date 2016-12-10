@@ -17,7 +17,7 @@
       <ul class="steps">
         <li class="active">Step 1. Generic information</li>
         <li>  -  </li>
-        <li>Step 2. Ingrediants</li>
+        <li>Step 2. ingredients</li>
       </ul>
     </div>
     <div class="list_categorie">
@@ -84,13 +84,13 @@
       <ul class="steps">
         <li>Step 1. Generic information</li>
         <li>  -  </li>
-        <li class="active">Step 2. Ingrediants</li>
+        <li class="active">Step 2. ingredients</li>
       </ul>
     </div>
 
     <div class="list_recipe_ingredients">
       <div class="list_categorie">
-        <h4>Ingrediants (<span id="ingredients_number">0</span>)</h4>
+        <h4>ingredients (<span id="ingredients_number">0</span>)</h4>
       </div>
       <ul class="ingredients" id="ingredients">
       </ul>
@@ -122,19 +122,19 @@
           <div class="filters_buttons">
             <form name="filters">
               <p class="checkbox">
-                <input name="unit" type="radio" id="Gramme" checked>
+                <input name="unit" type="radio" id="Gramme" value="gramme" checked>
                 <label for="Gramme">Gramme</label>
               </p>
               <p class="checkbox">
-                <input name="unit" type="radio" id="Kilo">
+                <input name="unit" type="radio" id="Kilo" value="kilo">
                 <label for="Kilo">Kilo</label>
               </p>
               <p class="checkbox">
-                <input name="unit" type="radio" id="Unit">
+                <input name="unit" type="radio" id="Unit" value="unit">
                 <label for="Unit">Unit</label>
               </p>
               <p class="checkbox">
-                <input name="unit" type="radio" id="Liter">
+                <input name="unit" type="radio" id="Liter" value="liter">
                 <label for="Liter">Liter</label>
               </p>
             </form>
@@ -234,7 +234,7 @@
           var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://91.134.136.124:3001/foods.json?name=" + input.value,
+            "url": window.location.origin + "/foods.json?name=" + input.value,
             "method": "GET",
             "headers": {
               "usersession": "1"

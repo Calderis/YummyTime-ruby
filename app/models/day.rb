@@ -1,17 +1,28 @@
 class Day < ApplicationRecord
-	validates :main, presence: true
-
-	belongs_to :week
 
 	# starter - starter recipe
-	has_one :starter, class_name: "Recipe"
-	# has_one :starter, through: :recipe
-
 	# main - main recipe
-	has_one :main, class_name: "Recipe"
-	# has_one :main, through: :recipe
-
 	# dessert - dessert recipe
-	has_one :dessert, class_name: "Recipe"
-	# has_one :dessert, through: :recipe
+
+	def starter
+		if self.starter_id.nil?
+			nil
+		else
+			Recipe.find(self.starter_id)
+		end
+	end
+	def main
+		if self.main_id.nil?
+			nil
+		else
+			Recipe.find(self.main_id)
+		end
+	end
+	def dessert
+		if self.dessert_id.nil?
+			nil
+		else
+			Recipe.find(self.dessert_id)
+		end
+	end
 end

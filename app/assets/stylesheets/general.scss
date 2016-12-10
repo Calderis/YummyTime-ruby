@@ -42,7 +42,9 @@ body{
 	}
 	input, textarea{
 		&::selection{
-			background-color: $color-C;
+			color: $color-D;
+			// background-color: $color-C;
+			background-color: $color-G;
 		}
 	}
 	button, a, input, label{
@@ -564,6 +566,9 @@ header{
 						width: 40px;
 						height: 40px;
 						background-color: $color-C;
+						background-size: cover;
+						background-position: center;
+						cursor:pointer;
 					}
 				}
 				.cookbook_infos{
@@ -618,6 +623,9 @@ header{
 						text-align: center;
 						line-height: 20px;
 						color: $base-color;
+						&:hover{
+							text-decoration: underline;
+						}
 					}
 					li.button{
 						cursor:pointer;
@@ -643,12 +651,8 @@ header{
 						text-align: center;
 						line-height: 18px;
 						color: $base-color;
-						cursor: pointer;
 						p{
 							display: inline;
-						}
-						&:hover{
-							text-decoration: underline;
 						}
 					}
 				}

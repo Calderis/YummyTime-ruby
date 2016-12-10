@@ -1,0 +1,14 @@
+<div class="day">
+	<h2 style="text-transform:uppercase"><%= name %></h2>
+	<ul class="recipes">
+		<% if !day.starter.nil? %>
+		<%= render "recipes/list", recipe: day.starter %>
+		<% end %>
+		<% if !day.main.nil? %>
+		<%= render "recipes/list", recipe: day.main %>
+		<% end %>
+		<% if !day.dessert.nil? %>
+		<%= render "recipes/list", recipe: day.dessert %>
+		<% end %>
+	</ul>
+</div>
