@@ -15,7 +15,7 @@ class Cookbook < ApplicationRecord
 	# count - number of used
 	before_save :default_values
 	def default_values
-		self.count = 0
+		self.count_time = 0
 	end
 
 	# image - cookbook banner

@@ -25,10 +25,12 @@
 			</ul>
 		</li>
 		<li class="week_shopping_list">
+			<%= link_to week_path(user.week, anchor: 'ingredients') do %>
 			<button class="style Neutral">
 				<span class="icon cart"></span>
 				See what you need to buy
 			</button>
+			<% end %>
 		</li>
 	</ul>
 </footer>

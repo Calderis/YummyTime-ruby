@@ -7,7 +7,7 @@ class DiscoverController < ApplicationController
 		# 	@most_followed_cookbooks = @most_followed_cookbooks + [Cookbook.find()]
 		# end
 
-		@most_used_cookbooks = Cookbook.order(:count).first(20)
+		@most_used_cookbooks = Cookbook.order(:count_time).first(20)
 		@last_cookbooks = Cookbook.last(20)
 		@last_recipes = Recipe.last(20)
 	end

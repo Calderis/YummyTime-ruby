@@ -16,7 +16,7 @@
         </div>
         <% end %>
         <% end %>
-        <button class="style Neutral big">Plan the Week</button>
+        <%= render "weeks/generateweek", title: "Plan the Week", cookbook_id: @cookbook.id, styles:"style Neutral big", remote: false %>
       </div>
       <div class="subtitles">
         Playliste created by <span class="chief"><%= link_to(@cookbook.user.name, user_path(@cookbook.user)) %></span> • <%= @cookbook.recipes.count %> dishes
@@ -49,11 +49,48 @@
           <% @cookbook_presenter.recipes.each do |recipe| %>
           <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
           <% end %>
+
+          <% if @cookbook.user == @current_user %>
+          <br><br><br>
+          <div class="list_recipes">
+            <div class="day">
+              <% presenter = ProfilePresenter.new(@current_user) %>
+              <h2>From your favorites (<%= presenter.recipes_count %>)</h2>
+              <ul class="recipes">
+
+                <% presenter.recipes.each do |ref| %>
+                <% recipe = Recipe.find(ref.followed_id) %>
+
+                <%= render "recipes/listadd", recipe: recipe, cookbook: @cookbook %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+
         </ul>
 
         <ul class="cookbooks recipes", id="starters_section">
           <% @cookbook_presenter.starters.each do |recipe| %>
           <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
+          <% end %>
+
+          <% if @cookbook.user == @current_user %>
+          <br><br><br>
+          <div class="list_recipes">
+            <div class="day">
+              <% presenter = ProfilePresenter.new(@current_user) %>
+              <h2>From your favorites (<%= presenter.starters_count %>)</h2>
+              <ul class="recipes">
+
+                <% presenter.starters.each do |ref| %>
+                <% recipe = Recipe.find(ref.followed_id) %>
+
+                <%= render "recipes/listadd", recipe: recipe, cookbook: @cookbook %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
           <% end %>
         </ul>
 
@@ -61,39 +98,52 @@
           <% @cookbook_presenter.mains.each do |recipe| %>
           <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
           <% end %>
+
+          <% if @cookbook.user == @current_user %>
+          <br><br><br>
+          <div class="list_recipes">
+            <div class="day">
+              <% presenter = ProfilePresenter.new(@current_user) %>
+              <h2>From your favorites (<%= presenter.mains_count %>)</h2>
+              <ul class="recipes">
+
+                <% presenter.mains.each do |ref| %>
+                <% recipe = Recipe.find(ref.followed_id) %>
+
+                <%= render "recipes/listadd", recipe: recipe, cookbook: @cookbook %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <% end %>
         </ul>
 
         <ul class="cookbooks recipes", id="desserts_section">
           <% @cookbook_presenter.desserts.each do |recipe| %>
           <%= render "recipes/listdelete", recipe: recipe, cookbook: @cookbook %>
           <% end %>
+
+          <% if @cookbook.user == @current_user %>
+          <br><br><br>
+          <div class="list_recipes">
+            <div class="day">
+              <% presenter = ProfilePresenter.new(@current_user) %>
+              <h2>From your favorites (<%= presenter.desserts_count %>)</h2>
+              <ul class="recipes">
+
+                <% presenter.desserts.each do |ref| %>
+                <% recipe = Recipe.find(ref.followed_id) %>
+
+                <%= render "recipes/listadd", recipe: recipe, cookbook: @cookbook %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <% end %>
         </ul>
-
-
-        <br><br><br>
       </div>
 
-      <% if @cookbook.user == @current_user %>
 
-      <div class="list_recipes">
-
-        <div class="day">
-          <% presenter = ProfilePresenter.new(@current_user) %>
-          <h2>From your favorites (<%= presenter.recipes_count %>)</h2>
-          <ul class="recipes">
-
-            <% presenter.recipes.each do |ref| %>
-            <% recipe = Recipe.find(ref.followed_id) %>
-
-            <%= render "recipes/listadd", recipe: recipe, cookbook: @cookbook %>
-
-            <% end %>
-
-          </ul>
-        </div>
-      </div>
-
-      <% end %>
 
     </div>
   </section>

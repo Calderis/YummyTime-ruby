@@ -1,7 +1,9 @@
 <li>
+	<%= link_to recipe_path(recipe, anchor: 'all') do %>
 	<div class="recipe_image" style="background-image:url(<%= recipe.image.url(:thumb) %>)"></div>
+	<% end %>
 	<div class="recipe_informations">
-		<h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+		<h3><%= link_to recipe.name, recipe_path(recipe, anchor: 'all') %></h3>
 		<%= render "cookbooks/addtocookbook", title: "Add", cookbook_id: cookbook.id, recipe_id:recipe.id, styles:"style Neutral big", remote: false %>
 		<span class="recipe_type">
 			<span class="icon <%= recipe.type_menu %>"></span>

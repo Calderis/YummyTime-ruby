@@ -1,13 +1,15 @@
 <% presenter = ProfilePresenter.new(cookbook.user) %>
 <li class="card">
   <div class="big_image" style="background-image:url(<%= cookbook.image.url(:full) %>)">
+
     <div class="hover">
       <%= render "weeks/generateweek", title: " ", cookbook_id: cookbook.id, styles:"button_plan_the_week", remote: false %>
     </div>
+
   </div>
   <div class="informations">
     <div class="header">
-      <h3><%= link_to cookbook.name, cookbook_path(cookbook) %></h3>
+      <h3><%= link_to cookbook.name, cookbook_path(cookbook, anchor: 'all') %></h3>
     </div>
     <div class="description">
       <p><%= truncate(cookbook.description, length: 90) %></p>

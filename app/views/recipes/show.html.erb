@@ -15,7 +15,7 @@
           </div>
           <% end %>
           <% end %>
-          <button class="style Neutral big">Add to cookbook (pending)</button>
+          <!-- <button class="style Neutral big">Add to cookbook (pending)</button> -->
         </div>
       </div>
       <div class="recipe_details">
@@ -31,7 +31,7 @@
         <p>•</p>
         <p class="recipe_type">
           <span class="icon main"></span>
-          <%= @recipe.count %> cooked <%= @recipe.followed?(@current_user) %>
+          <%= @recipe.count_time %> cooked <%= @recipe.followed?(@current_user) %>
         </p>
       </div>
       <div class="menu_filters">
@@ -44,6 +44,23 @@
         <div class="recipe_steps">
           <p><%= @recipe.description %></p>
         </div>
+
+        <br><br><br>
+        <div class="list_recipes">
+          <div class="day">
+            <% presenter = ProfilePresenter.new(@current_user) %>
+            <h2>Add to cookbook (<%= presenter.cookbooks_count %>)</h2>
+            <ul class="recipes">
+
+              <% presenter.cookbooks_followed.each do |ref| %>
+              <% cookbook = Cookbook.find(ref.followed_id) %>
+
+              <%= render "cookbooks/listadd", recipe: @recipe, cookbook: cookbook %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
       </div>
       <div id="ingredients_section" style="display:none">
 
