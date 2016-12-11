@@ -15,6 +15,10 @@
           <%= button_to "Subscribe", cookbook_follow_path(@cookbook), :class => "style Neutral big" %>
         </div>
         <% end %>
+        <% else %>
+        <div class="fright">
+          <%= link_to('Edit', edit_cookbook_url, :class => 'style Neutral big') %>
+        </div>
         <% end %>
         <%= render "weeks/generateweek", title: "Plan the Week", cookbook_id: @cookbook.id, styles:"style Neutral big", remote: false %>
       </div>
