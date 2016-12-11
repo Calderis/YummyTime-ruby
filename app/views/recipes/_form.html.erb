@@ -93,6 +93,21 @@
         <h4>ingredients (<span id="ingredients_number">0</span>)</h4>
       </div>
       <ul class="ingredients" id="ingredients">
+
+        <% @recipe.ingredients.each do |ingredient| %>
+        <li>
+          <div class="ingredient_image" style="background-image:url(<%= ingredient.food.image.url(:thumb) %>)"></div>
+          <div class="ingredient_informations">
+            <p class="ingredient_quantity"><%= ingredient.quantity %> <%= ingredient.unit %>s</p>
+            <p class="ingredient_name"><%= ingredient.food.name %></p>
+          </div>
+          <div class="hidden_buttons">
+            <%= link_to('Remove', ingredient, method: :delete, :remote => true, :class => 'style Neutral',  :onclick => "remove_ingredient(this)") %> 
+            <!-- <button type="button" class="style Neutral" onclick="remove_ingredient(this)">Delete</button> -->
+          </div>
+        </li>
+        <% end %>
+
       </ul>
       <%= f.text_field :ingredients_array, style:"display:none", id:"list_ingredients" %>
       <div class="navigations_buttons aright">

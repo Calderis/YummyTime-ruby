@@ -1,6 +1,15 @@
-<h1>Editing Recipe</h1>
+<section class="main_content">
+	<div class="section create_recipe">
 
-<%= render 'form', recipe: @recipe %>
+		<div class="title_simple">
+			<h2>Edit a recipe</h2>
+		</div>
 
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+		<div class="list_recipe_ingredients">
+			<%= render 'form', recipe: @recipe %>
+		</div>
+		
+
+	</div>
+</div>
+</section>
