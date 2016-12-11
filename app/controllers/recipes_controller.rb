@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     ingredients_array = ActiveSupport::JSON.decode(recipe_params[:ingredients_array])
 
-    @recipe[:count] = 0
+    @recipe[:count_time] = 0
     @recipe.user = @current_user
 
     respond_to do |format|

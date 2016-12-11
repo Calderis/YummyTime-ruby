@@ -1090,7 +1090,7 @@ header{
 								text-decoration: underline;
 							}
 						}
-						form{
+						form, a.form{
 							float: right;
 							margin:6px;
 						}
@@ -1194,6 +1194,10 @@ header{
 											color: $base-color;
 											opacity: 0.87;
 											text-transform: uppercase;
+										}
+										form{
+											float:none;
+											margin:0;
 										}
 									}
 								}

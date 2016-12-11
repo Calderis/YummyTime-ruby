@@ -43,33 +43,33 @@ class WeeksController < ApplicationController
     @sunday = Day.new
     
     if presenter_cookbook.starters.count > 0
-      @monday.starter_id = presenter_cookbook.starters.sample.id
-      @tuesday.starter_id = presenter_cookbook.starters.sample.id
-      @wednesday.starter_id = presenter_cookbook.starters.sample.id
-      @thursday.starter_id = presenter_cookbook.starters.sample.id
-      @friday.starter_id = presenter_cookbook.starters.sample.id
-      @saturday.starter_id = presenter_cookbook.starters.sample.id
-      @sunday.starter_id = presenter_cookbook.starters.sample.id
+      @monday.starter_id = presenter_cookbook.starter_random_id
+      @tuesday.starter_id = presenter_cookbook.starter_random_id
+      @wednesday.starter_id = presenter_cookbook.starter_random_id
+      @thursday.starter_id = presenter_cookbook.starter_random_id
+      @friday.starter_id = presenter_cookbook.starter_random_id
+      @saturday.starter_id = presenter_cookbook.starter_random_id
+      @sunday.starter_id = presenter_cookbook.starter_random_id
     end
     
     if presenter_cookbook.mains.count > 0
-      @monday.main_id = presenter_cookbook.mains.sample.id
-      @tuesday.main_id = presenter_cookbook.mains.sample.id
-      @wednesday.main_id = presenter_cookbook.mains.sample.id
-      @thursday.main_id = presenter_cookbook.mains.sample.id
-      @friday.main_id = presenter_cookbook.mains.sample.id
-      @saturday.main_id = presenter_cookbook.mains.sample.id
-      @sunday.main_id = presenter_cookbook.mains.sample.id
+      @monday.main_id = presenter_cookbook.main_random_id
+      @tuesday.main_id = presenter_cookbook.main_random_id
+      @wednesday.main_id = presenter_cookbook.main_random_id
+      @thursday.main_id = presenter_cookbook.main_random_id
+      @friday.main_id = presenter_cookbook.main_random_id
+      @saturday.main_id = presenter_cookbook.main_random_id
+      @sunday.main_id = presenter_cookbook.main_random_id
     end
 
     if presenter_cookbook.desserts.count > 0
-      @monday.dessert_id = presenter_cookbook.desserts.sample.id
-      @tuesday.dessert_id = presenter_cookbook.desserts.sample.id
-      @wednesday.dessert_id = presenter_cookbook.desserts.sample.id
-      @thursday.dessert_id = presenter_cookbook.desserts.sample.id
-      @friday.dessert_id = presenter_cookbook.desserts.sample.id
-      @saturday.dessert_id = presenter_cookbook.desserts.sample.id
-      @sunday.dessert_id = presenter_cookbook.desserts.sample.id
+      @monday.dessert_id = presenter_cookbook.dessert_random_id
+      @tuesday.dessert_id = presenter_cookbook.dessert_random_id
+      @wednesday.dessert_id = presenter_cookbook.dessert_random_id
+      @thursday.dessert_id = presenter_cookbook.dessert_random_id
+      @friday.dessert_id = presenter_cookbook.dessert_random_id
+      @saturday.dessert_id = presenter_cookbook.dessert_random_id
+      @sunday.dessert_id = presenter_cookbook.dessert_random_id
     end
 
     @monday.save
@@ -96,8 +96,11 @@ class WeeksController < ApplicationController
     respond_to do |format|
       if @week.save
 
-        @current_user.week = @week
+        @current_user.week_id = @week.id
         @current_user.save
+
+        @cookbook.count_time = @cookbook.count_time + 1
+        @cookbook.save
 
         format.html { redirect_to @week, notice: 'Week was successfully created.' }
         format.json { render :show, status: :created, location: @week }

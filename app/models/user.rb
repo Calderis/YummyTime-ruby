@@ -41,4 +41,12 @@ class User < ApplicationRecord
 	def followers
 		Follower.where(follower_type: "user", followed_id:self.id)
 	end
+
+	def week
+		if !self.week_id.nil?
+			Week.find(self.week_id)
+		else
+			nil
+		end
+	end
 end

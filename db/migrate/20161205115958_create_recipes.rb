@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :name
       t.string :type_menu
-      t.integer :count
+      t.integer :count_time
       t.belongs_to :user
 
       t.timestamps

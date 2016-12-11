@@ -42,7 +42,7 @@ class CookbooksController < ApplicationController
   # POST /cookbooks.json
   def create
     @cookbook = Cookbook.new(cookbook_params)
-    @cookbook[:count] = 0
+    @cookbook[:count_time] = 0
     @cookbook.user = @current_user
 
     respond_to do |format|
