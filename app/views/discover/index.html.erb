@@ -19,6 +19,13 @@
 
 			</ul>
 
+			<ul class="cookbooks" id="most_used_section">
+				<% @most_used_cookbooks.each do |cookbook| %>
+				<%= render "cookbooks/card", cookbook: cookbook %>
+				<% end %>
+
+			</ul>
+
 			<ul class="cookbooks recipes" id="last_recipe_section">
 				<% @last_recipes.each do |recipe| %>
 				<%= render "recipes/list", recipe: recipe %>
