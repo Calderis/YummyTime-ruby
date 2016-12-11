@@ -31,7 +31,7 @@
         <p>•</p>
         <p class="recipe_type">
           <span class="icon main"></span>
-          <%= @recipe.count_time %> cooked <%= @recipe.followed?(@current_user) %>
+          <%= @recipe.count_time %> cooked
         </p>
       </div>
       <div class="menu_filters">
@@ -42,7 +42,7 @@
       </div>
       <div id="steps_section">
         <div class="recipe_steps">
-          <p><%= @recipe.description %></p>
+          <p><%= simple_format(@recipe.description) %></p>
         </div>
 
         <br><br><br>
