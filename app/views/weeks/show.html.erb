@@ -34,9 +34,9 @@
 
         <%= render "days/list", day: @week.sunday, name:"sunday" %>
       </div>
-      <div id="ingredients_section">
+      <div id="ingredients_section" style="display:none">
 
-        <div class="list_recipe_ingredients" style="display:none">
+        <div class="list_recipe_ingredients">
           <ul class="ingredients with_aside">
             <% @week.ingredients.each do |category| %>
             <% puts category[1].to_json %>

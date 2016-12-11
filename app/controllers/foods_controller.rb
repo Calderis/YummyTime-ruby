@@ -33,6 +33,7 @@ class FoodsController < ApplicationController
   # POST /foods.json
   def create
     @food = Food.new(food_params)
+    @food[:count_time] = 0
 
     respond_to do |format|
       if @food.save
