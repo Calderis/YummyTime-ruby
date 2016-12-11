@@ -42,10 +42,10 @@ class CookbookPresenter
 	def starter_random_id
 		starter = @starters.sample
 		starter.ingredients.each do |ingredient|
-			ingredient.food.count_time = ingredient.food.count_time + 1
+			ingredient.food.count_time += 1
 			ingredient.food.save
 		end
-		starter.count_time = starter.count_time + 1
+		starter.count_time += 1
 		starter.save
 		starter.id
 	end
@@ -59,10 +59,10 @@ class CookbookPresenter
 	def main_random_id
 		main = @mains.sample
 		main.ingredients.each do |ingredient|
-			ingredient.food.count_time = ingredient.food.count_time + 1
+			ingredient.food.count_time += 1
 			ingredient.food.save
 		end
-		main.count_time = main.count_time + 1
+		main.count_time += 1
 		main.save
 		main.id
 	end
@@ -76,10 +76,10 @@ class CookbookPresenter
 	def dessert_random_id
 		dessert = @desserts.sample
 		dessert.ingredients.each do |ingredient|
-			ingredient.food.count_time = ingredient.food.count_time + 1
+			ingredient.food.count_time += 1
 			ingredient.food.save
 		end
-		dessert.count_time = dessert.count_time + 1
+		dessert.count_time += 1
 		dessert.save
 		dessert.id
 	end
