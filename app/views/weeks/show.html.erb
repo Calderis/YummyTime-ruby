@@ -20,6 +20,8 @@
     </div>
     <div class="list_cookbooks">
       <div class="list_recipes" style="display:none" id="week_plan_section">
+        <%= render "days/list", day: @week.monday, name:"monday" %>
+
         <%= render "days/list", day: @week.tuesday, name:"tuesday" %>
 
         <%= render "days/list", day: @week.wednesday, name:"wednesday" %>
@@ -34,7 +36,7 @@
       </div>
       <div id="ingredients_section">
 
-        <div class="list_recipe_ingredients">
+        <div class="list_recipe_ingredients" style="display:none">
           <ul class="ingredients with_aside">
             <% @week.ingredients.each do |category| %>
             <% puts category[1].to_json %>
