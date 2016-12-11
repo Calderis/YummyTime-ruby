@@ -13,10 +13,6 @@ class Cookbook < ApplicationRecord
 	# name - name  of the cookbook
 	# description - description of the cookbook
 	# count - number of used
-	before_save :default_values
-	def default_values
-		self.count_time = 0
-	end
 
 	# image - cookbook banner
 	has_attached_file :image, styles: { full: "660x270",banner: "800x180>", thumb: "280x250>" }, default_url: "/assets/defaults/placeholder.png"

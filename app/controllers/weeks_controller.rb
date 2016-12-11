@@ -99,6 +99,7 @@ class WeeksController < ApplicationController
         @current_user.week_id = @week.id
         @current_user.save
 
+        @cookbook.count_time = @cookbook.count_time
         @cookbook.count_time += 1
         @cookbook.save
 

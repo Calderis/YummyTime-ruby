@@ -18,10 +18,6 @@ class Recipe < ApplicationRecord
 	
 	# type_menu - starter/main/dessert
 	# count - number of used
-	before_save :default_values
-	def default_values
-		self.count_time = 0
-	end
 	
 	# user - user’s id
 	belongs_to :user
