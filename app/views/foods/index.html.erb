@@ -11,9 +11,9 @@
             <div class="ingredient_informations">
               <p class="ingredient_name"> <%= food.name %> </p>
             </div>
-            <%= link_to('Destroy', food_path(food), :class => 'style Neutral big fright', :method => :delete) %>
-            <%= link_to('Edit', edit_food_path(food), :class => 'style Neutral big fright') %>
-            <%= link_to('Show', food, :class => 'style Neutral big fright') %>
+            <%= link_to('Destroy', food_path(food), :class => 'fright', :method => :delete) %> 
+            <%= link_to(' - Edit - ', edit_food_path(food), :class => 'fright') %>
+            <%= link_to('Show', food, :class => 'fright') %>
           </div>
         </li>
         <% end %>
