@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
     if params[:name]
       @foods = Food.where("name LIKE ?", "%#{params[:name]}%")
     else
-      @foods = Food.all
+      @foods = Food.order(:name).all
     end
   end
 
