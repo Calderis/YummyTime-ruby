@@ -23,7 +23,7 @@
         <%= render "weeks/generateweek", title: "Plan the Week", cookbook_id: @cookbook.id, styles:"style Neutral big", remote: false %>
       </div>
       <div class="subtitles">
-        Playliste created by <span class="chief"><%= link_to(@cookbook.user.name, user_path(@cookbook.user)) %></span> • <%= @cookbook.recipes.count %> dishes
+        Cookbook created by <span class="chief"><%= link_to(@cookbook.user.name, user_path(@cookbook.user)) %></span> • <%= @cookbook.recipes.count %> dishes
       </div>
       <div class="menu_filters">
         <ul class="filters"> <!-- Add fixed -->

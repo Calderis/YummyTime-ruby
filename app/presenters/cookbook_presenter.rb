@@ -58,7 +58,10 @@ class CookbookPresenter
 		@mains
 	end
 	def main_random_id
+		puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+		puts @mains.to_json
 		main = @mains.sample
+		puts main.to_json
 		main.ingredients.each do |ingredient|
 			food = ingredient.food
 			food.count_time += 1

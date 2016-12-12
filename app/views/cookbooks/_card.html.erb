@@ -15,7 +15,7 @@
       <p><%= truncate(cookbook.description, length: 90) %></p>
     </div>
     <div class="cookbook_infos">
-      <p><%= presenter.followers_count %> FOLLOWERS • <span class="chief_name"><%= link_to cookbook.user.name, user_path(cookbook.user) %></span></p>
+      <p><%= presenter.followers_count %> FOLLOWERS • <span class="chief_name"><%= link_to cookbook.user.name, user_path(cookbook.user, anchor: 'all') %></span></p>
     </div>
   </div>
 </li>

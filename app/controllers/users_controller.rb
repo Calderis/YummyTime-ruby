@@ -43,6 +43,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    puts "###@@@@@@@@@@@@@@@@@@@@@@@@@"
+    # if user_params.passw.nil?
+    #   puts "hoho"
+    #   user_params.passw
+    # end
+    puts user_params.to_json
+    puts @user.password.to_json
     @user[:country] = "France";
 
     respond_to do |format|
@@ -64,7 +71,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       puts @user.to_json
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_path(@user, anchor: 'overview'), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         puts @user.errors.to_json

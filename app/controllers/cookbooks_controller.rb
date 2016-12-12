@@ -50,7 +50,7 @@ class CookbooksController < ApplicationController
 
         @cookbook.follow(User.find(@current_user))
         
-        format.html { redirect_to @cookbook, notice: 'cookbook was successfully created.' }
+        format.html { redirect_to cookbook_path(@cookbook, anchor: 'all'), notice: 'cookbook was successfully created.' }
         format.json { render :show, status: :created, location: @cookbook }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class CookbooksController < ApplicationController
   def update
     respond_to do |format|
       if @cookbook.update(cookbook_params)
-        format.html { redirect_to @cookbook, notice: 'cookbook was successfully updated.' }
+        format.html { redirect_to cookbook_path(@cookbook, anchor: 'all'), notice: 'cookbook was successfully updated.' }
         format.json { render :show, status: :ok, location: @cookbook }
       else
         format.html { render :edit }
