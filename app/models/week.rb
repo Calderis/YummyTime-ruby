@@ -30,6 +30,28 @@ class Week < ApplicationRecord
 		Cookbook.find(self.cookbook_id)
 	end
 
+	def monday
+		Day.where(week_id: self.id)
+	end
+	def tuesday
+		Day.where(week_id: self.id).offset(1)
+	end
+	def wednesday
+		Day.where(week_id: self.id).offset(2)
+	end
+	def thursday
+		Day.where(week_id: self.id).offset(3)
+	end
+	def friday
+		Day.where(week_id: self.id).offset(4)
+	end
+	def saturday
+		Day.where(week_id: self.id).offset(5)
+	end
+	def sunday
+		Day.where(week_id: self.id).offset(6)
+	end
+
 	def ingredients
 		ingredients = []
 

@@ -10,7 +10,11 @@ class WeeksController < ApplicationController
   # GET /weeks/1
   # GET /weeks/1.json
   def show
-  end
+    respond_to do |format|
+      format.json {
+        render :json => @week, :include => [:monday] }
+      end
+    end
 
   # GET /weeks/new
   def new

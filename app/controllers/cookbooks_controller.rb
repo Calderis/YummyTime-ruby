@@ -50,8 +50,6 @@ class CookbooksController < ApplicationController
   # POST /cookbooks
   # POST /cookbooks.json
   def create
-    puts "——————————————— COOKBOOK ————————————————"
-    puts params.to_json
     @cookbook = Cookbook.new(cookbook_params)
     @cookbook[:count_time] = 0
     @cookbook.user = @current_user
