@@ -8,7 +8,7 @@
           <% @foods.each do |food| %>
           <li>
             <div class="ingredient_image" style="background-image:url(<%= food.image.url(:thumb) %>)"></div>
-            <div class="ingredient_informations">
+            <div class="ingredient_informations" style="width: calc( 100% - 100px ); padding-left:20px;">
               <p class="ingredient_name"> <%= food.name %> </p>
               <div class="fright">
                 <%= link_to('Destroy', food_path(food), :class => 'fright', :method => :delete) %> 
