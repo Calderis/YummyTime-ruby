@@ -31,7 +31,7 @@ class RegistriesController < ApplicationController
       if @registry.save
         format.html { redirect_to cookbook_path(cookbook, anchor: 'all'), notice: 'Registry was successfully created.' }
         format.js   {}
-        format.json { render :show, status: :created, location: @registry }
+        format.json { render json: @registry }
       else
         format.html { render :new }
         format.json { render json: @registry.errors, status: :unprocessable_entity }

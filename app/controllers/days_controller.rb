@@ -29,7 +29,7 @@ class DaysController < ApplicationController
     respond_to do |format|
       if @day.save
         format.html { redirect_to @day, notice: 'Day was successfully created.' }
-        format.json { render :show, status: :created, location: @day }
+        format.json { render json: @day }
       else
         format.html { render :new }
         format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -71,4 +71,4 @@ class DaysController < ApplicationController
     def day_params
       params.require(:day).permit(:starter_id, :main_id, :dessert_id)
     end
-end
+  end

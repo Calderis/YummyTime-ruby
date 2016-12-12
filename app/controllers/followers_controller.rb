@@ -29,7 +29,7 @@ class FollowersController < ApplicationController
     respond_to do |format|
       if @follower.save
         format.html { redirect_to follower_path(@follower, anchor: 'all'), notice: 'Follower was successfully created.' }
-        format.json { render :show, status: :created, location: @follower }
+        format.json { render json: @follower }
       else
         format.html { render :new }
         format.json { render json: @follower.errors, status: :unprocessable_entity }

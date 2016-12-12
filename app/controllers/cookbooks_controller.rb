@@ -13,7 +13,6 @@ class CookbooksController < ApplicationController
     respond_to do |format|
       format.html { 
         @cookbook_presenter = CookbookPresenter.new(@cookbook)
-        redirect_to cookbook_path(@cookbook, anchor: 'all'), notice: 'cookbook was successfully created.'
       }
       format.json { render :json => @cookbook }
     end
@@ -22,7 +21,6 @@ class CookbooksController < ApplicationController
   # GET /cookbooks/new
   def new
     @cookbook = Cookbook.new
-    puts @cookbook.to_json
   end
 
   # GET /cookbooks/1/edit
@@ -52,6 +50,8 @@ class CookbooksController < ApplicationController
   # POST /cookbooks
   # POST /cookbooks.json
   def create
+    puts "——————————————— COOKBOOK ————————————————"
+    puts params.to_json
     @cookbook = Cookbook.new(cookbook_params)
     @cookbook[:count_time] = 0
     @cookbook.user = @current_user
@@ -61,8 +61,8 @@ class CookbooksController < ApplicationController
 
         @cookbook.follow(User.find(@current_user))
         
-        format.html { redirect_to cookbook_path(@cookbook, anchor: 'all'), notice: 'cookbook was successfully created.' }
-        format.json { render :show, status: :created, location: @cookbook }
+        format.html { redirect_to @cookbook, anchor: 'all', notice: 'cookbook was successfully created.' }
+        format.json { render json: @cookbook }
       else
         format.html { render :new }
         format.json { render json: @cookbook.errors, status: :unprocessable_entity }

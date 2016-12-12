@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
         @recipe.follow(User.find(@current_user))
 
         format.html { redirect_to recipe_path(@recipe, anchor: 'all'), notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
+        format.json { render json: @recipe }
       else
         format.html { render :new }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }

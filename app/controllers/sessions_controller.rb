@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 				result[:token] = form_authenticity_token
 				result[:user] = user.authenticate(params[:password])
 				format.html { redirect_to root_path(user, anchor: 'overview'), notice: 'Logged in!' }
-				format.json { render json: result, status: :created }
+				format.json { render json: result }
 			else
 				format.html { render :new }
 				format.json { render json: @current_user.errors, status: :unprocessable_entity }

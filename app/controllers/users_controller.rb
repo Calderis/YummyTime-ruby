@@ -63,7 +63,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         format.html { redirect_to root_path(@user, anchor: 'overview'), notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render json: @user }
       else
         puts @user.errors.to_json
         format.html { render :new }

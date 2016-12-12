@@ -104,7 +104,7 @@ class WeeksController < ApplicationController
         @cookbook.save
 
         format.html { redirect_to @week, notice: 'Week was successfully created.' }
-        format.json { render :show, status: :created, location: @week }
+        format.json { render json: @week }
       else
         format.html { render :new }
         format.json { render json: @week.errors, status: :unprocessable_entity }
