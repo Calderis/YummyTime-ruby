@@ -28,7 +28,7 @@ class FollowersController < ApplicationController
 
     respond_to do |format|
       if @follower.save
-        format.html { redirect_to @follower, notice: 'Follower was successfully created.' }
+        format.html { redirect_to follower_path(@follower, anchor: 'all'), notice: 'Follower was successfully created.' }
         format.json { render :show, status: :created, location: @follower }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class FollowersController < ApplicationController
   def destroy
     @follower.destroy
     respond_to do |format|
-      format.html { redirect_to followers_url, notice: 'Follower was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Follower was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

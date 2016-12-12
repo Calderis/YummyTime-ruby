@@ -42,14 +42,21 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-    puts "###@@@@@@@@@@@@@@@@@@@@@@@@@"
-    # if user_params.passw.nil?
-    #   puts "hoho"
-    #   user_params.passw
-    # end
+    puts "———————————————— CREATE USER ——————————————"
+    puts params.to_json
     puts user_params.to_json
-    puts @user.password.to_json
+    @user_params = user_params
+    if !params[:password].nil?
+      puts "hoho"
+      @user_params[:password] = params[:password]
+    end
+    if !params[:password_confirmation].nil?
+      puts "hoho"
+      @user_params[:password_confirmation] = params[:password_confirmation]
+    end
+    puts "———————————————— CREATE USER (after modifs) ——————————————"
+    puts @user_params.to_json
+    @user = User.new(@user_params)
     @user[:country] = "France";
 
     respond_to do |format|
@@ -70,7 +77,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       puts @user.to_json
-      if @user.update(user_params)
+      if @user.update(user_update_params)
         format.html { redirect_to user_path(@user, anchor: 'overview'), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -99,7 +106,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation, :image, :mail, :country)
+      params.require(:user).permit(:name, :password, :passw, :password_confirmation, :image, :mail, :country)
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_update_params

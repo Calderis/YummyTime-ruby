@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :registries
+	resources :registries
 	get 'sessions/new'
 
 	get 'discover/sandbox'

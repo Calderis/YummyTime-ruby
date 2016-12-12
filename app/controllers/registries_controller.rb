@@ -42,9 +42,11 @@ class RegistriesController < ApplicationController
   # PATCH/PUT /registries/1
   # PATCH/PUT /registries/1.json
   def update
+    cookbook = Cookbook.find(@registry.cookbook_id)
+
     respond_to do |format|
       if @registry.update(registry_params)
-        format.html { redirect_to @registry, notice: 'Registry was successfully updated.' }
+        format.html { redirect_to cookbook_path(cookbook, anchor: 'all'), notice: 'Registry was successfully updated.' }
         format.json { render :show, status: :ok, location: @registry }
       else
         format.html { render :edit }
@@ -56,9 +58,11 @@ class RegistriesController < ApplicationController
   # DELETE /registries/1
   # DELETE /registries/1.json
   def destroy
+    cookbook = Cookbook.find(@registry.cookbook_id)
+    
     @registry.destroy
     respond_to do |format|
-      format.html { redirect_to registries_url, notice: 'Registry was successfully destroyed.' }
+      format.html { redirect_to cookbook_path(cookbook, anchor: 'all'), notice: 'Registry was successfully destroyed.' }
       format.js {}
       format.json { head :no_content }
     end
