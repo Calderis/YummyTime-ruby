@@ -4,7 +4,7 @@
     <h3><%= link_to recipe.name, recipe_path(recipe, anchor: 'all') %></h3>
     <% registry = Registry.where(recipe_id: recipe.id, cookbook_id: cookbook.id).first %>
     
-    <% if recipe.user.id == @current_user.id %>
+    <% if cookbook.user.id == @current_user.id %>
     <%= link_to('Remove', registry, method: :delete, :remote => true, :class => 'style Neutral big fright form',  :onclick => "remove_ingredient(this)") %> 
     <% end %>
 
