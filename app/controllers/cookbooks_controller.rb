@@ -1,5 +1,5 @@
 class CookbooksController < ApplicationController
-  before_action :set_cookbook, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
+  before_action :set_cookbook, only: [:show, :edit, :update, :destroy, :follow, :unfollow, :recipes]
 
   # GET /cookbooks
   # GET /cookbooks.json
@@ -10,7 +10,13 @@ class CookbooksController < ApplicationController
   # GET /cookbooks/1
   # GET /cookbooks/1.json
   def show
-    @cookbook_presenter = CookbookPresenter.new(@cookbook)
+    respond_to do |format|
+      format.html { 
+        @cookbook_presenter = CookbookPresenter.new(@cookbook)
+        redirect_to cookbook_path(@cookbook, anchor: 'all'), notice: 'cookbook was successfully created.'
+      }
+      format.json { render :json => @cookbook }
+    end
   end
 
   # GET /cookbooks/new
@@ -36,6 +42,11 @@ class CookbooksController < ApplicationController
     follw.destroy(follw)
     
     redirect_to @cookbook
+  end
+
+  # GET /cookbooks/1/recipes
+  def recipes
+    render json: CookbookPresenter.new(@cookbook).recipes.to_json
   end
 
   # POST /cookbooks

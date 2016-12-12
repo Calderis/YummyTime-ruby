@@ -1,11 +1,11 @@
 class WeeksController < ApplicationController
   before_action :set_week, only: [:show, :edit, :update, :destroy]
 
-  # GET /weeks
-  # GET /weeks.json
-  def index
-    @weeks = Week.all
-  end
+  # # GET /weeks
+  # # GET /weeks.json
+  # def index
+  #   @weeks = Week.all
+  # end
 
   # GET /weeks/1
   # GET /weeks/1.json
@@ -112,29 +112,29 @@ class WeeksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /weeks/1
-  # PATCH/PUT /weeks/1.json
-  def update
-    respond_to do |format|
-      if @week.update(week_params)
-        format.html { redirect_to week_path(@week, anchor: 'week_plan'), notice: 'Week was successfully updated.' }
-        format.json { render :show, status: :ok, location: @week }
-      else
-        format.html { render :edit }
-        format.json { render json: @week.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # # PATCH/PUT /weeks/1
+  # # PATCH/PUT /weeks/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @week.update(week_params)
+  #       format.html { redirect_to week_path(@week, anchor: 'week_plan'), notice: 'Week was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @week }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @week.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-  # DELETE /weeks/1
-  # DELETE /weeks/1.json
-  def destroy
-    @week.destroy
-    respond_to do |format|
-      format.html { redirect_to weeks_url, notice: 'Week was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # # DELETE /weeks/1
+  # # DELETE /weeks/1.json
+  # def destroy
+  #   @week.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to weeks_url, notice: 'Week was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

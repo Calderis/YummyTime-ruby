@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :follow, :unfollow, :ingredients]
 
   # GET /recipes
   # GET /recipes.json
@@ -35,6 +35,11 @@ class RecipesController < ApplicationController
     follw.destroy(follw)
     
     redirect_to @recipe
+  end
+
+  # GET /recipes/1/ingredients
+  def ingredients
+    render json: @recipe.ingredients, :include => [:food]
   end
 
 

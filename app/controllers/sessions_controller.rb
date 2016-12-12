@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 				format.json { render json: result, status: :created }
 			else
 				format.html { render :new }
-				format.json { render json: @users.errors, status: :unprocessable_entity }
+				format.json { render json: @current_user.errors, status: :unprocessable_entity }
 			end
 		end
 	end
