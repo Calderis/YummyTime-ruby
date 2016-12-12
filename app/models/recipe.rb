@@ -45,4 +45,5 @@ class Recipe < ApplicationRecord
 	def followers
 		Follower.where(follower_type: self.type_menu, followed_id:self.id)
 	end
+
 end

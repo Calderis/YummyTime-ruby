@@ -11,7 +11,7 @@ class WeeksController < ApplicationController
   # GET /weeks/1.json
   def show
     respond_to do |format|
-      format.html { redirect_to week_path(@week, anchor: 'all')}
+      format.html { }
       format.json {
         render :json => @week, :include => [:monday, :tuesday, ] }
       end

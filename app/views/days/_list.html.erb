@@ -1,6 +1,8 @@
 <div class="day">
 	<h2 style="text-transform:uppercase"><%= name %></h2>
 	<ul class="recipes">
+		<% puts "FUCK ————————————————————————————— " %>
+		<% puts day.to_json %>
 		<% if !day.starter.nil? %>
 		<%= render "recipes/list", recipe: day.starter %>
 		<% end %>
