@@ -1,36 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Foods</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @foods.each do |food| %>
-    <tr>
-      <td><%= food.name %></td>
-      <td><%= food.image %></td>
-      <td><%= food.count_time %></td>
-      <td><%= link_to 'Show', food %></td>
-      <td><%= link_to 'Edit', edit_food_path(food) %></td>
-      <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Food', new_food_path %>
-<%= link_to('New Food', new_food_path, :class => 'style Neutral big') %>
-
 <section class="main_content">
   <div class="section recipe_details">
 
@@ -43,9 +10,11 @@
             <div class="ingredient_image" style="background-image:url(<%= food.image.url(:thumb) %>)"></div>
             <div class="ingredient_informations">
               <p class="ingredient_name"> <%= food.name %> </p>
-              <%= link_to('Destroy', food_path(food), :class => 'fright', :method => :delete) %> 
-              <%= link_to(' - Edit - ', edit_food_path(food), :class => 'fright') %>
-              <%= link_to('Show', food, :class => 'fright') %>
+              <div class="fright">
+                <%= link_to('Destroy', food_path(food), :class => 'fright', :method => :delete) %> 
+                <%= link_to(' - Edit - ', edit_food_path(food), :class => 'fright') %>
+                <%= link_to('Show', food, :class => 'fright') %>
+              </div>
             </div>
           </li>
           <% end %>
