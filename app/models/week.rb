@@ -31,25 +31,25 @@ class Week < ApplicationRecord
 	end
 
 	def monday
-		Day.where(week_id: self.id)
+		Day.where(week_id: self.id).first
 	end
 	def tuesday
-		Day.where(week_id: self.id).offset(1)
+		Day.where(week_id: self.id).offset(1).first
 	end
 	def wednesday
-		Day.where(week_id: self.id).offset(2)
+		Day.where(week_id: self.id).offset(2).first
 	end
 	def thursday
-		Day.where(week_id: self.id).offset(3)
+		Day.where(week_id: self.id).offset(3).first
 	end
 	def friday
-		Day.where(week_id: self.id).offset(4)
+		Day.where(week_id: self.id).offset(4).first
 	end
 	def saturday
-		Day.where(week_id: self.id).offset(5)
+		Day.where(week_id: self.id).offset(5).first
 	end
 	def sunday
-		Day.where(week_id: self.id).offset(6)
+		Day.where(week_id: self.id).offset(6).first
 	end
 
 	def ingredients
