@@ -11,8 +11,9 @@ class WeeksController < ApplicationController
   # GET /weeks/1.json
   def show
     respond_to do |format|
+      format.html { redirect_to week_path(@week, anchor: 'all')}
       format.json {
-        render :json => @week, :include => [:monday] }
+        render :json => @week, :include => [:monday, :tuesday, ] }
       end
     end
 
@@ -107,7 +108,7 @@ class WeeksController < ApplicationController
         @cookbook.count_time += 1
         @cookbook.save
 
-        format.html { redirect_to @week, notice: 'Week was successfully created.' }
+        format.html { redirect_to week_path(@week, anchor: 'all'), notice: 'Week was successfully created.' }
         format.json { render json: @week }
       else
         format.html { render :new }
