@@ -11,8 +11,7 @@
 					<li>Add to cookbooks
 						<div class="down_menu">
 							<ul class="options">
-								<% profile_presenter.cookbooks.each do |ref| %>
-								<% cookbook = Cookbook.find(ref.followed_id) %>
+								<% profile_presenter.cookbooks.each do |cookbook| %>
 								<li>
 									<%= render "cookbooks/addtocookbook", title: cookbook.name, cookbook_id: cookbook.id, recipe_id:recipe.id, styles:"", remote: true %>
 								</li>
