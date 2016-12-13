@@ -4,7 +4,8 @@ class CookbooksController < ApplicationController
   # GET /cookbooks
   # GET /cookbooks.json
   def index
-    @cookbooks = Cookbook.all
+    # @cookbooks = Cookbook.all
+    @cookbooks = Cookbook.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /cookbooks/1

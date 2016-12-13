@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 5.0.0"
 # adding javascript
 gem "therubyracer"
+# Used for api pagination
+gem 'will_paginate', '~> 3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
