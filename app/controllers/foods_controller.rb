@@ -7,7 +7,8 @@ class FoodsController < ApplicationController
     if params[:name]
       @foods = Food.where("name LIKE ?", "%#{params[:name]}%")
     else
-      @foods = Food.order(:name).all
+      # @foods = Food.order(:name).all
+      @foods = Food.paginate(:page => params[:page], :per_page => 10)
     end
   end
 
