@@ -5,7 +5,11 @@ class CookbooksController < ApplicationController
   # GET /cookbooks.json
   def index
     # @cookbooks = Cookbook.all
-    @cookbooks = Cookbook.paginate(:page => params[:page], :per_page => 10)
+    limit = params[:limit]
+    if !limit.nil?
+      limit = 10
+    end
+    @cookbooks = Cookbook.paginate(:page => params[:page], :per_page => limit)
   end
 
   # GET /cookbooks/1

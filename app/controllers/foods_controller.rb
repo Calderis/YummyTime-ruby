@@ -8,7 +8,11 @@ class FoodsController < ApplicationController
       @foods = Food.where("name LIKE ?", "%#{params[:name]}%")
     else
       # @foods = Food.order(:name).all
-      @foods = Food.paginate(:page => params[:page], :per_page => 10)
+      limit = params[:limit]
+      if !limit.nil?
+        limit = 10
+      end
+      @foods = Food.paginate(:page => params[:page], :per_page => limit)
     end
   end
 

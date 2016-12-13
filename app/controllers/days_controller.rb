@@ -5,7 +5,11 @@ class DaysController < ApplicationController
   # GET /days.json
   def index
     # @days = Day.all
-    @days = Day.paginate(:page => params[:page], :per_page => 10)
+    limit = params[:limit]
+    if !limit.nil?
+      limit = 10
+    end
+    @days = Day.paginate(:page => params[:page], :per_page => limit)
   end
 
   # GET /days/1

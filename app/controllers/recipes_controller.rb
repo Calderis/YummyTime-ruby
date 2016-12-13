@@ -5,7 +5,11 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     # @recipes = Recipe.all
-    @recipes = Recipe.paginate(:page => params[:page], :per_page => 10)
+    limit = params[:limit]
+    if !limit.nil?
+      limit = 10
+    end
+    @recipes = Recipe.paginate(:page => params[:page], :per_page => limit)
   end
 
   # GET /recipes/1
