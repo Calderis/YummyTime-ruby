@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   def index
     # @recipes = Recipe.all
     limit = params[:limit]
-    if !limit.nil?
+    if limit.nil?
       limit = 10
     end
     @recipes = Recipe.paginate(:page => params[:page], :per_page => limit)
