@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 	post '/users/follow/:id', to: 'users#follow', as: 'user_follow'
 	delete '/users/follow/:id', to: 'users#unfollow', as: 'user_unfollow'
 
+	get '/weeks/:id/cart', to: 'weeks#cart', as: 'week_cart'
+
 	resources :cookbooks
 	resources :recipes
 	resources :users

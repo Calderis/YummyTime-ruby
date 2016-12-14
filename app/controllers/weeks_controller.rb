@@ -1,5 +1,5 @@
 class WeeksController < ApplicationController
-  before_action :set_week, only: [:show, :edit, :update, :destroy]
+  before_action :set_week, only: [:show, :edit, :update, :destroy, :cart]
 
   # # GET /weeks
   # # GET /weeks.json
@@ -13,13 +13,18 @@ class WeeksController < ApplicationController
     respond_to do |format|
       format.html { }
       format.json {
-        render :json => @week, :include => [:monday, :tuesday, ] }
+        render :json => @week, :include => [:monday, :tuesday, :wednesday, :friday, :thursday, :saturday, :sunday ] }
       end
     end
 
   # GET /weeks/new
   def new
     @week = Week.new
+  end
+
+  # GET /weeks/:id/cart
+  def cart
+    render json: @week.ingredients, :include => [:food]
   end
 
   # GET /weeks/1/edit
