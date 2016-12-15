@@ -35,6 +35,11 @@ class Cookbook < ApplicationRecord
 		end
 	end
 
+	def recipes_count
+		@cookbook_presenter = CookbookPresenter.new(self)
+		@cookbook_presenter.recipes_count
+	end
+
 	def followed?(user)
 		Follower.where(follower_type: "cookbook", followed_id:self.id, follower:user).count > 0
 	end

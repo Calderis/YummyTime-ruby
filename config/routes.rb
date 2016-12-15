@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
 	get '/weeks/:id/cart', to: 'weeks#cart', as: 'week_cart'
 
+	get '/users/famous', to: 'users#famous', as: 'users_famous'
+
 	resources :cookbooks
 	resources :recipes
 	resources :users
