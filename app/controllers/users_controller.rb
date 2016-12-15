@@ -17,8 +17,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @profile_presenter = ProfilePresenter.new(@user)
-  end
+    respond_to do |format|
+      format.html { @profile_presenter = ProfilePresenter.new(@user) }
+      format.json {
+        render :json => @user }
+      end
+    end
 
   # GET /users/new
   def new

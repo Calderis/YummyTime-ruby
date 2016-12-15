@@ -23,6 +23,15 @@ class CookbooksController < ApplicationController
     end
   end
 
+  # GET /cookbooks/famous.json
+  def famous
+    hall_of_fames = Cookbook.order(:count_time).first(20)
+    respond_to do |format|
+      format.json { render :json => hall_of_fames, :methods => [:image] }
+      format.html { redirect_to cookbooks_url }
+    end
+  end
+
   # GET /cookbooks/new
   def new
     @cookbook = Cookbook.new
