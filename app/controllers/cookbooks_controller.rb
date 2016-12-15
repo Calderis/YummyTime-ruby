@@ -28,7 +28,7 @@ class CookbooksController < ApplicationController
     hall_of_fames = Cookbook.order(:count_time).first(20)
     respond_to do |format|
       format.json { render :json => hall_of_fames, :methods => [:image] }
-      format.html { redirect_to cookbooks_url }
+      format.html { redirect_to root_url }
     end
   end
 
