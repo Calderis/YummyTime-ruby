@@ -47,6 +47,9 @@ class Cookbook < ApplicationRecord
 	def followers
 		Follower.where(follower_type: "cookbook", followed_id:self.id)
 	end
+	def followers_count
+		Follower.where(follower_type: "cookbook", followed_id:self.id).count
+	end
 
 	def add_recipe(recipe)
 		registry = Registry.new
