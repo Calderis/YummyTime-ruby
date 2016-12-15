@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   # GET /cookbooks/famous.json
   def famous
-    hall_of_fames = Recipes.order(:count_time).first(20)
+    hall_of_fames = Recipe.order(:count_time).first(20)
     respond_to do |format|
       format.json { render :json => hall_of_fames, :methods => [:image] }
       format.html { redirect_to root_url }
