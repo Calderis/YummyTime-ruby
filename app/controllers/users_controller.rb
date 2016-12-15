@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { @profile_presenter = ProfilePresenter.new(@user) }
       format.json {
-        render :json => @user }
+        render :json => @user, :methods => [:cookbooks, :recipes, :recipes_count, :cookbook_count, :image, :image_thumb, :image_medium] }
       end
     end
 

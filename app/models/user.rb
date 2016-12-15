@@ -41,6 +41,12 @@ class User < ApplicationRecord
 		@profile_presenter = ProfilePresenter.new(self)
 		@profile_presenter.recipes_count
 	end
+	def recipes
+		Recipe.where(user: self)
+	end
+	def cookbooks
+		Cookbook.where(user: self)
+	end
 
 	def followed?(user)
 		Follower.where(follower_type: "user", followed_id:self.id, follower:user).count > 0
