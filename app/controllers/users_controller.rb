@@ -20,9 +20,40 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { @profile_presenter = ProfilePresenter.new(@user) }
       format.json {
-        render :json => @user, :methods => [:cookbooks, :recipes, :recipes_count, :cookbook_count, :image, :image_thumb, :image_medium] }
-      end
+        render :json => @user.to_json(:methods => [
+          :cookbooks,
+          :recipes,
+          :recipes_count,
+          :cookbook_count,
+          :image,
+          :image_thumb,
+          :image_medium
+          ])
+      }
+      # format.json {
+      #   render :json => @user.to_json(:include => [
+      #     :cookbooks => {:methods => :image_full},
+      #     :recipes => {:methods => :image_medium},
+      #     :recipes_count => {},
+      #     :cookbook_count => {},
+      #     :image => {},
+      #     :image_thumb => {},
+      #     :image_medium => {}
+      #     ])
+      # }
+      # format.json {
+      #   render :json => @user.to_json(:methods => [
+      #     :cookbooks,
+      #     :recipes,
+      #     :recipes_count,
+      #     :cookbook_count,
+      #     :image,
+      #     :image_thumb,
+      #     :image_medium
+      #     ])
+      # }
     end
+  end
 
   # GET /users/new
   def new

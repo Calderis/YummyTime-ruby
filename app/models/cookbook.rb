@@ -65,4 +65,11 @@ class Cookbook < ApplicationRecord
 	def image_full
 		self.image.url(:full)
 	end
+
+	def as_json(options = {})
+		json = super(options)
+		json['image_thumb'] = self.image_thumb
+		json['image_full'] = self.image_full
+		json
+	end
 end
