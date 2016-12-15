@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       hall_of_fames = hall_of_fames + [ user ]
     end
     respond_to do |format|
-      format.json { render :json => hall_of_fames, :methods => [:recipes_count, :cookbook_count, :image] }
+      format.json { render :json => hall_of_fames, :methods => [:recipes_count, :cookbook_count, :image, :image_thumb, :image_medium] }
       format.html { redirect_to users_url }
     end
   end
