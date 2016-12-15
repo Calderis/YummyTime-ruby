@@ -34,11 +34,11 @@ class UsersController < ApplicationController
     hall_of_fames = []
     scores = Follower.where(follower_type: "user").group(:followed_id).order('followed_id asc').count.first(10)
     scores.each do |score|
-      user = User.find(score[0], :include => [:recipes_count, :cookbook_count])
+      user = User.find(score[0])
       hall_of_fames = hall_of_fames + [ user ]
     end
     respond_to do |format|
-      format.json { render :json => hall_of_fames }
+      format.json { render :json => hall_of_fames, :methods => [:recipes_count, :cookbook_count] }
       format.html { redirect_to users_url }
     end
   end
