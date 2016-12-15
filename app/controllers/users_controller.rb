@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       hall_of_fames = hall_of_fames + [User.find(score[0])]
     end
     respond_to do |format|
-      format.json { render :json => hall_of_fames.as_json(:include => [:recipes_count, :cookbook_count ]) }
+      format.json { render :json => hall_of_fames.as_json(:include => {:recipes_count, :cookbook_count } ) }
       format.html { redirect_to users_url }
     end
   end
