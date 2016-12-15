@@ -15,12 +15,8 @@ class SessionsController < ApplicationController
 		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 		respond_to do |format|
 			if user && user.authenticate(params[:password])
-				session[:user_id] = user.id
-				result = Hash.new(0)
-				result[:token] = form_authenticity_token
-				result[:user] = user.authenticate(params[:password])
 				format.html { redirect_to root_path(user, anchor: 'overview'), notice: 'Logged in!' }
-				format.json { render json: result }
+				format.json { render json: user }
 			else
 				format.html { render :new }
 				format.json { render json: @current_user.errors, status: :unprocessable_entity }
