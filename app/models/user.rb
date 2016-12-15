@@ -57,4 +57,11 @@ class User < ApplicationRecord
 			nil
 		end
 	end
+
+	def image_thumb
+		self.image.url(:thumb)
+	end
+	def image_medium
+		self.image.url(:medium)
+	end
 end

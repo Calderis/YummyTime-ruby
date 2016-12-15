@@ -46,4 +46,11 @@ class Recipe < ApplicationRecord
 		Follower.where(follower_type: self.type_menu, followed_id:self.id)
 	end
 
+	def image_thumb
+		self.image.url(:thumb)
+	end
+	def image_medium
+		self.image.url(:medium)
+	end
+
 end

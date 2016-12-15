@@ -55,4 +55,11 @@ class Cookbook < ApplicationRecord
 		registry.save
 		redirect_to self
 	end
+
+	def image_thumb
+		self.image.url(:thumb)
+	end
+	def image_full
+		self.image.url(:full)
+	end
 end
