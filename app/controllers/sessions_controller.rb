@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 		respond_to do |format|
 			if user && user.authenticate(params[:password])
+				session[:user_id] = user.id
 				format.html { redirect_to root_path(user, anchor: 'overview'), notice: 'Logged in!' }
 				format.json { render json: user }
 			else
