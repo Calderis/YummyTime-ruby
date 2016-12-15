@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
 	get '/users/famous', to: 'users#famous', as: 'users_famous'
 	get '/cookbooks/famous', to: 'cookbooks#famous', as: 'cookbooks_famous'
+	get '/recipes/famous', to: 'recipes#famous', as: 'recipes_famous'
 
 	resources :cookbooks
 	resources :recipes
