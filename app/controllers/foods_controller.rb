@@ -9,9 +9,6 @@ class FoodsController < ApplicationController
     else
       # @foods = Food.order(:name).all
       limit = params[:limit]
-      if limit.nil?
-        limit = 10
-      end
       @foods = Food.paginate(:page => params[:page], :per_page => limit)
     end
   end
