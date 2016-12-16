@@ -74,6 +74,7 @@ class Cookbook < ApplicationRecord
 		json = super(options)
 		json['image_thumb'] = self.image_thumb
 		json['image_full'] = self.image_full
+		json['author_name'] = self.user.name
 		json
 	end
 end

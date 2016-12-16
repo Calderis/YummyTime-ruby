@@ -57,6 +57,7 @@ class Recipe < ApplicationRecord
 		json = super(options)
 		json['image_thumb'] = self.image_thumb
 		json['image_medium'] = self.image_medium
+		json['author_name'] = self.user.name
 		json
 	end
 

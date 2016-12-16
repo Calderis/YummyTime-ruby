@@ -156,4 +156,12 @@ class Week < ApplicationRecord
 
 		index
 	end
+
+	def as_json(options = {})
+		json = super(options)
+		json['cookbook_name'] = self.cookbook.name
+		json['cookbook_recipes_number'] = self.cookbook.recipes_count
+		json['author_name'] = self.cookbook.user.name
+		json
+	end
 end
