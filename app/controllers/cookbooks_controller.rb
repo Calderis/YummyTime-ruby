@@ -19,7 +19,15 @@ class CookbooksController < ApplicationController
       format.html { 
         @cookbook_presenter = CookbookPresenter.new(@cookbook)
       }
-      format.json { render :json => @cookbook }
+      format.json {
+        render :json => @cookbook.to_json(:methods => [
+          :recipes,
+          :recipes_count,
+          :image,
+          :image_thumb,
+          :image_full
+          ])
+      }
     end
   end
 
