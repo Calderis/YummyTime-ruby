@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
           ])
       }
     end
+  end
 
   # GET /cookbooks/famous.json
   def famous
