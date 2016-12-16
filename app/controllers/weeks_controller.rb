@@ -13,7 +13,7 @@ class WeeksController < ApplicationController
     respond_to do |format|
       format.html { }
       format.json {
-        render :json => @week, :include => [:monday, :tuesday, :wednesday, :friday, :thursday, :saturday, :sunday ] }
+        render :json => @week, :methods => [:monday, :tuesday, :wednesday, :friday, :thursday, :saturday, :sunday ] }
       end
     end
 

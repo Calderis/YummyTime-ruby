@@ -25,4 +25,12 @@ class Day < ApplicationRecord
 			Recipe.find(self.dessert_id)
 		end
 	end
+
+	def as_json(options = {})
+		json = super(options)
+		json['starter'] = self.starter
+		json['main'] = self.main
+		json['dessert'] = self.dessert
+		json
+	end
 end
