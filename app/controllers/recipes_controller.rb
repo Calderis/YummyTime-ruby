@@ -15,7 +15,16 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-  end
+    respond_to do |format|
+      format.html { }
+      format.json {
+        render :json => @recipe.to_json(:methods => [
+          :ingredients,
+          :image_thumb,
+          :image_medium
+          ])
+      }
+    end
 
   # GET /cookbooks/famous.json
   def famous

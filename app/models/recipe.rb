@@ -52,6 +52,9 @@ class Recipe < ApplicationRecord
 	def image_medium
 		self.image.url(:medium)
 	end
+	def ingredients
+		self.ingredients
+	end
 
 	def as_json(options = {})
 		json = super(options)
