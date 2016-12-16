@@ -18,11 +18,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { }
       format.json {
-        render :json => @recipe.to_json(:methods => [
-          :ingredients,
-          :image_thumb,
-          :image_medium
-          ])
+        render :json => @recipe.to_json(:include => [:ingredients])
       }
     end
   end
