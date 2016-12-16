@@ -154,7 +154,17 @@ class Week < ApplicationRecord
 
 		end
 
-		index
+		result = []
+		index.each do |object|
+
+			object.each do |obj|
+				if(!obj.instance_of?(String))
+					result = result + [obj]
+				end
+			end
+		end
+
+		result
 	end
 
 	def image
