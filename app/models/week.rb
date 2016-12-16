@@ -157,6 +157,10 @@ class Week < ApplicationRecord
 		index
 	end
 
+	def image
+		Cookbook.find(self.cookbook_id).image.url(:full)
+	end
+
 	def as_json(options = {})
 		json = super(options)
 		json['cookbook_name'] = self.cookbook.name
