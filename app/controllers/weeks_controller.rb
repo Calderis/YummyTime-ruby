@@ -24,7 +24,7 @@ class WeeksController < ApplicationController
 
   # GET /weeks/:id/cart
   def cart
-    render json: @week.ingredients, :include => [:food]
+    render json: @week.ingredients, :include => [:food => {:methods => [:image_medium, :image_thumb]}]
   end
 
   # GET /weeks/1/edit
