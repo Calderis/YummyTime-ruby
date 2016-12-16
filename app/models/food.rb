@@ -15,4 +15,11 @@ class Food < ApplicationRecord
 	def image_medium
 		self.image.url(:medium)
 	end
+
+	def as_json(options = {})
+		json = super(options)
+		json['image_thumb'] = self.image_thumb
+		json['image_medium'] = self.image_medium
+		json
+	end
 end
