@@ -26,7 +26,7 @@ services:
         build: .
         command: bundle exec rails s -p 3001 -b '0.0.0.0'
         volumes:
-            - ~/Projects/Hetic/YummyTime:/myapp
+            - ~/Projects/Hetic/YummyTime/Server-Ruby:/YummyTime
         ports:
             - "3001:3001"
         depends_on:

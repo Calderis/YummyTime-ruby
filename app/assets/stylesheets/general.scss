@@ -1,22 +1,22 @@
 // VARIABLES
-$color-A: #121212;
-$color-B: #1E1D1D;
-$color-C: #ff3366;
-//$color-C: #00FFCD;
-$color-D: #ED4747;
-$color-E: #282828;
-$color-F: #181818;
-$color-G: #D8D8D8;
-$base-color: white;
-
-// $color-A: #fcfcfc;
-// $color-B: #f6f6f6;
-// $color-C: #f93d5e;
+// $bg-color: #121212;
+// $on-main-color: #1E1D1D;
+// $main-color: #ff3366;
+// //$main-color: #00FFCD;
 // $color-D: #ED4747;
-// $color-E: #ebebeb;
-// $color-F: #ffffff;
-// $color-G: #2c2c2a;
-// $base-color: #2c2c2a;
+// $color-E: #282828;
+// $color-F: #181818;
+// $color-G: #D8D8D8;
+// $base-color: white;
+
+$bg-color: #f2f2f2;
+$on-main-color: #ffffff;
+$main-color: #e85462;
+$color-D: #ED4747;
+$color-E: #ebebeb;
+$color-F: #ffffff;
+$color-G: #2c2c2a;
+$base-color: #2c2c2a;
 
 $police-a : 'Circular-Book';
 
@@ -24,7 +24,7 @@ $police-a : 'Circular-Book';
 
 // GENERAL
 body{
-	background-color:$color-A;
+	background-color:$bg-color;
 	a{
 		color: $base-color;
 	}
@@ -42,9 +42,8 @@ body{
 	}
 	input, textarea{
 		&::selection{
-			color: $color-D;
-			// background-color: $color-C;
-			background-color: $color-G;
+			color: $main-color;
+			background-color: $color-E;
 		}
 	}
 	button, a, input, label{
@@ -64,11 +63,17 @@ body{
 			transition-duration:0.1s;
 			transition-property:transform;
 			&.Confirm{
-				color: $color-C;
-				border: 1px solid $color-C;
+				color: $main-color;
+				border: 1px solid $main-color;
 				&:active{
-					background-color: $color-C;
-					color: $color-A;
+					background-color: $main-color;
+					color: $bg-color;
+					a{
+						color: $bg-color;
+					}
+				}
+				a{
+					color: $main-color;
 				}
 			}
 			&.Danger{
@@ -79,18 +84,21 @@ body{
 				}
 			}
 			&.Neutral{
-				color: $base-color;
+				color: $main-color;
 				border: 1px solid $base-color;
 				&:active{
-					color : $color-B;
+					color : $on-main-color;
 					background-color: $base-color;
 				}
 			}
 			&.None{
-				color: $base-color;
+				color: $main-color;
 				border:none;
 				&:active{
 					opacity: 0.5;
+				}
+				a{
+					color:$main-color;
 				}
 			}
 			&:active{
@@ -159,7 +167,7 @@ body{
 					background-color: $base-color;
 					border: 1px solid $base-color;
 					border-radius: 2px;
-					color: $color-A;
+					color: $bg-color;
 				}
 			}
 		}
@@ -177,7 +185,7 @@ body{
 }
 
 .search_container{
-	background-color:$base-color;
+	background-color:$on-main-color;
 	border-radius:4px;
 	width:220px;
 	height:18px;
@@ -217,7 +225,7 @@ header{
 	height:24px;
 	width: calc( 100vw - 16px) ;
 	padding:8px;
-	background-color: $color-A;
+	background-color: $main-color;
 	display: block;
 	ul{
 		li{
@@ -276,13 +284,15 @@ header{
 				}
 				.profil_name{
 					display:inline-block;
-					color:$base-color;
 					font-size:14px;
 					padding:3px;
-					opacity: 0.6;
+					opacity: 0.8;
 					font-family: $police-a;
 					&:hover{
 						opacity: 1;
+					}
+					a{
+						color:$on-main-color;
 					}
 				}
 				.profil_drop_icon{
@@ -303,7 +313,7 @@ header{
 					}
 					.drop-list{
 						z-index:10;
-						background-color: $color-B;
+						background-color: $on-main-color;
 						position:absolute;
 						margin-left:-110px;
 						margin-top:-100px;
@@ -350,7 +360,7 @@ header{
 		display: inline-block;
 		width:150px;
 		height: calc( 100vh - 90px );
-		background-color: $color-A;
+		background-color: $bg-color;
 		overflow-y: auto;
 		position: relative;
 		ul.section{
@@ -407,7 +417,7 @@ header{
 						height: 18px;
 						display: block;
 						float:left;
-						background-color: $color-C;
+						background-color: $main-color;
 					}
 				}
 			}
@@ -449,7 +459,7 @@ header{
 		display: inline-block;
 		width:230px;
 		height: calc( 100vh - 90px );
-		background-color: $color-A;
+		background-color: $bg-color;
 		.title{
 			display: block;
 			padding: 20px 10px 0 10px;
@@ -469,7 +479,7 @@ header{
 			overflow-y: auto;
 			li.chief-stick{
 				margin-bottom:1px;
-				background-color : $color-B;
+				background-color : $on-main-color;
 				width:100%;
 				padding: 8px 0;
 				.image{
@@ -481,7 +491,7 @@ header{
 					overflow: hidden;
 					display: inline-block;
 					.profil{
-						background-color: $color-C;
+						background-color: $main-color;
 						height: 32px;
 						width: 32px;
 						display: block;
@@ -565,7 +575,7 @@ header{
 					.profil_image{
 						width: 40px;
 						height: 40px;
-						background-color: $color-C;
+						background-color: $main-color;
 						background-size: cover;
 						background-position: center;
 						cursor:pointer;
@@ -671,9 +681,13 @@ header{
 	position: relative;
 	display: inline-block;
 	background-color: $color-F;
-	width: calc( 100vw - 380px );
+	//box-shadow: 0 2px 15px 0 rgba(19,29,44,0.23), 0 1px 20px 0 rgba(19,29,44,0.15);
+	box-shadow: 0 1px 30px 0 rgba(19,29,44,0.15);
+	width: calc( 100vw - 420px );
 	height: calc( 100vh - 90px );
+	padding-bottom: 90px;
 	overflow-y: auto;
+	margin: 0 20px;
 
 	.section{
 		padding:16px 20px 20px 20px;
@@ -683,7 +697,7 @@ header{
 		.image_header{
 			width:100%;
 			height:180px;
-			background-color: $color-C;
+			background-color: $main-color;
 			overflow: hidden;
 			position: relative;
 			background-size: cover;
@@ -695,7 +709,7 @@ header{
 				position: absolute;
 				top:10px;
 				left:10px;
-				background-color: $color-A;
+				background-color: $bg-color;
 				border-radius: 90px;
 				font-family: "Circular Std";
 				font-size: 13px;
@@ -750,7 +764,7 @@ header{
 				height:140px;
 				width:140px;
 				display: inline-block;
-				background-color: $color-C;
+				background-color: $main-color;
 				border-radius:140px;
 				overflow: hidden;
 				float:left;
@@ -885,7 +899,7 @@ header{
 							position: absolute;
 							height:2px;
 							width:100%;
-							background-color: $color-C;
+							background-color: $main-color;
 						}
 					}
 				}
@@ -901,6 +915,7 @@ header{
 		}
 		.search_bar{
 			.search_container{
+				background-color: $bg-color;
 				margin:0 0 23px 0;
 			}
 			&.mini{
@@ -917,7 +932,7 @@ header{
 					width: calc( ( 100vw - 420px - (18px*3) ) / 3 );
 					max-width: 280px;
 					.big_image{
-						background-color:$color-C;
+						background-color:$main-color;
 						height: calc( ( 100vw - 420px - (18px*3) ) / 3 );
 						max-height: 280px;
 						width:100%;
@@ -1061,7 +1076,7 @@ header{
 			}
 			ul.recipes{
 				li{
-					background-color: $color-B;
+					background-color: $on-main-color;
 					margin-bottom: 1px;
 					height:42px;
 					.recipe_image{
@@ -1069,7 +1084,7 @@ header{
 						width:60px;
 						display: inline-block;
 						float:left;
-						background-color: $color-C;
+						background-color: $main-color;
 						cursor:pointer;
 						background-size: cover;
 						background-position: center;
@@ -1155,7 +1170,7 @@ header{
 								top:10px;
 								z-index:10;
 								width:180px;
-								background-color: $color-B;
+								background-color: $on-main-color;
 								box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
 								ul.options{
 									padding: 4px 10px;
@@ -1244,12 +1259,12 @@ header{
 				li{
 					margin-bottom:1px;
 					height:42px;
-					background-color: $color-B;
+					background-color: $on-main-color;
 					.ingredient_image{
 						height:42px;
 						width:60px;
 						display: inline-block;
-						background-color: $color-C;
+						background-color: $main-color;
 						float:left;
 						background-position: center;
 						background-size: cover;
@@ -1283,7 +1298,7 @@ header{
 						margin:6px;
 					}
 					&:hover{
-						background-color: $color-A;
+						background-color: $bg-color;
 						.hidden_buttons{
 							opacity: 1;
 						}
@@ -1312,7 +1327,7 @@ header{
 					height:110px;
 					display: block;
 					overflow: hidden;
-					background-color: $color-C;
+					background-color: $main-color;
 					background-position:center;
 					background-size:cover;
 				}
@@ -1368,7 +1383,7 @@ header{
 					height:200px;
 					display: inline-block;
 					position: relative;
-					background-color: $color-C;
+					background-color: $main-color;
 					background-size:cover;
 					background-position:center;
 					.title_image{
@@ -1385,14 +1400,14 @@ header{
 					padding:8px;
 					height:52px;
 					width: calc( 100% - 16px );
-					background-color: $color-B;
+					background-color: $on-main-color;
 					display:block;
 					margin-bottom:1px;
 					.chief_image{
 						display: inline-block;
 						height:52px;
 						width:52px;
-						background-color: $color-C;
+						background-color: $main-color;
 						border-radius: 100px;
 						overflow: hidden;
 						float:left;
@@ -1461,7 +1476,8 @@ header{
 }
 .input_block{
 	width:100%;
-	background-color: $base-color;
+	background-color: $bg-color;
+	color: $base-color;
 	border-radius: 2px;
 	input{
 		padding: 4px 10px;
@@ -1492,13 +1508,14 @@ header{
 	}
 }
 .textarea_block{
-	background-color: $base-color;
+	background-color: $bg-color;
 	border-radius: 2px;
 	width:100%;
 	min-height:200px;
 	position: relative;
 	display: block;
 	textarea{
+		background-color: $bg-color;
 		display: block;
 		border:none;
 		height:100%;
@@ -1518,7 +1535,7 @@ header{
 	padding:12px;
 	left: calc( 50vw - 450px );
 	top: calc( 50vh - 245px );
-	background-color: $color-B;
+	background-color: $on-main-color;
 	.popup_title{
 		font-family: "Circular Std";
 		font-size: 13px;
@@ -1534,7 +1551,7 @@ header{
 		overflow: hidden;
 		position: relative;
 		display: block;
-		background-color:  $color-C;
+		background-color:  $main-color;
 		.image_title{
 			position: absolute;
 			bottom:0;
@@ -1585,8 +1602,11 @@ header{
 		display: block;
 		width: 140px;
 		height: 100px;
-		background-color: $color-C;
 		margin:26px auto 50px;
+		background-image: url("logo.png");
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 	.button_action{
 		margin: 24px auto;
@@ -1599,7 +1619,7 @@ header{
 		text-align: right;
 		line-height: 16px;
 		opacity: 0.87;
-		color: white;
+		color: $base-color;
 		margin-top:6px;
 		cursor: pointer;
 		&:hover{
