@@ -1236,9 +1236,10 @@ header{
 			padding-top:16px;
 			width:70%;
 			margin:auto;
+			box-shadow: 0 1px 30px 0 rgba(19,29,44,0.15);
+			background-color:$color-F;
 			p{
 				display: block;
-				background-color:$base-color;
 				padding:16px 20px;
 				font-family: "Circular Std";
 				font-size: 15px;
