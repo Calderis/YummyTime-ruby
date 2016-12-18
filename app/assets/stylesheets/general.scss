@@ -232,6 +232,12 @@ header{
 			display:inline-block;
 			&.mac_options{
 				width:90px;
+				height:24px;
+				float:left;
+				background-image: url(logo.png);
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
 			}
 			&.navigation{
 				.directions{
@@ -724,7 +730,7 @@ header{
 				position:absolute;
 				padding:10px;
 				width: calc( 100% - 20px );
-				background-color: rgba(40,40,40,0.6);
+				background-color: rgba(40,40,40,0.1);
 				h2{
 					display: inline-block;
 					font-family: "Circular Std";
