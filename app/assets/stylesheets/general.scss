@@ -1411,6 +1411,9 @@ header{
 						background-color: $main-color;
 						border-radius: 100px;
 						overflow: hidden;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: cover;
 						float:left;
 					}
 					.chief_informations{
@@ -1599,6 +1602,9 @@ header{
 	width:420px;
 	margin:auto;
 	padding: 46px 0;
+	input[type="text"]{
+		background-color: $color-F;
+	}
 	.logo{
 		display: block;
 		width: 140px;
