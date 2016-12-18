@@ -392,13 +392,13 @@ header{
 					background-repeat: no-repeat;
 					background-position: center;
 					&.starter{
-						background-image: url(icons/main.png);
+						background-image: url(icons/starter.svg);
 					}
 					&.main{
-						background-image: url(icons/main.png);
+						background-image: url(icons/main.svg);
 					}
 					&.dessert{
-						background-image: url(icons/main.png);
+						background-image: url(icons/dessert.svg);
 					}
 				}
 				span.counter{
@@ -867,9 +867,9 @@ header{
 				background-size:contain;
 				background-repeat: no-repeat;
 				background-position: center;
-				&.starter{background-image: url(icons/profil-white.png);}
-				&.main{background-image: url(icons/profil-white.png);}
-				&.dessert{background-image: url(icons/profil-white.png);}
+				&.starter{background-image: url(icons/starter.svg);}
+				&.main{background-image: url(icons/main.svg);}
+				&.dessert{background-image: url(icons/dessert.svg);}
 			}
 		}
 		.menu_filters{
@@ -1138,13 +1138,13 @@ header{
 								background-position: center;
 								background-size: contain;
 								&.starter{
-									background-image:url(icons/Cart.png);
+									background-image:url(icons/starter.svg);
 								}
 								&.main{
-									background-image:url(icons/Cart.png);
+									background-image:url(icons/main.svg);
 								}
 								&.dessert{
-									background-image:url(icons/Cart.png);
+									background-image:url(icons/dessert.svg);
 								}
 							}
 						}
