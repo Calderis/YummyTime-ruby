@@ -117,6 +117,9 @@ body{
 					&.cart{
 						background-image:url(icons/Back-white.png);
 					}
+					&.plus{
+						background-image:url(icons/add-white.svg);
+					}
 				}
 			}
 			&:hover{
@@ -135,7 +138,7 @@ body{
 					background-image:url(icons/Back-2.png);
 				}
 				&.plus{
-					background-image:url(icons/Back.png);
+					background-image:url(icons/add.svg);
 				}
 			}
 			&.big{
@@ -262,16 +265,14 @@ header{
 						background-position: center;
 						height:20px;
 						width:11px;
-						background-image:url(icons/Back.png);
+						background-image:url(icons/Back-white.png);
 						transition-duration:0.3s;
 						transition-property:opacity;
 						cursor:pointer;
 						opacity: 0.5;
 						outline:none;
 						&.left_arrow{}
-						&.right_arrow{
-							transform: rotate(180deg);
-						}
+						&.right_arrow{transform: rotate(180deg);}
 						&:hover{
 							opacity: 1;
 						}
