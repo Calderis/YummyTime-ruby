@@ -39,29 +39,28 @@
         <div class="list_recipe_ingredients">
           <ul class="ingredients with_aside">
             <% @week.ingredients.each do |category| %>
-            <% puts category[1].to_json %>
             <li>
-              <div class="ingredient_image" style="background-image:url(<%= category[1][:model].food.image.url(:thumb) %>)"></div>
+              <div class="ingredient_image" style="background-image:url(<%= category[:model].food.image.url(:thumb) %>)"></div>
               <div class="ingredient_informations">
 
-                <% if category[1][:quantity][0] != 0 %>
-                <p class="ingredient_quantity"><%= category[1][:quantity][0] %> grammes </p>
+                <% if category[:quantity][0] != 0 %>
+                <p class="ingredient_quantity"><%= category[:quantity][0] %> grammes </p>
                 <% end %>
 
-                <% if category[1][:quantity][1] != 0 %>
+                <% if category[:quantity][1] != 0 %>
                 <p class="ingredient_quantity">
-                  <% if category[1][:quantity][0] != 0 %> and <% end %>
-                  <%= category[1][:quantity][1] %> units </p>
+                  <% if category[:quantity][0] != 0 %> and <% end %>
+                  <%= category[:quantity][1] %> units </p>
                   <% end %>
 
-                  <% if category[1][:quantity][2] != 0 %>
+                  <% if category[:quantity][2] != 0 %>
                   <p class="ingredient_quantity">
-                    <% if category[1][:quantity][1] != 0 %> and <% end %>
-                    <%= category[1][:quantity][2] %> liters 
+                    <% if category[:quantity][1] != 0 %> and <% end %>
+                    <%= category[:quantity][2] %> liters 
                   </p>
                   <% end %>
 
-                  <p class="ingredient_name"><%= category[0] %></p>
+                  <p class="ingredient_name"><%= category[:model].food.name %></p>
                 </div>
               </li>
               <% end %>
