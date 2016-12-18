@@ -1619,7 +1619,7 @@ header{
 	width:420px;
 	margin:auto;
 	padding: 46px 0;
-	input[type="text"]{
+	input[type="text"], input[type="password"]{
 		background-color: $color-F;
 	}
 	.logo{
