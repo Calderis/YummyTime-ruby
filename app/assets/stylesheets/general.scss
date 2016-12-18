@@ -91,6 +91,15 @@ body{
 					background-color: $base-color;
 				}
 			}
+			&.White{
+				color: $color-F;
+				border: 1px solid $color-F;
+				&:active{
+					color : $on-main-color;
+					background-color: $base-color;
+					border: 1px solid $base-color;
+				}
+			}
 			&.None{
 				color: $main-color;
 				border:none;
@@ -106,7 +115,7 @@ body{
 				color:$base-color;
 				span.icon{
 					&.cart{
-						background-image:url(icons/Back-2.png);
+						background-image:url(icons/Back-white.png);
 					}
 				}
 			}
@@ -123,10 +132,10 @@ body{
 				background-repeat: no-repeat;
 				background-position: center;
 				&.cart{
-					background-image:url(icons/Back-white.png);
+					background-image:url(icons/Back-2.png);
 				}
 				&.plus{
-					background-image:url(icons/Back-white.png);
+					background-image:url(icons/Back.png);
 				}
 			}
 			&.big{
@@ -253,7 +262,7 @@ header{
 						background-position: center;
 						height:20px;
 						width:11px;
-						background-image:url(icons/Back-white.png);
+						background-image:url(icons/Back.png);
 						transition-duration:0.3s;
 						transition-property:opacity;
 						cursor:pointer;
@@ -409,7 +418,7 @@ header{
 					font-weight: 300;
 					font-style: italic;
 					line-height: 18px;
-					color: rgba(255,255,255,0.87);
+					color:$base-color;
 				}
 				&:hover{
 					opacity: 1;
@@ -730,14 +739,14 @@ header{
 				position:absolute;
 				padding:10px;
 				width: calc( 100% - 20px );
-				background-color: rgba(40,40,40,0.1);
+				background-color: rgba(40,40,40,0.4);
 				h2{
 					display: inline-block;
 					font-family: "Circular Std";
 					font-size: 32px;
 					font-weight: 500;
 					line-height: 45px;
-					color: $base-color;
+					color: $color-F;
 				}
 				button, input{
 					display: inline-block;
